@@ -8,6 +8,7 @@ dependencies = [
     "openai>=1.0",
     "requests>=2.28",
     "anthropic",
+    "python-dotenv>=1.0",
 ]
 
 [project.optional-dependencies]

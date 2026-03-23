@@ -16,6 +16,16 @@ from commitpoem.slack import SlackWebhookError, post_poem
 
 __all__ = ["main"]
 
+
+def _load_dotenv() -> None:
+    """Load .env file if python-dotenv is installed."""
+    try:
+        from dotenv import load_dotenv
+
+        load_dotenv(override=False)
+    except ImportError:
+        pass
+
 logger = logging.getLogger(__name__)
 
 
@@ -126,6 +136,8 @@ def main(
     schedule: str | None,
 ) -> None:
     """Generate a poem from recent GitHub commits and post it to Slack."""
+    _load_dotenv()
+
     # Parse datetimes
     try:
         since = _parse_datetime(since_str)

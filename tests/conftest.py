@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from unittest.mock import patch
+
 import pytest
 from click.testing import CliRunner
 
@@ -11,6 +13,14 @@ FULL_ENV: dict[str, str] = {
 
 SINCE = "2024-01-01T00:00:00Z"
 UNTIL = "2024-01-02T00:00:00Z"
+
+
+@pytest.fixture(autouse=True)
+def _no_dotenv(monkeypatch: pytest.MonkeyPatch):
+    """Prevent .env file from affecting tests."""
+    monkeypatch.setattr("commitpoem.cli._load_dotenv", lambda: None)
+    for key in ("LLM_BACKEND", "LLM_MODEL", "LLM_API_KEY", "GITHUB_TOKEN", "SLACK_WEBHOOK_URL"):
+        monkeypatch.delenv(key, raising=False)
 
 
 @pytest.fixture
