@@ -127,14 +127,20 @@ def _build_prompt(commits: list[str]) -> str:
     poet = rng.choice(_POETS)
     return (
         f"You are a poet writing in the style of {poet}.\n"
-        "Below are git commit messages. Write TWO short, creative poems inspired by them:\n\n"
+        "Below are today's git commit messages from a software project.\n\n"
         f"{commits_text}\n\n"
+        "First, identify 1-3 *specific* and *interesting* details from these commits "
+        "(e.g. a function name, a bug that was fixed, a clever trick, a refactor, "
+        "a surprising change, a meaningful variable name, a deleted file, etc.). "
+        "Then weave those concrete details directly into the poems — "
+        "name them, allude to them, let the reader almost feel what changed.\n\n"
+        "Write TWO short poems (4-8 lines each):\n"
         "1. First poem: in English\n"
-        "2. Second poem: in Korean (한국어), 영어 기술 용어는 그대로 섞어서 (영한 혼용)\n\n"
-        "Each poem should capture the essence of the work done. "
+        "2. Second poem: in Korean (한국어) — 영어 기술 용어(함수명, 파일명 등)는 그대로 섞어서 (영한 혼용)\n\n"
         f"Write in the distinctive style of {poet}. "
-        f"Mention the poet's name at the end: \"— in the style of {poet}\"\n"
-        "Label them with 🇺🇸 and 🇰🇷 headers."
+        f"End each poem with: \"— in the style of {poet}\"\n"
+        "Label them with 🇺🇸 and 🇰🇷 headers.\n"
+        "Do NOT be vague or generic. The poem should feel like it's about *this* code, *this* day."
     )
 
 
