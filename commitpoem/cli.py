@@ -9,7 +9,7 @@ import click
 
 from commitpoem.backends import LLMBackend, get_backend
 from commitpoem.config import AppConfig, ConfigError, resolve_config
-from commitpoem.github_client import GitHubAPIError, GitHubAuthError, fetch_commits
+from commitpoem.github_client import GitHubAPIError, GitHubAuthError, fetch_commits, fetch_org_commits
 from commitpoem.poem import generate_poem
 from commitpoem.scheduler import run_scheduler
 from commitpoem.slack import SlackWebhookError, post_poem
@@ -56,7 +56,8 @@ def _parse_datetime(value: str) -> datetime:
 
 def _make_pipeline(
     config: AppConfig,
-    repo: str,
+    repo: str | None,
+    org: str | None,
     since: datetime,
     until: datetime,
 ) -> Callable[[], None]:
@@ -64,7 +65,8 @@ def _make_pipeline(
 
     Args:
         config: Resolved application configuration.
-        repo: Repository in 'owner/repo' format.
+        repo: Repository in 'owner/repo' format, or None if using --org.
+        org: GitHub org login name, or None if using --repo.
         since: Start of the time range (timezone-aware).
         until: End of the time range (timezone-aware).
 
@@ -73,7 +75,10 @@ def _make_pipeline(
     """
 
     def pipeline() -> None:
-        commits = fetch_commits(config.github_token, repo, since, until)
+        if org is not None:
+            commits = fetch_org_commits(config.github_token, org, since, until)
+        else:
+            commits = fetch_commits(config.github_token, repo, since, until)
         backend: LLMBackend = get_backend(config.llm_backend, config.llm_api_key)
         poem = generate_poem(commits, backend, config.llm_model)
         post_poem(config.slack_webhook_url, poem)
@@ -107,7 +112,8 @@ def _run_once_with_error_handling(pipeline: Callable[[], None]) -> None:
 
 
 @click.command()
-@click.option("--repo", required=True, help="GitHub repository in 'owner/repo' format.")
+@click.option("--repo", default=None, help="GitHub repository in 'owner/repo' format.")
+@click.option("--org", default=None, help="GitHub organization login (fetches all repos under the org).")
 @click.option("--since", "since_str", required=True, help="Start of time range (ISO 8601).")
 @click.option("--until", "until_str", required=True, help="End of time range (ISO 8601).")
 @click.option("--github-token", default=None, help="GitHub personal access token (env: GITHUB_TOKEN).")
@@ -125,7 +131,8 @@ def _run_once_with_error_handling(pipeline: Callable[[], None]) -> None:
     help="Run on a recurring interval, e.g. '30s', '5m', '1h'. Omit for one-shot mode.",
 )
 def main(
-    repo: str,
+    repo: str | None,
+    org: str | None,
     since_str: str,
     until_str: str,
     github_token: str | None,
@@ -137,6 +144,13 @@ def main(
 ) -> None:
     """Generate a poem from recent GitHub commits and post it to Slack."""
     _load_dotenv()
+
+    if repo is None and org is None:
+        click.echo("Error: one of --repo or --org is required.", err=True)
+        sys.exit(1)
+    if repo is not None and org is not None:
+        click.echo("Error: --repo and --org are mutually exclusive.", err=True)
+        sys.exit(1)
 
     # Parse datetimes
     try:
@@ -171,7 +185,7 @@ def main(
             click.echo(f"Error: {msg}", err=True)
         sys.exit(1)
 
-    pipeline = _make_pipeline(config, repo, since, until)
+    pipeline = _make_pipeline(config, repo, org, since, until)
 
     if schedule is not None:
         # Scheduled (looping) mode

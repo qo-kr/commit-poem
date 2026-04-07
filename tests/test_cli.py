@@ -61,11 +61,11 @@ def test_help_contains_all_flags(runner: CliRunner) -> None:
         assert flag in output, f"Flag {flag!r} not found in --help output"
 
 
-def test_missing_repo_exits_2(runner: CliRunner) -> None:
+def test_missing_repo_or_org_exits(runner: CliRunner) -> None:
     result = runner.invoke(main, ["--since", SINCE, "--until", UNTIL], catch_exceptions=True)
-    assert result.exit_code == 2
+    assert result.exit_code == 1
     combined = (result.output or "") + (result.stderr or "")
-    assert "--help" in combined
+    assert "--repo" in combined or "--org" in combined
 
 
 def test_missing_since_exits_2(runner: CliRunner) -> None:

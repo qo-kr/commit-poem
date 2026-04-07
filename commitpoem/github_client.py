@@ -67,6 +67,70 @@ def _extract_messages(items: list[dict]) -> list[str]:
     return messages
 
 
+def fetch_org_repos(token: str, org: str) -> list[str]:
+    """Return list of 'org/repo' strings for all repos in the given org.
+
+    Args:
+        token: GitHub personal access token.
+        org: GitHub organization login name.
+
+    Returns:
+        List of repo full names in 'org/repo' format.
+
+    Raises:
+        GitHubAuthError: If GitHub returns HTTP 401.
+        GitHubAPIError: On any other API or network error.
+    """
+    url: str | None = f"{_API_BASE}/orgs/{org}/repos"
+    params: dict | None = {"per_page": 100, "type": "all"}
+    headers = {
+        "Authorization": f"Bearer {token}",
+        "Accept": "application/vnd.github+json",
+    }
+    repos: list[str] = []
+    while url is not None:
+        try:
+            response = requests.get(url, headers=headers, params=params)
+        except requests.exceptions.RequestException as e:
+            raise GitHubAPIError(f"Network error while fetching repos for {org}: {e}") from e
+        if response.status_code == 401:
+            raise GitHubAuthError(f"Authentication failed for org {org}: invalid or missing token")
+        if not response.ok:
+            raise GitHubAPIError(
+                f"GitHub API error for org {org}: HTTP {response.status_code} — {response.text}"
+            )
+        repos.extend(item["full_name"] for item in response.json())
+        url = _parse_next_link(response.headers.get("Link"))
+        params = None
+    return repos
+
+
+def fetch_org_commits(token: str, org: str, since: datetime, until: datetime) -> list[str]:
+    """Return all commit messages across every repo in *org* between *since* and *until*.
+
+    Args:
+        token: GitHub personal access token.
+        org: GitHub organization login name.
+        since: Start of the time range (timezone-aware datetime, inclusive).
+        until: End of the time range (timezone-aware datetime, inclusive).
+
+    Returns:
+        Flat list of commit message strings from all repos (newest-first per repo).
+
+    Raises:
+        GitHubAuthError: If GitHub returns HTTP 401.
+        GitHubAPIError: On any other API or network error.
+    """
+    repos = fetch_org_repos(token, org)
+    all_messages: list[str] = []
+    for repo in repos:
+        try:
+            all_messages.extend(fetch_commits(token, repo, since, until))
+        except GitHubAPIError:
+            pass  # skip repos that are inaccessible (e.g. private without permission)
+    return all_messages
+
+
 def fetch_commits(token: str, repo: str, since: datetime, until: datetime) -> list[str]:
     """Return commit messages for *repo* between *since* and *until*.
 
