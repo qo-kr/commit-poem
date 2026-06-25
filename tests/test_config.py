@@ -38,6 +38,34 @@ def test_llm_model_env(full_env: dict[str, str], monkeypatch: pytest.MonkeyPatch
 
 
 # ---------------------------------------------------------------------------
+# Optional image-posting credentials
+# ---------------------------------------------------------------------------
+
+
+def test_slack_image_creds_default_none(full_env: dict[str, str]) -> None:
+    cfg = resolve_config()
+    assert cfg.slack_bot_token is None
+    assert cfg.slack_channel is None
+
+
+def test_slack_image_creds_from_env(full_env: dict[str, str], monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setenv("SLACK_BOT_TOKEN", "xoxb-abc")
+    monkeypatch.setenv("SLACK_CHANNEL", "C0123ABCD")
+    cfg = resolve_config()
+    assert cfg.slack_bot_token == "xoxb-abc"
+    assert cfg.slack_channel == "C0123ABCD"
+
+
+def test_slack_image_creds_cli_overrides_env(
+    full_env: dict[str, str], monkeypatch: pytest.MonkeyPatch
+) -> None:
+    monkeypatch.setenv("SLACK_BOT_TOKEN", "xoxb-env")
+    cfg = resolve_config(slack_bot_token="xoxb-cli", slack_channel="C999")
+    assert cfg.slack_bot_token == "xoxb-cli"
+    assert cfg.slack_channel == "C999"
+
+
+# ---------------------------------------------------------------------------
 # CLI override precedence
 # ---------------------------------------------------------------------------
 

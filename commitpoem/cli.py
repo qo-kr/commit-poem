@@ -10,9 +10,10 @@ import click
 from commitpoem.backends import LLMBackend, get_backend
 from commitpoem.config import AppConfig, ConfigError, resolve_config
 from commitpoem.github_client import GitHubAPIError, GitHubAuthError, fetch_commits, fetch_org_commits
+from commitpoem.image import ImageGenError, generate_image
 from commitpoem.poem import generate_poem
 from commitpoem.scheduler import run_scheduler
-from commitpoem.slack import SlackWebhookError, post_poem
+from commitpoem.slack import SlackWebhookError, post_image, post_poem
 
 __all__ = ["main"]
 
@@ -54,12 +55,38 @@ def _parse_datetime(value: str) -> datetime:
     return dt
 
 
+def _deliver(config: AppConfig, poem: str, *, with_image: bool) -> None:
+    """Deliver *poem* to Slack, with an accompanying image when configured.
+
+    When *with_image* is set and both ``slack_bot_token`` and ``slack_channel`` are
+    configured, generate an image from the poem and upload it (with the poem as the
+    caption) via the Slack bot token. If image generation or upload fails — or image
+    posting is not configured — fall back to the plain webhook text post.
+    """
+    if with_image and config.slack_bot_token and config.slack_channel:
+        try:
+            image = generate_image(poem)
+            post_image(
+                config.slack_bot_token,
+                config.slack_channel,
+                image,
+                initial_comment=poem,
+            )
+            return
+        except (ImageGenError, SlackWebhookError) as exc:
+            logger.error("Image posting failed; falling back to text-only: %s", exc)
+
+    post_poem(config.slack_webhook_url, poem)
+
+
 def _make_pipeline(
     config: AppConfig,
     repo: str | None,
     org: str | None,
     since: datetime,
     until: datetime,
+    *,
+    with_image: bool,
 ) -> Callable[[], None]:
     """Create a zero-argument pipeline callable that runs the full commit-poem workflow.
 
@@ -69,6 +96,7 @@ def _make_pipeline(
         org: GitHub org login name, or None if using --repo.
         since: Start of the time range (timezone-aware).
         until: End of the time range (timezone-aware).
+        with_image: Whether to attempt image generation + upload (when configured).
 
     Returns:
         A callable that fetches commits, generates a poem, and posts it to Slack.
@@ -81,7 +109,7 @@ def _make_pipeline(
             commits = fetch_commits(config.github_token, repo, since, until)
         backend: LLMBackend = get_backend(config.llm_backend, config.llm_api_key)
         poem = generate_poem(commits, backend, config.llm_model)
-        post_poem(config.slack_webhook_url, poem)
+        _deliver(config, poem, with_image=with_image)
 
     return pipeline
 
@@ -118,6 +146,14 @@ def _run_once_with_error_handling(pipeline: Callable[[], None]) -> None:
 @click.option("--until", "until_str", required=True, help="End of time range (ISO 8601).")
 @click.option("--github-token", default=None, help="GitHub personal access token (env: GITHUB_TOKEN).")
 @click.option("--slack-webhook-url", default=None, help="Slack incoming webhook URL (env: SLACK_WEBHOOK_URL).")
+@click.option("--slack-bot-token", default=None, help="Slack bot token for image upload (env: SLACK_BOT_TOKEN).")
+@click.option("--slack-channel", default=None, help="Slack channel ID for image upload (env: SLACK_CHANNEL).")
+@click.option(
+    "--with-image/--no-image",
+    "with_image",
+    default=True,
+    help="Generate and post an image with the poem when bot token + channel are set (default: on).",
+)
 @click.option("--llm-api-key", default=None, help="LLM API key (env: LLM_API_KEY).")
 @click.option(
     "--llm-backend",
@@ -137,6 +173,9 @@ def main(
     until_str: str,
     github_token: str | None,
     slack_webhook_url: str | None,
+    slack_bot_token: str | None,
+    slack_channel: str | None,
+    with_image: bool,
     llm_api_key: str | None,
     llm_backend: str | None,
     llm_model: str | None,
@@ -173,6 +212,8 @@ def main(
             llm_api_key=llm_api_key,
             llm_backend=llm_backend,
             llm_model=llm_model,
+            slack_bot_token=slack_bot_token,
+            slack_channel=slack_channel,
         )
     except ConfigError as exc:
         msg = str(exc)
@@ -185,7 +226,7 @@ def main(
             click.echo(f"Error: {msg}", err=True)
         sys.exit(1)
 
-    pipeline = _make_pipeline(config, repo, org, since, until)
+    pipeline = _make_pipeline(config, repo, org, since, until, with_image=with_image)
 
     if schedule is not None:
         # Scheduled (looping) mode

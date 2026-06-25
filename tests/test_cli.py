@@ -10,6 +10,7 @@ from click.testing import CliRunner
 from commitpoem.cli import _parse_datetime, main
 from commitpoem.config import ConfigError
 from commitpoem.github_client import GitHubAPIError, GitHubAuthError
+from commitpoem.image import ImageGenError
 from commitpoem.slack import SlackWebhookError
 
 SINCE = "2024-01-01T00:00:00Z"
@@ -110,6 +111,70 @@ def test_oneshot_success(runner: CliRunner) -> None:
     mock_fetch.assert_called_once()
     mock_gen.assert_called_once()
     mock_post.assert_called_once()
+
+
+# ---------------------------------------------------------------------------
+# 2b. Image delivery
+# ---------------------------------------------------------------------------
+
+
+def _image_env() -> dict[str, str]:
+    return {**_full_env(), "SLACK_BOT_TOKEN": "xoxb-test", "SLACK_CHANNEL": "C0123ABCD"}
+
+
+def test_posts_image_when_configured(runner: CliRunner) -> None:
+    with (
+        patch("commitpoem.cli.fetch_commits", return_value=["fix bug"]),
+        patch("commitpoem.cli.generate_poem", return_value="a poem"),
+        patch("commitpoem.cli.get_backend", return_value=MagicMock()),
+        patch("commitpoem.cli.generate_image", return_value=b"PNG") as mock_img,
+        patch("commitpoem.cli.post_image") as mock_post_image,
+        patch("commitpoem.cli.post_poem") as mock_post_poem,
+    ):
+        result = runner.invoke(main, BASE_ARGS, env=_image_env(), catch_exceptions=False)
+
+    assert result.exit_code == 0
+    mock_img.assert_called_once()
+    mock_post_image.assert_called_once()
+    # Poem rides along as the image caption; no separate webhook text post.
+    mock_post_poem.assert_not_called()
+    _, kwargs = mock_post_image.call_args
+    assert kwargs["initial_comment"] == "a poem"
+
+
+def test_no_image_flag_uses_webhook(runner: CliRunner) -> None:
+    with (
+        patch("commitpoem.cli.fetch_commits", return_value=["fix bug"]),
+        patch("commitpoem.cli.generate_poem", return_value="a poem"),
+        patch("commitpoem.cli.get_backend", return_value=MagicMock()),
+        patch("commitpoem.cli.generate_image") as mock_img,
+        patch("commitpoem.cli.post_image") as mock_post_image,
+        patch("commitpoem.cli.post_poem") as mock_post_poem,
+    ):
+        result = runner.invoke(
+            main, BASE_ARGS + ["--no-image"], env=_image_env(), catch_exceptions=False
+        )
+
+    assert result.exit_code == 0
+    mock_img.assert_not_called()
+    mock_post_image.assert_not_called()
+    mock_post_poem.assert_called_once()
+
+
+def test_image_failure_falls_back_to_webhook(runner: CliRunner) -> None:
+    with (
+        patch("commitpoem.cli.fetch_commits", return_value=["fix bug"]),
+        patch("commitpoem.cli.generate_poem", return_value="a poem"),
+        patch("commitpoem.cli.get_backend", return_value=MagicMock()),
+        patch("commitpoem.cli.generate_image", side_effect=ImageGenError("codex down")),
+        patch("commitpoem.cli.post_image") as mock_post_image,
+        patch("commitpoem.cli.post_poem") as mock_post_poem,
+    ):
+        result = runner.invoke(main, BASE_ARGS, env=_image_env(), catch_exceptions=False)
+
+    assert result.exit_code == 0
+    mock_post_image.assert_not_called()
+    mock_post_poem.assert_called_once()
 
 
 # ---------------------------------------------------------------------------

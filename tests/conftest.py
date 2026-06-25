@@ -19,7 +19,15 @@ UNTIL = "2024-01-02T00:00:00Z"
 def _no_dotenv(monkeypatch: pytest.MonkeyPatch):
     """Prevent .env file from affecting tests."""
     monkeypatch.setattr("commitpoem.cli._load_dotenv", lambda: None)
-    for key in ("LLM_BACKEND", "LLM_MODEL", "LLM_API_KEY", "GITHUB_TOKEN", "SLACK_WEBHOOK_URL"):
+    for key in (
+        "LLM_BACKEND",
+        "LLM_MODEL",
+        "LLM_API_KEY",
+        "GITHUB_TOKEN",
+        "SLACK_WEBHOOK_URL",
+        "SLACK_BOT_TOKEN",
+        "SLACK_CHANNEL",
+    ):
         monkeypatch.delenv(key, raising=False)
 
 

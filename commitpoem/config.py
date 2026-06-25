@@ -26,6 +26,8 @@ class AppConfig:
     llm_api_key: str
     llm_backend: str
     llm_model: str
+    slack_bot_token: str | None = None
+    slack_channel: str | None = None
 
 
 def _resolve(
@@ -60,6 +62,8 @@ def resolve_config(
     llm_api_key: str | None = None,
     llm_backend: str | None = None,
     llm_model: str | None = None,
+    slack_bot_token: str | None = None,
+    slack_channel: str | None = None,
 ) -> AppConfig:
     """Resolve all application configuration from CLI arguments and environment variables.
 
@@ -72,6 +76,8 @@ def resolve_config(
         llm_api_key: CLI-provided LLM API key.
         llm_backend: CLI-provided LLM backend name ('anthropic' or 'openai').
         llm_model: CLI-provided LLM model name.
+        slack_bot_token: CLI-provided Slack bot token (optional; enables image upload).
+        slack_channel: CLI-provided Slack channel ID (optional; enables image upload).
 
     Returns:
         An AppConfig instance with all fields populated.
@@ -109,10 +115,16 @@ def resolve_config(
     resolved_model = _resolve("LLM_MODEL", llm_model, required=False, default=default_model)
     assert resolved_model is not None  # default ensures this
 
+    # Optional image-posting credentials (enables Slack image upload when both are set).
+    resolved_bot_token = _resolve("SLACK_BOT_TOKEN", slack_bot_token, required=False)
+    resolved_channel = _resolve("SLACK_CHANNEL", slack_channel, required=False)
+
     return AppConfig(
         github_token=resolved_token,
         slack_webhook_url=resolved_webhook,
         llm_api_key=resolved_api_key,
         llm_backend=resolved_backend,
         llm_model=resolved_model,
+        slack_bot_token=resolved_bot_token,
+        slack_channel=resolved_channel,
     )
