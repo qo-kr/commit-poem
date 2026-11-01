@@ -65,6 +65,15 @@ def _write_png(
 
 
 class TestHelpers:
+    def test_prompt_uses_selected_painters_specific_technique(self) -> None:
+        from commitpoem.catalog import PAINTERS
+
+        painter = PAINTERS[0]
+        prompt = _build_image_prompt(POEM, painter=painter)
+        assert painter.name in prompt and painter.style in prompt
+        assert "Soft and abstract is welcome" not in prompt
+        assert "untrusted" in prompt.lower()
+
     def test_parse_thread_id_found(self) -> None:
         assert _parse_thread_id(_stdout()) == THREAD_ID
 

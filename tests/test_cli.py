@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import threading
 from datetime import datetime, timezone
 from unittest.mock import MagicMock, patch
 
@@ -8,7 +7,6 @@ import pytest
 from click.testing import CliRunner
 
 from commitpoem.cli import _parse_datetime, main
-from commitpoem.config import ConfigError
 from commitpoem.github_client import GitHubAPIError, GitHubAuthError
 from commitpoem.image import ImageGenError
 from commitpoem.slack import SlackWebhookError
@@ -101,7 +99,7 @@ def test_oneshot_success(runner: CliRunner) -> None:
 
     with (
         patch("commitpoem.cli.fetch_commits", return_value=["fix bug"]) as mock_fetch,
-        patch("commitpoem.cli.get_backend", return_value=mock_backend) as mock_gb,
+        patch("commitpoem.cli.get_backend", return_value=mock_backend),
         patch("commitpoem.cli.generate_poem", return_value="roses are red") as mock_gen,
         patch("commitpoem.cli.post_poem") as mock_post,
     ):
@@ -500,3 +498,67 @@ def test_error_messages_on_stderr_not_stdout(runner: CliRunner) -> None:
     assert result.stderr  # error is on stderr
     # stdout should be clean (empty or whitespace only)
     assert not result.stdout.strip()
+
+
+def test_all_orgs_aggregated_once_in_one_edition(runner: CliRunner) -> None:
+    with (
+        patch('commitpoem.cli.fetch_org_commits', side_effect=lambda token, org, since, until: [org]) as fetch,
+        patch('commitpoem.cli.get_backend'),
+        patch('commitpoem.cli.generate_poem', return_value='edition') as generate,
+        patch('commitpoem.cli.post_poem') as post,
+    ):
+        result = runner.invoke(main, [
+            '--org', 'qo-kr', '--org', 'genideas-secure-labs', '--org', 'k-gen-food',
+            '--org', 'qo-kr', '--since', SINCE, '--until', UNTIL,
+        ], env=_full_env())
+    assert result.exit_code == 0
+    assert [call.args[1] for call in fetch.call_args_list] == ['qo-kr', 'genideas-secure-labs', 'k-gen-food']
+    assert generate.call_args.args[0] == ['qo-kr', 'genideas-secure-labs', 'k-gen-food']
+    post.assert_called_once()
+
+
+def test_repo_and_org_are_exclusive(runner: CliRunner) -> None:
+    result = runner.invoke(main, BASE_ARGS + ['--org', 'qo-kr'], env=_full_env())
+    assert result.exit_code == 1
+    assert 'mutually exclusive' in result.stderr
+
+
+def test_invalid_edition_is_failure_and_never_posts(runner: CliRunner) -> None:
+    with (
+        patch('commitpoem.cli.fetch_commits', return_value=[]),
+        patch('commitpoem.cli.generate_poem', side_effect=ValueError('invalid edition')),
+        patch('commitpoem.cli.post_poem') as post,
+    ):
+        result = runner.invoke(main, BASE_ARGS, env=_full_env())
+    assert result.exit_code == 1
+    post.assert_not_called()
+
+
+def test_invalid_date_range_does_not_query_github(runner: CliRunner) -> None:
+    with patch('commitpoem.cli.fetch_org_commits') as fetch:
+        result = runner.invoke(main, ['--org', 'qo-kr', '--since', UNTIL, '--until', SINCE], env=_full_env())
+    assert result.exit_code == 1
+    fetch.assert_not_called()
+
+
+def test_local_mode_needs_no_github_token(runner: CliRunner, tmp_path) -> None:
+    env = _full_env()
+    del env['GITHUB_TOKEN']
+    with (
+        patch('commitpoem.cli.fetch_local_commits', return_value=['[qo-kr/repo] fix: cache']) as fetch,
+        patch('commitpoem.cli.fetch_org_commits') as remote,
+        patch('commitpoem.cli.get_backend'),
+        patch('commitpoem.cli.generate_poem', return_value='edition'),
+        patch('commitpoem.cli.post_poem'),
+    ):
+        result = runner.invoke(main, ['--local-root', str(tmp_path), '--org', 'qo-kr', '--update-main',
+                                    '--since', SINCE, '--until', UNTIL], env=env)
+    assert result.exit_code == 0, result.output
+    remote.assert_not_called()
+    assert fetch.call_args.kwargs == {'organizations': ('qo-kr',), 'sync_main': True}
+
+
+def test_main_sync_requires_local_mode(runner: CliRunner) -> None:
+    result = runner.invoke(main, BASE_ARGS + ['--update-main'], env=_full_env())
+    assert result.exit_code == 1
+    assert '--local-root' in result.stderr

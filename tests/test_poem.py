@@ -1,143 +1,72 @@
 from __future__ import annotations
 
+import json
 from unittest.mock import MagicMock
 
 import pytest
 
 from commitpoem.backends import LLMBackend
+from commitpoem.catalog import select_daily
 from commitpoem.poem import generate_poem
 
 
-# ---------------------------------------------------------------------------
-# Constants
-# ---------------------------------------------------------------------------
+@pytest.fixture
+def backend() -> MagicMock:
+    backend = MagicMock(spec=LLMBackend)
+    backend.generate_poem.return_value = json.dumps({
+        'anchor': 'cache', 'title_en': 'The cache at dawn', 'title_ko': '새벽의 cache',
+        'poem_en': 'A door opens\nThe light returns\nWe wait together\nAnd morning stays',
+        'poem_ko': '문이 열리고\n빛이 돌아와\n우리는 함께 기다린다\n아침이 머문다',
+        'behind_en': 'The cache fix inspires the image of a door opening.',
+        'behind_ko': 'cache 수정에서 열린 문을 떠올린 창작 해석이다.',
+    })
+    return backend
 
-MODEL = "test-model"
-COMMITS = ["feat: add login", "fix: broken navbar", "chore: bump deps"]
-POEM = "roses are red, violets are blue"
+
+def test_generation_uses_same_curated_profiles_and_validates_output(backend: MagicMock) -> None:
+    poet, painter = select_daily()
+    result = generate_poem(['fix: cache'], backend, 'test-model', poet=poet, painter=painter)
+    backend.generate_poem.assert_called_once_with(['fix: cache'], 'test-model', poet=poet)
+    assert result.count('The cache at dawn / 새벽의 cache') == 2
+    assert poet.work in result and painter.work in result
+    assert '열린 문' in result
 
 
-# ---------------------------------------------------------------------------
-# Tests
-# ---------------------------------------------------------------------------
+def test_default_generation_selects_profiles(backend: MagicMock) -> None:
+    assert '오늘의 시인' in generate_poem(['fix: cache'], backend, 'test-model')
 
 
-class TestGeneratePoem:
-    # --- happy path: non-empty commits ---
+@pytest.mark.parametrize('raw', ['', '   ', 'not a JSON edition', None])
+def test_invalid_model_output_rejected(backend: MagicMock, raw: str | None) -> None:
+    backend.generate_poem.return_value = raw
+    with pytest.raises(ValueError):
+        generate_poem(['fix: cache'], backend, 'test-model')
 
-    def test_non_empty_commits_returns_str(self) -> None:
-        backend = MagicMock(spec=LLMBackend)
-        backend.generate_poem.return_value = POEM
-        result = generate_poem(COMMITS, backend, MODEL)
-        assert isinstance(result, str)
 
-    def test_non_empty_commits_returns_non_empty_str(self) -> None:
-        backend = MagicMock(spec=LLMBackend)
-        backend.generate_poem.return_value = POEM
-        result = generate_poem(COMMITS, backend, MODEL)
-        assert result != ""
+def test_empty_day_can_still_produce_an_edition(backend: MagicMock) -> None:
+    data = json.loads(backend.generate_poem.return_value)
+    data['anchor'] = ''
+    backend.generate_poem.return_value = json.dumps(data)
+    assert generate_poem([], backend, 'test-model')
 
-    def test_non_empty_commits_returns_backend_value(self) -> None:
-        backend = MagicMock(spec=LLMBackend)
-        backend.generate_poem.return_value = POEM
-        result = generate_poem(COMMITS, backend, MODEL)
-        assert result == POEM
 
-    # --- happy path: empty commits ---
+def test_backend_failure_propagates(backend: MagicMock) -> None:
+    backend.generate_poem.side_effect = RuntimeError('API down')
+    with pytest.raises(RuntimeError, match='API down'):
+        generate_poem(['fix: cache'], backend, 'test-model')
 
-    def test_empty_commits_does_not_raise(self) -> None:
-        backend = MagicMock(spec=LLMBackend)
-        backend.generate_poem.return_value = POEM
-        result = generate_poem([], backend, MODEL)
-        assert isinstance(result, str)
 
-    def test_empty_commits_returns_non_empty_str(self) -> None:
-        backend = MagicMock(spec=LLMBackend)
-        backend.generate_poem.return_value = POEM
-        result = generate_poem([], backend, MODEL)
-        assert result != ""
+def test_invalid_first_response_gets_one_repair_attempt(backend: MagicMock) -> None:
+    valid = backend.generate_poem.return_value
+    backend.generate_poem.side_effect = ['not JSON', valid]
+    result = generate_poem(['fix: cache'], backend, 'test-model')
+    assert '🇺🇸' in result
+    assert backend.generate_poem.call_count == 2
+    assert 'invalid edition JSON' in backend.generate_poem.call_args.kwargs['feedback']
 
-    def test_empty_commits_returns_backend_value(self) -> None:
-        backend = MagicMock(spec=LLMBackend)
-        backend.generate_poem.return_value = POEM
-        result = generate_poem([], backend, MODEL)
-        assert result == POEM
 
-    # --- delegation: backend is called exactly once ---
-
-    def test_backend_called_exactly_once(self) -> None:
-        backend = MagicMock(spec=LLMBackend)
-        backend.generate_poem.return_value = POEM
-        generate_poem(COMMITS, backend, MODEL)
-        backend.generate_poem.assert_called_once()
-
-    def test_backend_called_with_commits(self) -> None:
-        backend = MagicMock(spec=LLMBackend)
-        backend.generate_poem.return_value = POEM
-        generate_poem(COMMITS, backend, MODEL)
-        backend.generate_poem.assert_called_once_with(COMMITS, MODEL)
-
-    def test_backend_called_with_empty_commits(self) -> None:
-        backend = MagicMock(spec=LLMBackend)
-        backend.generate_poem.return_value = POEM
-        generate_poem([], backend, MODEL)
-        backend.generate_poem.assert_called_once_with([], MODEL)
-
-    def test_model_forwarded_as_is(self) -> None:
-        backend = MagicMock(spec=LLMBackend)
-        backend.generate_poem.return_value = POEM
-        custom_model = "claude-3-haiku-20240307"
-        generate_poem(COMMITS, backend, custom_model)
-        _, call_model = backend.generate_poem.call_args.args
-        assert call_model == custom_model
-
-    # --- guard: backend returns empty or whitespace ---
-
-    def test_empty_return_raises_value_error(self) -> None:
-        backend = MagicMock(spec=LLMBackend)
-        backend.generate_poem.return_value = ""
-        with pytest.raises(ValueError):
-            generate_poem(COMMITS, backend, MODEL)
-
-    def test_whitespace_only_return_raises_value_error(self) -> None:
-        backend = MagicMock(spec=LLMBackend)
-        backend.generate_poem.return_value = "\n\t   "
-        with pytest.raises(ValueError):
-            generate_poem(COMMITS, backend, MODEL)
-
-    # --- error propagation ---
-
-    def test_backend_exception_propagates(self) -> None:
-        backend = MagicMock(spec=LLMBackend)
-        backend.generate_poem.side_effect = RuntimeError("API down")
-        with pytest.raises(RuntimeError, match="API down"):
-            generate_poem(COMMITS, backend, MODEL)
-
-    def test_backend_exception_propagates_for_empty_commits(self) -> None:
-        backend = MagicMock(spec=LLMBackend)
-        backend.generate_poem.side_effect = RuntimeError("API down")
-        with pytest.raises(RuntimeError, match="API down"):
-            generate_poem([], backend, MODEL)
-
-    # --- type errors ---
-
-    def test_none_commits_raises_type_error(self) -> None:
-        backend = MagicMock(spec=LLMBackend)
-        backend.generate_poem.side_effect = TypeError("commits must be a list")
-        with pytest.raises(TypeError):
-            generate_poem(None, backend, MODEL)  # type: ignore[arg-type]
-
-    # --- edge cases ---
-
-    def test_single_commit_works(self) -> None:
-        backend = MagicMock(spec=LLMBackend)
-        backend.generate_poem.return_value = POEM
-        result = generate_poem(["fix: typo"], backend, MODEL)
-        assert result == POEM
-
-    def test_commits_with_special_characters_passed_verbatim(self) -> None:
-        backend = MagicMock(spec=LLMBackend)
-        backend.generate_poem.return_value = POEM
-        special = ["feat: 🚀 launch", "fix: café unicode", "chore: $path & env"]
-        generate_poem(special, backend, MODEL)
-        backend.generate_poem.assert_called_once_with(special, MODEL)
+def test_repair_attempt_is_bounded(backend: MagicMock) -> None:
+    backend.generate_poem.return_value = 'still invalid'
+    with pytest.raises(ValueError):
+        generate_poem(['fix: cache'], backend, 'test-model')
+    assert backend.generate_poem.call_count == 2

@@ -453,3 +453,31 @@ class TestExceptionHierarchy:
     def test_distinct_not_related(self):
         assert not issubclass(GitHubAuthError, GitHubAPIError)
         assert not issubclass(GitHubAPIError, GitHubAuthError)
+
+
+def test_org_counts_and_empty_visibility_are_logged(caplog: pytest.LogCaptureFixture) -> None:
+    from commitpoem.github_client import fetch_org_commits
+    with patch('requests.get', return_value=mock_response(200, [])):
+        assert fetch_org_commits(TOKEN, 'k-gen-food', SINCE, UNTIL) == []
+    assert 'k-gen-food' in caplog.text and '0' in caplog.text
+
+
+def test_org_rate_limit_is_not_silently_discarded() -> None:
+    from commitpoem.github_client import fetch_org_commits
+    with (
+        patch('commitpoem.github_client.fetch_org_repos', return_value=['org/repo']),
+        patch('commitpoem.github_client.fetch_commits', side_effect=GitHubAPIError('HTTP 429')),
+        pytest.raises(GitHubAPIError, match='429'),
+    ):
+        fetch_org_commits(TOKEN, 'org', SINCE, UNTIL)
+
+
+def test_empty_repository_is_skipped_with_warning(caplog: pytest.LogCaptureFixture) -> None:
+    from commitpoem.github_client import fetch_org_commits
+    with (
+        patch('commitpoem.github_client.fetch_org_repos', return_value=['org/empty', 'org/full']),
+        patch('requests.get', side_effect=[mock_response(409, {'message': 'Git Repository is empty.'}),
+                                          page_response(['feat: cache'])]),
+    ):
+        assert fetch_org_commits(TOKEN, 'org', SINCE, UNTIL) == ['feat: cache']
+    assert 'org/empty' in caplog.text

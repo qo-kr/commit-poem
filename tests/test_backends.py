@@ -237,6 +237,15 @@ class TestOpenAIBackend:
 # ---------------------------------------------------------------------------
 
 class TestBuildPrompt:
+    def test_requests_one_work_and_translation_with_structured_title(self) -> None:
+        prompt = _build_prompt(["fix: cache"])
+        assert "ONE original poem" in prompt
+        assert "translation" in prompt
+        assert "title_en" in prompt and "title_ko" in prompt
+        assert "behind_en" in prompt and "behind_ko" in prompt
+        assert "TWO short poems" not in prompt
+        assert "untrusted" in prompt.lower()
+
     def test_includes_commits(self) -> None:
         prompt = _build_prompt(["feat: login"])
         assert "feat: login" in prompt

@@ -1,0 +1,802 @@
+[
+  {
+    "name": "Giotto",
+    "bio": "Italian painter whose frescoes helped introduce convincing human feeling into medieval art.",
+    "work": "Lamentation (The Mourning of Christ)",
+    "url": "https://en.wikipedia.org/wiki/Giotto",
+    "work_url": "https://en.wikipedia.org/wiki/Lamentation_%28The_Mourning_of_Christ%29",
+    "style": "Solid figures, clear spatial staging, and direct emotional gestures."
+  },
+  {
+    "name": "Duccio",
+    "bio": "Sienese painter who combined Byzantine traditions with emerging Italian naturalism.",
+    "work": "Maestà",
+    "url": "https://en.wikipedia.org/wiki/Duccio",
+    "work_url": "https://en.wikipedia.org/wiki/Maest%C3%A0_%28Duccio%29",
+    "style": "Gold grounds, flowing contours, delicate color, and devotional intimacy."
+  },
+  {
+    "name": "Fra Angelico",
+    "bio": "Early Renaissance Florentine friar and painter of devotional scenes.",
+    "work": "Annunciation (Convent of San Marco)",
+    "url": "https://en.wikipedia.org/wiki/Fra_Angelico",
+    "work_url": "https://en.wikipedia.org/wiki/Annunciation_%28Fra_Angelico%2C_San_Marco%29",
+    "style": "Luminous color, restrained perspective, and contemplative sacred spaces."
+  },
+  {
+    "name": "Masaccio",
+    "bio": "Florentine painter whose work advanced Renaissance perspective and modeling.",
+    "work": "The Holy Trinity",
+    "url": "https://en.wikipedia.org/wiki/Masaccio",
+    "work_url": "https://en.wikipedia.org/wiki/Holy_Trinity_%28Masaccio%29",
+    "style": "Architectural perspective, weighty figures, and unified light."
+  },
+  {
+    "name": "Sandro Botticelli",
+    "bio": "Florentine Renaissance painter of religious and mythological subjects.",
+    "work": "The Birth of Venus",
+    "url": "https://en.wikipedia.org/wiki/Sandro_Botticelli",
+    "work_url": "https://en.wikipedia.org/wiki/The_Birth_of_Venus",
+    "style": "Elegant contour, rhythmic figures, and poetic mythological settings."
+  },
+  {
+    "name": "Leonardo da Vinci",
+    "bio": "Italian Renaissance painter and investigator of nature and human anatomy.",
+    "work": "Mona Lisa",
+    "url": "https://en.wikipedia.org/wiki/Leonardo_da_Vinci",
+    "work_url": "https://en.wikipedia.org/wiki/Mona_Lisa",
+    "style": "Sfumato, subtle expression, atmospheric depth, and closely observed forms."
+  },
+  {
+    "name": "Michelangelo",
+    "bio": "Italian Renaissance painter, sculptor, and architect.",
+    "work": "The Creation of Adam",
+    "url": "https://en.wikipedia.org/wiki/Michelangelo",
+    "work_url": "https://en.wikipedia.org/wiki/The_Creation_of_Adam",
+    "style": "Monumental anatomy, sculptural bodies, and dramatic gesture."
+  },
+  {
+    "name": "Raphael",
+    "bio": "Italian High Renaissance painter known for harmonious figures and compositions.",
+    "work": "The School of Athens",
+    "url": "https://en.wikipedia.org/wiki/Raphael",
+    "work_url": "https://en.wikipedia.org/wiki/The_School_of_Athens",
+    "style": "Balanced perspective, graceful figures, and lucid spatial harmony."
+  },
+  {
+    "name": "Titian",
+    "bio": "Venetian Renaissance painter celebrated for color and expressive brushwork.",
+    "work": "Bacchus and Ariadne",
+    "url": "https://en.wikipedia.org/wiki/Titian",
+    "work_url": "https://en.wikipedia.org/wiki/Bacchus_and_Ariadne",
+    "style": "Rich layered color, dynamic figures, and sensuous light."
+  },
+  {
+    "name": "Tintoretto",
+    "bio": "Venetian painter whose dramatic compositions bridge Renaissance and Mannerist art.",
+    "work": "The Last Supper (San Giorgio Maggiore)",
+    "url": "https://en.wikipedia.org/wiki/Tintoretto",
+    "work_url": "https://en.wikipedia.org/wiki/Last_Supper_%28Tintoretto%29",
+    "style": "Steep diagonals, theatrical illumination, and energetic groups."
+  },
+  {
+    "name": "El Greco",
+    "bio": "Cretan-born painter who developed a distinctive style in Spain.",
+    "work": "The Burial of the Count of Orgaz",
+    "url": "https://en.wikipedia.org/wiki/El_Greco",
+    "work_url": "https://en.wikipedia.org/wiki/The_Burial_of_the_Count_of_Orgaz",
+    "style": "Elongated figures, visionary space, and intense spiritual color."
+  },
+  {
+    "name": "Caravaggio",
+    "bio": "Italian Baroque painter who brought ordinary human presence into sacred scenes.",
+    "work": "The Calling of Saint Matthew",
+    "url": "https://en.wikipedia.org/wiki/Caravaggio",
+    "work_url": "https://en.wikipedia.org/wiki/The_Calling_of_St_Matthew",
+    "style": "Sharp chiaroscuro, theatrical light, and unsentimental naturalism."
+  },
+  {
+    "name": "Artemisia Gentileschi",
+    "bio": "Italian Baroque painter known for forceful biblical heroines.",
+    "work": "Judith Slaying Holofernes",
+    "url": "https://en.wikipedia.org/wiki/Artemisia_Gentileschi",
+    "work_url": "https://en.wikipedia.org/wiki/Judith_Slaying_Holofernes_%28Artemisia_Gentileschi%2C_Florence%29",
+    "style": "Dramatic chiaroscuro, physical action, and psychologically focused women."
+  },
+  {
+    "name": "Sofonisba Anguissola",
+    "bio": "Italian Renaissance painter celebrated for portraits and family scenes.",
+    "work": "The Chess Game",
+    "url": "https://en.wikipedia.org/wiki/Sofonisba_Anguissola",
+    "work_url": "https://en.wikipedia.org/wiki/The_Chess_Game_%28painting%29",
+    "style": "Attentive portraiture, informal gesture, and subtle interpersonal drama."
+  },
+  {
+    "name": "Pieter Bruegel the Elder",
+    "bio": "Netherlandish painter of peasant life, landscapes, and moral allegories.",
+    "work": "The Hunters in the Snow",
+    "url": "https://en.wikipedia.org/wiki/Pieter_Bruegel_the_Elder",
+    "work_url": "https://en.wikipedia.org/wiki/The_Hunters_in_the_Snow",
+    "style": "Panoramic landscapes, busy human detail, and seasonal atmosphere."
+  },
+  {
+    "name": "Hieronymus Bosch",
+    "bio": "Netherlandish painter known for fantastical religious and moral imagery.",
+    "work": "The Garden of Earthly Delights",
+    "url": "https://en.wikipedia.org/wiki/Hieronymus_Bosch",
+    "work_url": "https://en.wikipedia.org/wiki/The_Garden_of_Earthly_Delights",
+    "style": "Fantastic creatures, densely populated worlds, and unsettling allegory."
+  },
+  {
+    "name": "Jan van Eyck",
+    "bio": "Early Netherlandish painter whose oil technique enabled exceptional detail.",
+    "work": "Arnolfini Portrait",
+    "url": "https://en.wikipedia.org/wiki/Jan_van_Eyck",
+    "work_url": "https://en.wikipedia.org/wiki/Arnolfini_Portrait",
+    "style": "Luminous oil glazes, minute surfaces, and symbolic domestic objects."
+  },
+  {
+    "name": "Albrecht Dürer",
+    "bio": "German Renaissance painter and printmaker who studied proportion and nature.",
+    "work": "Self-Portrait (1500)",
+    "url": "https://en.wikipedia.org/wiki/Albrecht_D%C3%BCrer",
+    "work_url": "https://en.wikipedia.org/wiki/Self-Portrait_%28D%C3%BCrer%2C_Munich%29",
+    "style": "Precise contours, meticulous textures, and measured Renaissance geometry."
+  },
+  {
+    "name": "Hans Holbein the Younger",
+    "bio": "German-born Renaissance painter known for portraits at the English court.",
+    "work": "The Ambassadors",
+    "url": "https://en.wikipedia.org/wiki/Hans_Holbein_the_Younger",
+    "work_url": "https://en.wikipedia.org/wiki/The_Ambassadors_%28Holbein%29",
+    "style": "Exact likeness, finely described objects, and intellectual symbolism."
+  },
+  {
+    "name": "Diego Velázquez",
+    "bio": "Spanish Baroque court painter whose portraits probe seeing and representation.",
+    "work": "Las Meninas",
+    "url": "https://en.wikipedia.org/wiki/Diego_Vel%C3%A1zquez",
+    "work_url": "https://en.wikipedia.org/wiki/Las_Meninas",
+    "style": "Economical brushwork, complex viewpoints, and luminous spatial realism."
+  },
+  {
+    "name": "Rembrandt",
+    "bio": "Dutch painter and printmaker whose work explores human vulnerability.",
+    "work": "The Night Watch",
+    "url": "https://en.wikipedia.org/wiki/Rembrandt",
+    "work_url": "https://en.wikipedia.org/wiki/The_Night_Watch",
+    "style": "Warm chiaroscuro, layered paint, and psychologically searching faces."
+  },
+  {
+    "name": "Johannes Vermeer",
+    "bio": "Dutch painter of quiet domestic interiors.",
+    "work": "Girl with a Pearl Earring",
+    "url": "https://en.wikipedia.org/wiki/Johannes_Vermeer",
+    "work_url": "https://en.wikipedia.org/wiki/Girl_with_a_Pearl_Earring",
+    "style": "Pearlescent light, still compositions, and finely balanced color."
+  },
+  {
+    "name": "Peter Paul Rubens",
+    "bio": "Flemish Baroque painter of dynamic religious and mythological scenes.",
+    "work": "The Elevation of the Cross",
+    "url": "https://en.wikipedia.org/wiki/Peter_Paul_Rubens",
+    "work_url": "https://en.wikipedia.org/wiki/The_Elevation_of_the_Cross_%28Rubens%29",
+    "style": "Muscular motion, sweeping diagonals, and warm abundant color."
+  },
+  {
+    "name": "Frans Hals",
+    "bio": "Dutch Golden Age painter known for lively portraiture.",
+    "work": "The Laughing Cavalier",
+    "url": "https://en.wikipedia.org/wiki/Frans_Hals",
+    "work_url": "https://en.wikipedia.org/wiki/The_Laughing_Cavalier",
+    "style": "Quick visible strokes, animated expressions, and informal presence."
+  },
+  {
+    "name": "Judith Leyster",
+    "bio": "Dutch Golden Age painter of portraits and everyday entertainments.",
+    "work": "Self-Portrait",
+    "url": "https://en.wikipedia.org/wiki/Judith_Leyster",
+    "work_url": "https://en.wikipedia.org/wiki/Judith_Leyster",
+    "style": "Lively gesture, warm light, and confident loose brushwork."
+  },
+  {
+    "name": "Nicolas Poussin",
+    "bio": "French painter active in Rome who pursued classical order.",
+    "work": "Et in Arcadia ego",
+    "url": "https://en.wikipedia.org/wiki/Nicolas_Poussin",
+    "work_url": "https://en.wikipedia.org/wiki/Nicolas_Poussin",
+    "style": "Measured composition, classical figures, and restrained emotional narrative."
+  },
+  {
+    "name": "Antoine Watteau",
+    "bio": "French painter whose fêtes galantes depict theatrical sociability.",
+    "work": "Pilgrimage to Cythera",
+    "url": "https://en.wikipedia.org/wiki/Antoine_Watteau",
+    "work_url": "https://en.wikipedia.org/wiki/The_Embarkation_for_Cythera",
+    "style": "Feathery brushwork, theatrical elegance, and wistful pastoral gatherings."
+  },
+  {
+    "name": "Jean-Baptiste-Siméon Chardin",
+    "bio": "French painter known for still lifes and quiet domestic scenes.",
+    "work": "The Ray",
+    "url": "https://en.wikipedia.org/wiki/Jean-Baptiste-Sim%C3%A9on_Chardin",
+    "work_url": "https://en.wikipedia.org/wiki/The_Ray_%28painting%29",
+    "style": "Humble objects, muted harmonies, and patient attention to texture."
+  },
+  {
+    "name": "Élisabeth Vigée Le Brun",
+    "bio": "French portrait painter who worked across European courts.",
+    "work": "Self-Portrait in a Straw Hat",
+    "url": "https://en.wikipedia.org/wiki/%C3%89lisabeth_Vig%C3%A9e_Le_Brun",
+    "work_url": "https://en.wikipedia.org/wiki/Self-Portrait_in_a_Straw_Hat",
+    "style": "Graceful poses, soft light, and cultivated portrait intimacy."
+  },
+  {
+    "name": "Francisco Goya",
+    "bio": "Spanish painter and printmaker whose work spans court portraiture and social nightmare.",
+    "work": "The Third of May 1808",
+    "url": "https://en.wikipedia.org/wiki/Francisco_Goya",
+    "work_url": "https://en.wikipedia.org/wiki/The_Third_of_May_1808",
+    "style": "Expressive darkness, unidealized humanity, and unsettling political witness."
+  },
+  {
+    "name": "J. M. W. Turner",
+    "bio": "British Romantic painter who explored light, weather, and modern change.",
+    "work": "The Fighting Temeraire",
+    "url": "https://en.wikipedia.org/wiki/J._M._W._Turner",
+    "work_url": "https://en.wikipedia.org/wiki/The_Fighting_Temeraire",
+    "style": "Dissolving forms, luminous atmosphere, and turbulent natural forces."
+  },
+  {
+    "name": "John Constable",
+    "bio": "English Romantic painter associated with landscapes of rural Suffolk.",
+    "work": "The Hay Wain",
+    "url": "https://en.wikipedia.org/wiki/John_Constable",
+    "work_url": "https://en.wikipedia.org/wiki/The_Hay_Wain",
+    "style": "Observed skies, broken green tones, and intimate rural landscapes."
+  },
+  {
+    "name": "Eugène Delacroix",
+    "bio": "French Romantic painter whose works emphasize color and dramatic movement.",
+    "work": "Liberty Leading the People",
+    "url": "https://en.wikipedia.org/wiki/Eug%C3%A8ne_Delacroix",
+    "work_url": "https://en.wikipedia.org/wiki/Liberty_Leading_the_People",
+    "style": "Energetic color, sweeping motion, and charged historical scenes."
+  },
+  {
+    "name": "Gustave Courbet",
+    "bio": "French Realist painter who made ordinary people subjects of monumental painting.",
+    "work": "A Burial at Ornans",
+    "url": "https://en.wikipedia.org/wiki/Gustave_Courbet",
+    "work_url": "https://en.wikipedia.org/wiki/A_Burial_at_Ornans",
+    "style": "Earthy color, physical materiality, and unidealized everyday subjects."
+  },
+  {
+    "name": "Jean-François Millet",
+    "bio": "French painter associated with the Barbizon school and rural labor.",
+    "work": "The Gleaners",
+    "url": "https://en.wikipedia.org/wiki/Jean-Fran%C3%A7ois_Millet",
+    "work_url": "https://en.wikipedia.org/wiki/The_Gleaners",
+    "style": "Solid peasant figures, quiet earth tones, and dignified daily work."
+  },
+  {
+    "name": "Kamal-ol-Molk",
+    "bio": "Iranian painter associated with naturalistic painting in the Qajar period.",
+    "work": "Mirror Hall",
+    "url": "https://en.wikipedia.org/wiki/Kamal-ol-Molk",
+    "work_url": "https://en.wikipedia.org/wiki/Mirror_Hall",
+    "style": "Detailed interiors, careful perspective, and finely observed reflected light."
+  },
+  {
+    "name": "Édouard Manet",
+    "bio": "French painter whose modern subjects helped open the way to Impressionism.",
+    "work": "A Bar at the Folies-Bergère",
+    "url": "https://en.wikipedia.org/wiki/%C3%89douard_Manet",
+    "work_url": "https://en.wikipedia.org/wiki/A_Bar_at_the_Folies-Berg%C3%A8re",
+    "style": "Flat tonal contrasts, modern urban subjects, and ambiguous viewpoints."
+  },
+  {
+    "name": "Claude Monet",
+    "bio": "French Impressionist painter who repeatedly studied light over familiar landscapes.",
+    "work": "Impression, Sunrise",
+    "url": "https://en.wikipedia.org/wiki/Claude_Monet",
+    "work_url": "https://en.wikipedia.org/wiki/Impression%2C_Sunrise",
+    "style": "Broken color, atmospheric light, and repeated observations of nature."
+  },
+  {
+    "name": "Pierre-Auguste Renoir",
+    "bio": "French Impressionist painter known for social scenes and sensuous color.",
+    "work": "Bal du moulin de la Galette",
+    "url": "https://en.wikipedia.org/wiki/Pierre-Auguste_Renoir",
+    "work_url": "https://en.wikipedia.org/wiki/Bal_du_moulin_de_la_Galette",
+    "style": "Warm color, flickering sunlight, and convivial human groups."
+  },
+  {
+    "name": "Edgar Degas",
+    "bio": "French painter whose work studies dancers, urban life, and unconventional viewpoints.",
+    "work": "The Ballet Class",
+    "url": "https://en.wikipedia.org/wiki/Edgar_Degas",
+    "work_url": "https://en.wikipedia.org/wiki/The_Ballet_Class_%28Degas%2C_Mus%C3%A9e_d%27Orsay%29",
+    "style": "Cropped framing, asymmetrical composition, and closely studied movement."
+  },
+  {
+    "name": "Berthe Morisot",
+    "bio": "French Impressionist painter of domestic life, leisure, and landscape.",
+    "work": "The Cradle",
+    "url": "https://en.wikipedia.org/wiki/Berthe_Morisot",
+    "work_url": "https://en.wikipedia.org/wiki/The_Cradle_%28painting%29",
+    "style": "Airy brushwork, luminous whites, and intimate everyday scenes."
+  },
+  {
+    "name": "Mary Cassatt",
+    "bio": "American Impressionist painter active in France, known for women and children.",
+    "work": "The Child's Bath",
+    "url": "https://en.wikipedia.org/wiki/Mary_Cassatt",
+    "work_url": "https://en.wikipedia.org/wiki/The_Child%27s_Bath",
+    "style": "Intimate figures, patterned surfaces, and perspectives influenced by Japanese prints."
+  },
+  {
+    "name": "Alfred Sisley",
+    "bio": "British Impressionist painter who spent most of his career in France.",
+    "work": "Flood at Port-Marly",
+    "url": "https://en.wikipedia.org/wiki/Alfred_Sisley",
+    "work_url": "https://en.wikipedia.org/wiki/Alfred_Sisley",
+    "style": "Quiet river landscapes, luminous skies, and delicate shifting color."
+  },
+  {
+    "name": "Camille Pissarro",
+    "bio": "Caribbean-born French Impressionist painter of rural and urban life.",
+    "work": "The Boulevard Montmartre at Night",
+    "url": "https://en.wikipedia.org/wiki/Camille_Pissarro",
+    "work_url": "https://en.wikipedia.org/wiki/Camille_Pissarro",
+    "style": "Broken brushwork, everyday labor, and expansive city views."
+  },
+  {
+    "name": "Paul Cézanne",
+    "bio": "French painter whose structured observations helped shape modern art.",
+    "work": "The Basket of Apples",
+    "url": "https://en.wikipedia.org/wiki/Paul_C%C3%A9zanne",
+    "work_url": "https://en.wikipedia.org/wiki/The_Basket_of_Apples",
+    "style": "Geometric structure, shifting viewpoints, and constructive color planes."
+  },
+  {
+    "name": "Vincent van Gogh",
+    "bio": "Dutch Post-Impressionist painter who transformed observation through color and gesture.",
+    "work": "The Starry Night",
+    "url": "https://en.wikipedia.org/wiki/Vincent_van_Gogh",
+    "work_url": "https://en.wikipedia.org/wiki/The_Starry_Night",
+    "style": "Impasto, animated contours, and emotionally charged complementary colors."
+  },
+  {
+    "name": "Paul Gauguin",
+    "bio": "French Post-Impressionist painter who worked in Brittany and the Pacific.",
+    "work": "Where Do We Come From? What Are We? Where Are We Going?",
+    "url": "https://en.wikipedia.org/wiki/Paul_Gauguin",
+    "work_url": "https://en.wikipedia.org/wiki/Where_Do_We_Come_From%3F_What_Are_We%3F_Where_Are_We_Going%3F",
+    "style": "Flat color, simplified forms, and symbolic arrangements."
+  },
+  {
+    "name": "Georges Seurat",
+    "bio": "French painter who developed a systematic division of color.",
+    "work": "A Sunday Afternoon on the Island of La Grande Jatte",
+    "url": "https://en.wikipedia.org/wiki/Georges_Seurat",
+    "work_url": "https://en.wikipedia.org/wiki/A_Sunday_Afternoon_on_the_Island_of_La_Grande_Jatte",
+    "style": "Pointillist marks, optical color, and carefully ordered figures."
+  },
+  {
+    "name": "Henri de Toulouse-Lautrec",
+    "bio": "French painter and printmaker who portrayed Parisian nightlife.",
+    "work": "At the Moulin Rouge",
+    "url": "https://en.wikipedia.org/wiki/Henri_de_Toulouse-Lautrec",
+    "work_url": "https://en.wikipedia.org/wiki/At_the_Moulin_Rouge",
+    "style": "Graphic contours, cropped compositions, and candid urban figures."
+  },
+  {
+    "name": "Odilon Redon",
+    "bio": "French Symbolist artist whose images move between dream and nature.",
+    "work": "The Cyclops",
+    "url": "https://en.wikipedia.org/wiki/Odilon_Redon",
+    "work_url": "https://en.wikipedia.org/wiki/Odilon_Redon",
+    "style": "Dreamlike creatures, floating forms, and glowing symbolic color."
+  },
+  {
+    "name": "Edvard Munch",
+    "bio": "Norwegian painter whose work explores anxiety, intimacy, and mortality.",
+    "work": "The Scream",
+    "url": "https://en.wikipedia.org/wiki/Edvard_Munch",
+    "work_url": "https://en.wikipedia.org/wiki/The_Scream",
+    "style": "Sinuous contours, stark color, and psychologically charged landscapes."
+  },
+  {
+    "name": "Gustav Klimt",
+    "bio": "Austrian painter associated with the Vienna Secession.",
+    "work": "The Kiss",
+    "url": "https://en.wikipedia.org/wiki/Gustav_Klimt",
+    "work_url": "https://en.wikipedia.org/wiki/The_Kiss_%28Klimt%29",
+    "style": "Gold ornament, patterned surfaces, and flattened intimate figures."
+  },
+  {
+    "name": "Egon Schiele",
+    "bio": "Austrian Expressionist painter known for intense portraits and figure studies.",
+    "work": "Death and the Maiden",
+    "url": "https://en.wikipedia.org/wiki/Egon_Schiele",
+    "work_url": "https://en.wikipedia.org/wiki/Egon_Schiele",
+    "style": "Angular bodies, exposed line, and uneasy psychological intimacy."
+  },
+  {
+    "name": "Henri Matisse",
+    "bio": "French painter whose work made color an independent expressive force.",
+    "work": "The Dance",
+    "url": "https://en.wikipedia.org/wiki/Henri_Matisse",
+    "work_url": "https://en.wikipedia.org/wiki/Dance_%28Matisse%29",
+    "style": "Bold flat color, simplified forms, and rhythmic spatial balance."
+  },
+  {
+    "name": "Pablo Picasso",
+    "bio": "Spanish painter who helped develop Cubism and worked across many modern styles.",
+    "work": "Guernica",
+    "url": "https://en.wikipedia.org/wiki/Pablo_Picasso",
+    "work_url": "https://en.wikipedia.org/wiki/Guernica_%28Picasso%29",
+    "style": "Fractured viewpoints, reinvented figures, and forceful visual symbolism."
+  },
+  {
+    "name": "Georges Braque",
+    "bio": "French painter who developed Cubism with Picasso.",
+    "work": "Violin and Candlestick",
+    "url": "https://en.wikipedia.org/wiki/Georges_Braque",
+    "work_url": "https://en.wikipedia.org/wiki/Georges_Braque",
+    "style": "Fragmented objects, shallow space, and muted geometric planes."
+  },
+  {
+    "name": "Wassily Kandinsky",
+    "bio": "Russian-born painter who helped establish abstract art.",
+    "work": "Composition VII",
+    "url": "https://en.wikipedia.org/wiki/Wassily_Kandinsky",
+    "work_url": "https://en.wikipedia.org/wiki/Composition_VII",
+    "style": "Musical color relationships, dynamic shapes, and nonrepresentational movement."
+  },
+  {
+    "name": "Kazimir Malevich",
+    "bio": "Russian avant-garde painter and founder of Suprematism.",
+    "work": "Black Square",
+    "url": "https://en.wikipedia.org/wiki/Kazimir_Malevich",
+    "work_url": "https://en.wikipedia.org/wiki/Black_Square",
+    "style": "Geometric abstraction, stark fields, and radical reduction of form."
+  },
+  {
+    "name": "Piet Mondrian",
+    "bio": "Dutch painter associated with De Stijl and geometric abstraction.",
+    "work": "Broadway Boogie Woogie",
+    "url": "https://en.wikipedia.org/wiki/Piet_Mondrian",
+    "work_url": "https://en.wikipedia.org/wiki/Broadway_Boogie_Woogie",
+    "style": "Primary colors, rectilinear grids, and rhythmic visual balance."
+  },
+  {
+    "name": "Paul Klee",
+    "bio": "Swiss-born painter whose inventive visual language joins abstraction and figuration.",
+    "work": "Twittering Machine",
+    "url": "https://en.wikipedia.org/wiki/Paul_Klee",
+    "work_url": "https://en.wikipedia.org/wiki/Twittering_Machine",
+    "style": "Playful signs, delicate lines, and poetic color structures."
+  },
+  {
+    "name": "Marc Chagall",
+    "bio": "Belarusian-born French painter whose images draw on Jewish life and memory.",
+    "work": "I and the Village",
+    "url": "https://en.wikipedia.org/wiki/Marc_Chagall",
+    "work_url": "https://en.wikipedia.org/wiki/I_and_the_Village",
+    "style": "Floating figures, dreamlike scale, and luminous narrative color."
+  },
+  {
+    "name": "Salvador Dalí",
+    "bio": "Spanish Surrealist painter known for sharply rendered dream imagery.",
+    "work": "The Persistence of Memory",
+    "url": "https://en.wikipedia.org/wiki/Salvador_Dal%C3%AD",
+    "work_url": "https://en.wikipedia.org/wiki/The_Persistence_of_Memory",
+    "style": "Precise illusionism, improbable objects, and elastic dream landscapes."
+  },
+  {
+    "name": "René Magritte",
+    "bio": "Belgian Surrealist painter who made familiar objects philosophically strange.",
+    "work": "The Treachery of Images",
+    "url": "https://en.wikipedia.org/wiki/Ren%C3%A9_Magritte",
+    "work_url": "https://en.wikipedia.org/wiki/The_Treachery_of_Images",
+    "style": "Deadpan realism, visual paradox, and displaced everyday objects."
+  },
+  {
+    "name": "Joan Miró",
+    "bio": "Catalan painter whose work developed a playful language of abstract signs.",
+    "work": "The Harlequin's Carnival",
+    "url": "https://en.wikipedia.org/wiki/Joan_Mir%C3%B3",
+    "work_url": "https://en.wikipedia.org/wiki/The_Harlequin%27s_Carnival",
+    "style": "Biomorphic shapes, floating signs, and playful fields of color."
+  },
+  {
+    "name": "Frida Kahlo",
+    "bio": "Mexican painter who explored identity, the body, and personal experience.",
+    "work": "The Two Fridas",
+    "url": "https://en.wikipedia.org/wiki/Frida_Kahlo",
+    "work_url": "https://en.wikipedia.org/wiki/The_Two_Fridas",
+    "style": "Frontal self-portraiture, symbolic objects, and vivid Mexican visual traditions."
+  },
+  {
+    "name": "Diego Rivera",
+    "bio": "Mexican painter whose murals connect social history and public space.",
+    "work": "Man at the Crossroads",
+    "url": "https://en.wikipedia.org/wiki/Diego_Rivera",
+    "work_url": "https://en.wikipedia.org/wiki/Man_at_the_Crossroads",
+    "style": "Monumental figures, social narrative, and rhythmic fresco composition."
+  },
+  {
+    "name": "José Clemente Orozco",
+    "bio": "Mexican muralist whose work presents a tragic vision of history.",
+    "work": "The Epic of American Civilization",
+    "url": "https://en.wikipedia.org/wiki/Jos%C3%A9_Clemente_Orozco",
+    "work_url": "https://en.wikipedia.org/wiki/The_Epic_of_American_Civilization",
+    "style": "Dramatic diagonals, expressive bodies, and critical historical allegory."
+  },
+  {
+    "name": "David Alfaro Siqueiros",
+    "bio": "Mexican muralist who experimented with industrial materials and dynamic perspective.",
+    "work": "Echo of a Scream",
+    "url": "https://en.wikipedia.org/wiki/David_Alfaro_Siqueiros",
+    "work_url": "https://en.wikipedia.org/wiki/David_Alfaro_Siqueiros",
+    "style": "Forceful foreshortening, sweeping motion, and politically charged imagery."
+  },
+  {
+    "name": "Tarsila do Amaral",
+    "bio": "Brazilian modernist painter who helped shape the Anthropophagy movement.",
+    "work": "Abaporu",
+    "url": "https://en.wikipedia.org/wiki/Tarsila_do_Amaral",
+    "work_url": "https://en.wikipedia.org/wiki/Abaporu",
+    "style": "Simplified monumental forms, tropical color, and Brazilian cultural references."
+  },
+  {
+    "name": "Candido Portinari",
+    "bio": "Brazilian painter whose public art depicts labor and social experience.",
+    "work": "War and Peace",
+    "url": "https://en.wikipedia.org/wiki/Candido_Portinari",
+    "work_url": "https://en.wikipedia.org/wiki/War_and_Peace_%28Portinari%29",
+    "style": "Expressive figuration, monumental groups, and social narrative."
+  },
+  {
+    "name": "Wifredo Lam",
+    "bio": "Cuban painter who joined modernist forms with Afro-Caribbean cultural imagery.",
+    "work": "The Jungle",
+    "url": "https://en.wikipedia.org/wiki/Wifredo_Lam",
+    "work_url": "https://en.wikipedia.org/wiki/Wifredo_Lam",
+    "style": "Hybrid figures, dense vegetation, and rhythms shaped by Cubism and Surrealism."
+  },
+  {
+    "name": "Jacob Lawrence",
+    "bio": "American painter whose narrative series explore Black history and everyday life.",
+    "work": "Migration Series",
+    "url": "https://en.wikipedia.org/wiki/Jacob_Lawrence",
+    "work_url": "https://en.wikipedia.org/wiki/Migration_Series",
+    "style": "Angular figures, flat vivid colors, and sequential storytelling."
+  },
+  {
+    "name": "Aaron Douglas",
+    "bio": "American painter associated with the Harlem Renaissance.",
+    "work": "Aspects of Negro Life",
+    "url": "https://en.wikipedia.org/wiki/Aaron_Douglas_%28artist%29",
+    "work_url": "https://en.wikipedia.org/wiki/Aaron_Douglas_%28artist%29",
+    "style": "Silhouettes, concentric light, and rhythmic scenes of Black history."
+  },
+  {
+    "name": "Romare Bearden",
+    "bio": "American artist whose paintings and collages explore African American experience.",
+    "work": "The Dove",
+    "url": "https://en.wikipedia.org/wiki/Romare_Bearden",
+    "work_url": "https://en.wikipedia.org/wiki/Romare_Bearden",
+    "style": "Layered collage, shifting scale, and musical everyday narratives."
+  },
+  {
+    "name": "Alma Thomas",
+    "bio": "American painter whose abstractions draw on nature and color.",
+    "work": "Resurrection",
+    "url": "https://en.wikipedia.org/wiki/Alma_Thomas",
+    "work_url": "https://en.wikipedia.org/wiki/Alma_Thomas",
+    "style": "Mosaic-like color marks, radiant patterns, and rhythmic abstraction."
+  },
+  {
+    "name": "Jean-Michel Basquiat",
+    "bio": "American painter whose work combines street imagery, language, and historical critique.",
+    "work": "Untitled (1982)",
+    "url": "https://en.wikipedia.org/wiki/Jean-Michel_Basquiat",
+    "work_url": "https://en.wikipedia.org/wiki/Jean-Michel_Basquiat",
+    "style": "Urgent marks, anatomical figures, crowns, and fragmented written language."
+  },
+  {
+    "name": "Jackson Pollock",
+    "bio": "American Abstract Expressionist painter known for poured and dripped paint.",
+    "work": "Autumn Rhythm (Number 30)",
+    "url": "https://en.wikipedia.org/wiki/Jackson_Pollock",
+    "work_url": "https://en.wikipedia.org/wiki/Autumn_Rhythm_%28Number_30%29",
+    "style": "All-over rhythm, layered drips, and gestural movement across the canvas."
+  },
+  {
+    "name": "Mark Rothko",
+    "bio": "Latvian-born American painter known for expansive fields of color.",
+    "work": "No. 61 (Rust and Blue)",
+    "url": "https://en.wikipedia.org/wiki/Mark_Rothko",
+    "work_url": "https://en.wikipedia.org/wiki/No._61_%28Rust_and_Blue%29",
+    "style": "Soft-edged rectangles, saturated color, and contemplative visual depth."
+  },
+  {
+    "name": "Georgia O'Keeffe",
+    "bio": "American modernist painter known for flowers, bones, and Southwestern landscapes.",
+    "work": "Jimson Weed/White Flower No. 1",
+    "url": "https://en.wikipedia.org/wiki/Georgia_O%27Keeffe",
+    "work_url": "https://en.wikipedia.org/wiki/Jimson_Weed_%28painting%29",
+    "style": "Enlarged natural forms, clear contours, and expansive color shapes."
+  },
+  {
+    "name": "Edward Hopper",
+    "bio": "American painter whose urban and rural scenes explore modern solitude.",
+    "work": "Nighthawks",
+    "url": "https://en.wikipedia.org/wiki/Edward_Hopper",
+    "work_url": "https://en.wikipedia.org/wiki/Nighthawks_%28painting%29",
+    "style": "Sharp architectural light, still figures, and narrative ambiguity."
+  },
+  {
+    "name": "Katsushika Hokusai",
+    "bio": "Japanese Edo-period painter and printmaker of landscapes and everyday subjects.",
+    "work": "The Great Wave off Kanagawa",
+    "url": "https://en.wikipedia.org/wiki/Hokusai",
+    "work_url": "https://en.wikipedia.org/wiki/The_Great_Wave_off_Kanagawa",
+    "style": "Bold contour, rhythmic waves, and dramatic contrasts of scale."
+  },
+  {
+    "name": "Utagawa Hiroshige",
+    "bio": "Japanese ukiyo-e artist celebrated for landscape series.",
+    "work": "Sudden Shower over Shin-Ōhashi bridge and Atake",
+    "url": "https://en.wikipedia.org/wiki/Hiroshige",
+    "work_url": "https://en.wikipedia.org/wiki/Sudden_Shower_over_Shin-%C5%8Chashi_bridge_and_Atake",
+    "style": "Unusual viewpoints, atmospheric weather, and lyrical landscape color."
+  },
+  {
+    "name": "Sesshū Tōyō",
+    "bio": "Japanese Zen monk and master of monochrome ink landscape.",
+    "work": "Long Scroll of Landscapes",
+    "url": "https://en.wikipedia.org/wiki/Sessh%C5%AB_T%C5%8Dy%C5%8D",
+    "work_url": "https://en.wikipedia.org/wiki/Sessh%C5%AB_T%C5%8Dy%C5%8D",
+    "style": "Expressive ink, changing spatial rhythms, and spare mountain landscapes."
+  },
+  {
+    "name": "Kitagawa Utamaro",
+    "bio": "Japanese ukiyo-e artist known for portraits of women.",
+    "work": "Three Beauties of the Present Day",
+    "url": "https://en.wikipedia.org/wiki/Utamaro",
+    "work_url": "https://en.wikipedia.org/wiki/Three_Beauties_of_the_Present_Day",
+    "style": "Elegant contours, close-cropped figures, and nuanced expressions."
+  },
+  {
+    "name": "Ogata Kōrin",
+    "bio": "Japanese Rinpa painter and designer known for decorative natural motifs.",
+    "work": "Red and White Plum Blossoms",
+    "url": "https://en.wikipedia.org/wiki/Ogata_K%C5%8Drin",
+    "work_url": "https://en.wikipedia.org/wiki/Red_and_White_Plum_Blossoms",
+    "style": "Bold patterned surfaces, flowing water, and stylized seasonal forms."
+  },
+  {
+    "name": "Qi Baishi",
+    "bio": "Chinese painter whose ink works find vitality in small natural subjects.",
+    "work": "Shrimps",
+    "url": "https://en.wikipedia.org/wiki/Qi_Baishi",
+    "work_url": "https://en.wikipedia.org/wiki/Qi_Baishi",
+    "style": "Economical brushwork, lively ink washes, and closely observed creatures."
+  },
+  {
+    "name": "Zhang Daqian",
+    "bio": "Chinese painter who combined classical mastery with experimental splashed ink.",
+    "work": "Mountains Clearing after Rain",
+    "url": "https://en.wikipedia.org/wiki/Zhang_Daqian",
+    "work_url": "https://en.wikipedia.org/wiki/Zhang_Daqian",
+    "style": "Sweeping ink, rich mineral color, and atmospheric mountain forms."
+  },
+  {
+    "name": "Xu Beihong",
+    "bio": "Chinese painter and educator who joined ink traditions with Western realism.",
+    "work": "Tian Heng and His Five Hundred Followers",
+    "url": "https://en.wikipedia.org/wiki/Xu_Beihong",
+    "work_url": "https://en.wikipedia.org/wiki/Xu_Beihong",
+    "style": "Anatomical observation, vigorous horses, and expressive ink drawing."
+  },
+  {
+    "name": "Fan Kuan",
+    "bio": "Northern Song Chinese landscape painter known for monumental mountain scenes.",
+    "work": "Travelers among Mountains and Streams",
+    "url": "https://en.wikipedia.org/wiki/Fan_Kuan",
+    "work_url": "https://en.wikipedia.org/wiki/Fan_Kuan",
+    "style": "Towering mountains, textured rock, and tiny human figures."
+  },
+  {
+    "name": "Guo Xi",
+    "bio": "Northern Song Chinese landscape painter and theorist.",
+    "work": "Early Spring",
+    "url": "https://en.wikipedia.org/wiki/Guo_Xi",
+    "work_url": "https://en.wikipedia.org/wiki/Early_Spring_%28painting%29",
+    "style": "Layered mountain spaces, misty distance, and sinuous tree forms."
+  },
+  {
+    "name": "An Gyeon",
+    "bio": "Joseon Korean court painter associated with classical landscape traditions.",
+    "work": "Dream Journey to the Peach Blossom Land",
+    "url": "https://en.wikipedia.org/wiki/An_Gyeon",
+    "work_url": "https://en.wikipedia.org/wiki/Dream_Journey_to_the_Peach_Blossom_Land",
+    "style": "Dreamlike mountain space, shifting viewpoints, and expressive ink texture."
+  },
+  {
+    "name": "Jeong Seon",
+    "bio": "Joseon Korean painter renowned for true-view landscapes of Korean scenery.",
+    "work": "Inwangjesaekdo",
+    "url": "https://en.wikipedia.org/wiki/Jeong_Seon",
+    "work_url": "https://en.wikipedia.org/wiki/Inwangjesaekdo",
+    "style": "Bold ink masses, specific mountain forms, and dramatic weather."
+  },
+  {
+    "name": "Kim Hong-do",
+    "bio": "Joseon Korean painter celebrated for lively scenes of everyday life.",
+    "work": "Danwon pungsokdo cheop",
+    "url": "https://en.wikipedia.org/wiki/Kim_Hong-do",
+    "work_url": "https://en.wikipedia.org/wiki/Danwon_pungsokdo_cheop",
+    "style": "Economical lines, animated gesture, and observant scenes of ordinary labor."
+  },
+  {
+    "name": "Shin Yun-bok",
+    "bio": "Joseon Korean painter known for genre scenes of social life.",
+    "work": "Portrait of a Beauty",
+    "url": "https://en.wikipedia.org/wiki/Shin_Yun-bok",
+    "work_url": "https://en.wikipedia.org/wiki/Portrait_of_a_Beauty",
+    "style": "Fine contours, delicate color, and attentive social observation."
+  },
+  {
+    "name": "Park Soo-keun",
+    "bio": "Korean painter whose work depicts ordinary people and postwar daily life.",
+    "work": "Tree and Two Women",
+    "url": "https://en.wikipedia.org/wiki/Park_Su-geun",
+    "work_url": "https://en.wikipedia.org/wiki/Park_Su-geun",
+    "style": "Granular surfaces, simplified figures, and muted earth colors."
+  },
+  {
+    "name": "Kim Whanki",
+    "bio": "Korean painter who moved from lyrical figuration to all-over abstraction.",
+    "work": "Universe 05-IV-71 #200",
+    "url": "https://en.wikipedia.org/wiki/Kim_Whanki",
+    "work_url": "https://en.wikipedia.org/wiki/Kim_Whanki",
+    "style": "Rhythmic dots, deep blue fields, and spacious lyrical abstraction."
+  },
+  {
+    "name": "Raja Ravi Varma",
+    "bio": "Indian painter who combined academic oil painting with Indian subjects.",
+    "work": "Shakuntala",
+    "url": "https://en.wikipedia.org/wiki/Raja_Ravi_Varma",
+    "work_url": "https://en.wikipedia.org/wiki/Shakuntala_%28Raja_Ravi_Varma%29",
+    "style": "Naturalistic figures, rich fabrics, and theatrical mythological storytelling."
+  },
+  {
+    "name": "Amrita Sher-Gil",
+    "bio": "Hungarian-born Indian painter who helped shape modern Indian art.",
+    "work": "Three Girls",
+    "url": "https://en.wikipedia.org/wiki/Amrita_Sher-Gil",
+    "work_url": "https://en.wikipedia.org/wiki/Three_Girls_%28painting%29",
+    "style": "Solid simplified figures, earthy color, and quiet psychological gravity."
+  },
+  {
+    "name": "Ben Enwonwu",
+    "bio": "Nigerian painter and sculptor who combined modernist forms with local traditions.",
+    "work": "Tutu",
+    "url": "https://en.wikipedia.org/wiki/Ben_Enwonwu",
+    "work_url": "https://en.wikipedia.org/wiki/Tutu_%28painting%29",
+    "style": "Elegant figuration, rhythmic line, and luminous portrait color."
+  },
+  {
+    "name": "Gerard Sekoto",
+    "bio": "South African painter and musician whose work depicts Black urban life.",
+    "work": "Song of the Pick",
+    "url": "https://en.wikipedia.org/wiki/Gerard_Sekoto",
+    "work_url": "https://en.wikipedia.org/wiki/Gerard_Sekoto",
+    "style": "Warm color, rhythmic figures, and humane scenes of everyday labor."
+  }
+]

@@ -1,0 +1,802 @@
+[
+  {
+    "name": "김소월 (Kim So-wol)",
+    "bio": "A foundational modern Korean lyric poet whose work draws on folk songs and the language of separation.",
+    "work": "진달래꽃",
+    "url": "https://ko.wikipedia.org/wiki/%EA%B9%80%EC%86%8C%EC%9B%94",
+    "work_url": "https://ko.wikipedia.org/wiki/%EC%A7%84%EB%8B%AC%EB%9E%98%EA%BD%83",
+    "style": "Songlike repetition, plain diction, traditional rhythms, and restrained grief turn absence into intimate lyric drama."
+  },
+  {
+    "name": "서정주 (Seo Jeong-ju)",
+    "bio": "A major twentieth-century Korean poet whose writing moves from bodily intensity toward Buddhist and mythic imagination.",
+    "work": "국화 옆에서",
+    "url": "https://ko.wikipedia.org/wiki/%EC%84%9C%EC%A0%95%EC%A3%BC",
+    "work_url": "https://ko.wikipedia.org/wiki/%EC%84%9C%EC%A0%95%EC%A3%BC",
+    "style": "Lush imagery, incantatory rhythms, folklore, and Buddhist reflection give ordinary life a mythic scale."
+  },
+  {
+    "name": "정지용 (Jeong Ji-yong)",
+    "bio": "A pioneering Korean modernist who refined the sensory language of modern Korean poetry.",
+    "work": "향수",
+    "url": "https://ko.wikipedia.org/wiki/%EC%A0%95%EC%A7%80%EC%9A%A9",
+    "work_url": "https://ko.wikipedia.org/wiki/%EC%A0%95%EC%A7%80%EC%9A%A9",
+    "style": "Precise visual and aural images, controlled musicality, and sharply observed landscapes carry longing without excessive explanation."
+  },
+  {
+    "name": "김수영 (Kim Su-yeong)",
+    "bio": "A Korean modernist and advocate of poetic freedom whose work engages everyday life and political oppression.",
+    "work": "풀",
+    "url": "https://ko.wikipedia.org/wiki/%EA%B9%80%EC%88%98%EC%98%81_(1921%EB%85%84)",
+    "work_url": "https://ko.wikipedia.org/wiki/%EA%B9%80%EC%88%98%EC%98%81_(1921%EB%85%84)",
+    "style": "Conversational free verse, abrupt turns, irony, and stubborn physical images link private unease to demands for freedom."
+  },
+  {
+    "name": "백석 (Baek Seok)",
+    "bio": "A Korean poet celebrated for preserving northern regional speech, food, customs, and communal memory.",
+    "work": "사슴",
+    "url": "https://ko.wikipedia.org/wiki/%EB%B0%B1%EC%84%9D",
+    "work_url": "https://ko.wikipedia.org/wiki/%EB%B0%B1%EC%84%9D",
+    "style": "Dialect, sensory detail, long rhythmic sentences, and remembered village life create a warm but displaced world."
+  },
+  {
+    "name": "한용운 (Han Yong-un)",
+    "bio": "A Buddhist monk, poet, and independence activist who joined spiritual inquiry with the struggle against colonial rule.",
+    "work": "님의 침묵",
+    "url": "https://ko.wikipedia.org/wiki/%ED%95%9C%EC%9A%A9%EC%9A%B4",
+    "work_url": "https://ko.wikipedia.org/wiki/%EB%8B%98%EC%9D%98_%EC%B9%A8%EB%AC%B5",
+    "style": "Paradox, devotional address, and meditative prose rhythms allow the absent beloved to suggest love, liberation, and enlightenment."
+  },
+  {
+    "name": "김춘수 (Kim Chun-su)",
+    "bio": "A Korean poet known for exploring naming, existence, and a poetics that loosens ordinary meaning.",
+    "work": "꽃",
+    "url": "https://ko.wikipedia.org/wiki/%EA%B9%80%EC%B6%98%EC%88%98",
+    "work_url": "https://ko.wikipedia.org/wiki/%EA%B9%80%EC%B6%98%EC%88%98",
+    "style": "Clear images and repeated phrases move from philosophical lyricism toward associative, meaning-resistant sequences."
+  },
+  {
+    "name": "이상 (Yi Sang)",
+    "bio": "An architect and experimental writer central to the Korean literary avant-garde of the colonial period.",
+    "work": "오감도",
+    "url": "https://ko.wikipedia.org/wiki/%EC%9D%B4%EC%83%81_(%EC%9E%91%EA%B0%80)",
+    "work_url": "https://ko.wikipedia.org/wiki/%EC%98%A4%EA%B0%90%EB%8F%84",
+    "style": "Numerals, fractured syntax, spatial arrangements, and unsettling repetitions turn the modern self into a psychological puzzle."
+  },
+  {
+    "name": "박목월 (Park Mok-wol)",
+    "bio": "A Korean lyric poet and member of the Cheongnok group, known for imagined rural landscapes.",
+    "work": "나그네",
+    "url": "https://ko.wikipedia.org/wiki/%EB%B0%95%EB%AA%A9%EC%9B%94",
+    "work_url": "https://ko.wikipedia.org/wiki/%EB%B0%95%EB%AA%A9%EC%9B%94",
+    "style": "Sparse musical lines, folk rhythms, and softened natural images create distance, quiet longing, and pastoral calm."
+  },
+  {
+    "name": "윤동주 (Yun Dong-ju)",
+    "bio": "A Korean poet of conscience who died in Japanese imprisonment before his first collection appeared.",
+    "work": "하늘과 바람과 별과 시",
+    "url": "https://ko.wikipedia.org/wiki/%EC%9C%A4%EB%8F%99%EC%A3%BC",
+    "work_url": "https://ko.wikipedia.org/wiki/%ED%95%98%EB%8A%98%EA%B3%BC_%EB%B0%94%EB%9E%8C%EA%B3%BC_%EB%B3%84%EA%B3%BC_%EC%8B%9C",
+    "style": "Plain, prayerlike language and images of stars, sky, and roads frame self-examination, shame, hope, and responsibility."
+  },
+  {
+    "name": "김영랑 (Kim Yeong-nang)",
+    "bio": "A Korean lyric poet associated with the Simunhak circle and the musical possibilities of Korean speech.",
+    "work": "모란이 피기까지는",
+    "url": "https://ko.wikipedia.org/wiki/%EA%B9%80%EC%98%81%EB%9E%91",
+    "work_url": "https://ko.wikipedia.org/wiki/%EA%B9%80%EC%98%81%EB%9E%91",
+    "style": "Delicate sound patterns, southern vernacular, and concentrated flower imagery balance radiant beauty with sorrow."
+  },
+  {
+    "name": "이육사 (Yi Yuk-sa)",
+    "bio": "A Korean independence activist and poet who repeatedly endured imprisonment under Japanese colonial rule.",
+    "work": "광야",
+    "url": "https://ko.wikipedia.org/wiki/%EC%9D%B4%EC%9C%A1%EC%82%AC",
+    "work_url": "https://ko.wikipedia.org/wiki/%EC%9D%B4%EC%9C%A1%EC%82%AC",
+    "style": "Firm declarative lines, vast landscapes, and prophetic images express endurance, moral resolve, and a future beyond oppression."
+  },
+  {
+    "name": "박인환 (Park In-hwan)",
+    "bio": "A postwar Korean modernist whose poems register the dislocation and melancholy of urban life.",
+    "work": "목마와 숙녀",
+    "url": "https://ko.wikipedia.org/wiki/%EB%B0%95%EC%9D%B8%ED%99%98_(%EC%8B%9C%EC%9D%B8)",
+    "work_url": "https://ko.wikipedia.org/wiki/%EB%B0%95%EC%9D%B8%ED%99%98_(%EC%8B%9C%EC%9D%B8)",
+    "style": "Cosmopolitan references, drifting urban images, elegiac speech, and romantic disillusion evoke a damaged postwar world."
+  },
+  {
+    "name": "김광균 (Kim Gwang-gyun)",
+    "bio": "A Korean modernist noted for developing a pictorial approach to poetry and the modern city.",
+    "work": "와사등",
+    "url": "https://ko.wikipedia.org/wiki/%EA%B9%80%EA%B4%91%EA%B7%A0",
+    "work_url": "https://ko.wikipedia.org/wiki/%EA%B9%80%EA%B4%91%EA%B7%A0",
+    "style": "Visual composition, color, lamplight, and urban scenery make loneliness visible through carefully arranged images."
+  },
+  {
+    "name": "김현승 (Kim Hyeon-seung)",
+    "bio": "A Korean poet whose Christian upbringing shaped a lifelong inquiry into solitude, faith, and human limits.",
+    "work": "가을의 기도",
+    "url": "https://ko.wikipedia.org/wiki/%EA%B9%80%ED%98%84%EC%8A%B9",
+    "work_url": "https://ko.wikipedia.org/wiki/%EA%B9%80%ED%98%84%EC%8A%B9",
+    "style": "Austere language, autumnal images, and reflective address transform loneliness into spiritual and ethical questioning."
+  },
+  {
+    "name": "노천명 (No Cheon-myeong)",
+    "bio": "A Korean poet and journalist known for lyrics of solitude and a proud, inward sensibility.",
+    "work": "사슴",
+    "url": "https://ko.wikipedia.org/wiki/%EB%85%B8%EC%B2%9C%EB%AA%85",
+    "work_url": "https://ko.wikipedia.org/wiki/%EB%85%B8%EC%B2%9C%EB%AA%85",
+    "style": "Restrained confession, clear natural images, and a reserved voice give loneliness and wounded dignity a precise shape."
+  },
+  {
+    "name": "고은 (Ko Un)",
+    "bio": "A prolific Korean poet whose work ranges from Buddhist-inflected lyrics to portraits of ordinary people.",
+    "work": "만인보",
+    "url": "https://ko.wikipedia.org/wiki/%EA%B3%A0%EC%9D%80",
+    "work_url": "https://ko.wikipedia.org/wiki/%EA%B3%A0%EC%9D%80",
+    "style": "Rapid shifts between spare insight and expansive storytelling animate remembered lives, landscapes, and collective history."
+  },
+  {
+    "name": "신경림 (Shin Gyeong-nim)",
+    "bio": "A Korean poet who brought rural workers, folk culture, and communal struggle into modern lyric poetry.",
+    "work": "농무",
+    "url": "https://ko.wikipedia.org/wiki/%EC%8B%A0%EA%B2%BD%EB%A6%BC",
+    "work_url": "https://ko.wikipedia.org/wiki/%EC%8B%A0%EA%B2%BD%EB%A6%BC",
+    "style": "Folk-song rhythms, plainspoken narrative, and collective voices give rural labor, hardship, and solidarity bodily force."
+  },
+  {
+    "name": "김남조 (Kim Nam-jo)",
+    "bio": "A Korean poet and educator known for poetry of love, Christian faith, and human solidarity.",
+    "work": "겨울 바다",
+    "url": "https://ko.wikipedia.org/wiki/%EA%B9%80%EB%82%A8%EC%A1%B0",
+    "work_url": "https://ko.wikipedia.org/wiki/%EA%B9%80%EB%82%A8%EC%A1%B0",
+    "style": "Warm direct address, prayerlike cadences, and images of light and warmth shape an affirmative yet suffering-aware lyric voice."
+  },
+  {
+    "name": "김지하 (Kim Ji-ha)",
+    "bio": "A Korean poet and dissident whose satire became closely associated with resistance to authoritarian rule.",
+    "work": "오적",
+    "url": "https://ko.wikipedia.org/wiki/%EA%B9%80%EC%A7%80%ED%95%98",
+    "work_url": "https://ko.wikipedia.org/wiki/%EA%B9%80%EC%A7%80%ED%95%98",
+    "style": "Pansori-like momentum, biting satire, vernacular energy, and public address expose injustice with dramatic force."
+  },
+  {
+    "name": "신동엽 (Shin Dong-yeop)",
+    "bio": "A Korean poet whose work connects national division, popular resistance, and the hope for renewal.",
+    "work": "껍데기는 가라",
+    "url": "https://ko.wikipedia.org/wiki/%EC%8B%A0%EB%8F%99%EC%97%BD_(%EC%8B%9C%EC%9D%B8)",
+    "work_url": "https://ko.wikipedia.org/wiki/%EC%8B%A0%EB%8F%99%EC%97%BD_(%EC%8B%9C%EC%9D%B8)",
+    "style": "Urgent repetition, earthy images, and historical vision strip away false appearances in search of communal dignity."
+  },
+  {
+    "name": "박재삼 (Park Jae-sam)",
+    "bio": "A Korean lyric poet who wrote of poverty, childhood, love, and the emotional inheritance of ordinary lives.",
+    "work": "울음이 타는 가을 강",
+    "url": "https://ko.wikipedia.org/wiki/%EB%B0%95%EC%9E%AC%EC%82%BC",
+    "work_url": "https://ko.wikipedia.org/wiki/%EB%B0%95%EC%9E%AC%EC%82%BC",
+    "style": "Traditional cadence, southern speech, and river or sea imagery hold grief within a clear, singing surface."
+  },
+  {
+    "name": "조지훈 (Jo Ji-hun)",
+    "bio": "A poet, scholar, and member of the Cheongnok group who explored Korean cultural traditions.",
+    "work": "승무",
+    "url": "https://ko.wikipedia.org/wiki/%EC%A1%B0%EC%A7%80%ED%9B%88",
+    "work_url": "https://ko.wikipedia.org/wiki/%EC%A1%B0%EC%A7%80%ED%9B%88",
+    "style": "Classical poise, measured musicality, and carefully staged movement join aesthetic beauty to historical and spiritual depth."
+  },
+  {
+    "name": "박두진 (Park Du-jin)",
+    "bio": "A Korean poet of the Cheongnok group whose nature poetry often carries Christian and historical aspirations.",
+    "work": "해",
+    "url": "https://ko.wikipedia.org/wiki/%EB%B0%95%EB%91%90%EC%A7%84",
+    "work_url": "https://ko.wikipedia.org/wiki/%EB%B0%95%EB%91%90%EC%A7%84",
+    "style": "Exclamatory rhythms, vivid mountains and sunlight, and a prophetic voice turn nature into a promise of renewal."
+  },
+  {
+    "name": "정호승 (Jeong Ho-seung)",
+    "bio": "A Korean poet whose accessible lyrics attend to loneliness, suffering, and the possibility of consolation.",
+    "work": "슬픔이 기쁨에게",
+    "url": "https://ko.wikipedia.org/wiki/%EC%A0%95%ED%98%B8%EC%8A%B9",
+    "work_url": "https://ko.wikipedia.org/wiki/%EC%A0%95%ED%98%B8%EC%8A%B9",
+    "style": "Simple direct speech, familiar images, and compassionate reversals allow sorrow to become a source of fellowship."
+  },
+  {
+    "name": "안도현 (An Do-hyeon)",
+    "bio": "A Korean poet and teacher known for finding moral and emotional significance in humble things.",
+    "work": "너에게 묻는다",
+    "url": "https://ko.wikipedia.org/wiki/%EC%95%88%EB%8F%84%ED%98%84",
+    "work_url": "https://ko.wikipedia.org/wiki/%EC%95%88%EB%8F%84%ED%98%84",
+    "style": "Conversational brevity, personified objects, and close attention to everyday labor open into quiet ethical questions."
+  },
+  {
+    "name": "김용택 (Kim Yong-taek)",
+    "bio": "A Korean poet and former village schoolteacher whose work is rooted in the Seomjin River region.",
+    "work": "섬진강",
+    "url": "https://ko.wikipedia.org/wiki/%EA%B9%80%EC%9A%A9%ED%83%9D",
+    "work_url": "https://ko.wikipedia.org/wiki/%EA%B9%80%EC%9A%A9%ED%83%9D",
+    "style": "Unadorned rural speech, close observation, and river landscapes join personal affection to the lives of neighbors."
+  },
+  {
+    "name": "도종환 (Do Jong-hwan)",
+    "bio": "A Korean poet, former teacher, and politician whose early elegies address the loss of his wife.",
+    "work": "접시꽃 당신",
+    "url": "https://ko.wikipedia.org/wiki/%EB%8F%84%EC%A2%85%ED%99%98",
+    "work_url": "https://ko.wikipedia.org/wiki/%EB%8F%84%EC%A2%85%ED%99%98",
+    "style": "Accessible diction, seasonal flowers, and patient repetition join intimate mourning to endurance and social concern."
+  },
+  {
+    "name": "나태주 (Na Tae-ju)",
+    "bio": "A Korean poet and former elementary-school teacher known for brief lyrics that invite attentive affection.",
+    "work": "풀꽃",
+    "url": "https://ko.wikipedia.org/wiki/%EB%82%98%ED%83%9C%EC%A3%BC_(%EC%8B%9C%EC%9D%B8)",
+    "work_url": "https://ko.wikipedia.org/wiki/%EB%82%98%ED%83%9C%EC%A3%BC_(%EC%8B%9C%EC%9D%B8)",
+    "style": "Short plainspoken lines, small natural subjects, and gentle turns of perception make tenderness feel immediate."
+  },
+  {
+    "name": "문정희 (Moon Jeong-hee)",
+    "bio": "A Korean poet whose work asserts female experience, bodily vitality, and independence.",
+    "work": "남자를 위하여",
+    "url": "https://ko.wikipedia.org/wiki/%EB%AC%B8%EC%A0%95%ED%9D%AC_(%EC%8B%9C%EC%9D%B8)",
+    "work_url": "https://ko.wikipedia.org/wiki/%EB%AC%B8%EC%A0%95%ED%9D%AC_(%EC%8B%9C%EC%9D%B8)",
+    "style": "Bold direct address, sensuous bodily images, and energetic irony challenge prescribed roles and celebrate desire."
+  },
+  {
+    "name": "황동규 (Hwang Dong-gyu)",
+    "bio": "A Korean poet and scholar of English literature known for reflective lyrics and extended poetic journeys.",
+    "work": "즐거운 편지",
+    "url": "https://ko.wikipedia.org/wiki/%ED%99%A9%EB%8F%99%EA%B7%9C",
+    "work_url": "https://ko.wikipedia.org/wiki/%ED%99%A9%EB%8F%99%EA%B7%9C",
+    "style": "Shifting perspectives, conversational movement, and exact landscape details let travel and memory become philosophical discovery."
+  },
+  {
+    "name": "기형도 (Ki Hyung-do)",
+    "bio": "A Korean poet and journalist whose posthumous first collection became a landmark of urban alienation.",
+    "work": "입 속의 검은 잎",
+    "url": "https://ko.wikipedia.org/wiki/%EA%B8%B0%ED%98%95%EB%8F%84",
+    "work_url": "https://ko.wikipedia.org/wiki/%EA%B8%B0%ED%98%95%EB%8F%84",
+    "style": "Shadowed city scenes, anxious narrative, and dreamlike dislocations create a haunted atmosphere of loss and isolation."
+  },
+  {
+    "name": "정현종 (Jung Hyun-jong)",
+    "bio": "A Korean poet and educator whose writing explores presence, relationship, and the vitality of being.",
+    "work": "방문객",
+    "url": "https://ko.wikipedia.org/wiki/%EC%A0%95%ED%98%84%EC%A2%85",
+    "work_url": "https://ko.wikipedia.org/wiki/%EC%A0%95%ED%98%84%EC%A2%85",
+    "style": "Airy brevity, lively metaphor, and sudden philosophical turns celebrate the depth of encounters and the freedom of things."
+  },
+  {
+    "name": "오규원 (O Gyu-won)",
+    "bio": "A Korean experimental poet and teacher who developed an approach centered on immediate perception.",
+    "work": "두두",
+    "url": "https://ko.wikipedia.org/wiki/%EC%98%A4%EA%B7%9C%EC%9B%90",
+    "work_url": "https://ko.wikipedia.org/wiki/%EC%98%A4%EA%B7%9C%EC%9B%90",
+    "style": "Precise visual relations, stripped language, and minimal explanation let things appear before familiar judgments settle on them."
+  },
+  {
+    "name": "이성복 (Lee Seong-bok)",
+    "bio": "A Korean poet and scholar of French literature whose work confronts damaged relationships and historical suffering.",
+    "work": "뒹구는 돌은 언제 잠 깨는가",
+    "url": "https://ko.wikipedia.org/wiki/%EC%9D%B4%EC%84%B1%EB%B3%B5",
+    "work_url": "https://ko.wikipedia.org/wiki/%EC%9D%B4%EC%84%B1%EB%B3%B5",
+    "style": "Jarring juxtapositions, intimate address, and scenes of bodily vulnerability make private pain disclose a wider fractured world."
+  },
+  {
+    "name": "황지우 (Hwang Ji-wu)",
+    "bio": "A Korean poet and artist whose experiments engage authoritarianism, mass culture, and everyday perception.",
+    "work": "새들도 세상을 뜨는구나",
+    "url": "https://ko.wikipedia.org/wiki/%ED%99%A9%EC%A7%80%EC%9A%B0",
+    "work_url": "https://ko.wikipedia.org/wiki/%ED%99%A9%EC%A7%80%EC%9A%B0",
+    "style": "Collage, typography, found language, and abrupt tonal changes interrupt ordinary scenes with political and existential pressure."
+  },
+  {
+    "name": "최승자 (Choi Seung-ja)",
+    "bio": "A Korean poet and translator whose unsparing lyrics transformed the language of alienation and female subjectivity.",
+    "work": "이 시대의 사랑",
+    "url": "https://ko.wikipedia.org/wiki/%EC%B5%9C%EC%8A%B9%EC%9E%90",
+    "work_url": "https://ko.wikipedia.org/wiki/%EC%B5%9C%EC%8A%B9%EC%9E%90",
+    "style": "Blunt confession, corrosive irony, bodily imagery, and emotional extremes give loneliness an uncompromising voice."
+  },
+  {
+    "name": "구상 (Ku Sang)",
+    "bio": "A Korean poet and journalist whose work reflects on war, faith, and ethical responsibility.",
+    "work": "초토의 시",
+    "url": "https://ko.wikipedia.org/wiki/%EA%B5%AC%EC%83%81_(%EC%8B%9C%EC%9D%B8)",
+    "work_url": "https://ko.wikipedia.org/wiki/%EA%B5%AC%EC%83%81_(%EC%8B%9C%EC%9D%B8)",
+    "style": "Plain narrative, biblical resonance, and meditative attention to daily life connect historical suffering with spiritual accountability."
+  },
+  {
+    "name": "허영자 (Heo Yeong-ja)",
+    "bio": "A Korean poet and educator known for compressed lyrics of love, sorrow, and spiritual reflection.",
+    "work": "자수",
+    "url": "https://ko.wikipedia.org/wiki/%ED%97%88%EC%98%81%EC%9E%90",
+    "work_url": "https://ko.wikipedia.org/wiki/%ED%97%88%EC%98%81%EC%9E%90",
+    "style": "Restrained diction, compact musical form, and images of craft and nature contain intense feeling within careful limits."
+  },
+  {
+    "name": "이근배 (Lee Geun-bae)",
+    "bio": "A Korean poet who has worked in both free verse and the traditional sijo form.",
+    "work": "사랑을 연주하는 꽃나무",
+    "url": "https://ko.wikipedia.org/wiki/%EC%9D%B4%EA%B7%BC%EB%B0%B0",
+    "work_url": "https://ko.wikipedia.org/wiki/%EC%9D%B4%EA%B7%BC%EB%B0%B0",
+    "style": "Polished cadence, tactile cultural images, and concentrated lyric turns connect personal feeling with historical memory."
+  },
+  {
+    "name": "김종해 (Kim Jong-hae)",
+    "bio": "A Korean poet and publisher whose writing moves between modernist unease and resilient human warmth.",
+    "work": "항해일지",
+    "url": "https://ko.wikipedia.org/wiki/%EA%B9%80%EC%A2%85%ED%95%B4_(%EC%8B%9C%EC%9D%B8)",
+    "work_url": "https://ko.wikipedia.org/wiki/%EA%B9%80%EC%A2%85%ED%95%B4_(%EC%8B%9C%EC%9D%B8)",
+    "style": "Surreal combinations, sea imagery, and a searching lyric voice turn adversity toward freedom and renewal."
+  },
+  {
+    "name": "이건청 (Lee Geon-cheong)",
+    "bio": "A Korean poet and educator whose writing brings inward lyric reflection into contact with ecological and prehistoric worlds.",
+    "work": "실라캔스를 찾아서",
+    "url": "https://ko.wikipedia.org/wiki/%EC%9D%B4%EA%B1%B4%EC%B2%AD",
+    "work_url": "https://ko.wikipedia.org/wiki/%EC%9D%B4%EA%B1%B4%EC%B2%AD",
+    "style": "Concrete natural images, reflective narrative, and deep historical perspectives explore endangered life and the self."
+  },
+  {
+    "name": "오세영 (O Se-yeong)",
+    "bio": "A Korean poet and literary scholar whose work investigates desire, existence, and Buddhist thought.",
+    "work": "무명연시",
+    "url": "https://ko.wikipedia.org/wiki/%EC%98%A4%EC%84%B8%EC%98%81_(%EC%8B%9C%EC%9D%B8)",
+    "work_url": "https://ko.wikipedia.org/wiki/%EC%98%A4%EC%84%B8%EC%98%81_(%EC%8B%9C%EC%9D%B8)",
+    "style": "Controlled lyric form, paradox, and recurring natural symbols give existential questions a lucid, meditative shape."
+  },
+  {
+    "name": "신달자 (Shin Dal-ja)",
+    "bio": "A Korean poet and essayist whose writing explores womanhood, family, bereavement, and renewal.",
+    "work": "종이",
+    "url": "https://ko.wikipedia.org/wiki/%EC%8B%A0%EB%8B%AC%EC%9E%90",
+    "work_url": "https://ko.wikipedia.org/wiki/%EC%8B%A0%EB%8B%AC%EC%9E%90",
+    "style": "Candid emotional speech, tactile domestic details, and images of endurance turn personal wounds toward compassion."
+  },
+  {
+    "name": "최동호 (Choi Dong-ho)",
+    "bio": "A Korean poet, critic, and educator whose work joins contemplative lyricism with attention to living things.",
+    "work": "불꽃 비단벌레",
+    "url": "https://ko.wikipedia.org/wiki/%EC%B5%9C%EB%8F%99%ED%98%B8_(%EC%8B%9C%EC%9D%B8)",
+    "work_url": "https://ko.wikipedia.org/wiki/%EC%B5%9C%EB%8F%99%ED%98%B8_(%EC%8B%9C%EC%9D%B8)",
+    "style": "Compressed images, Buddhist-inflected reflection, and close observation seek flashes of life within ordinary objects."
+  },
+  {
+    "name": "유자효 (Yu Ja-hyo)",
+    "bio": "A Korean poet and broadcaster whose lyric work reflects on love, memory, and human vulnerability.",
+    "work": "성 수요일의 저녁",
+    "url": "https://ko.wikipedia.org/wiki/%EC%9C%A0%EC%9E%90%ED%9A%A8",
+    "work_url": "https://ko.wikipedia.org/wiki/%EC%9C%A0%EC%9E%90%ED%9A%A8",
+    "style": "Clear musical language, restrained sorrow, and familiar scenes build intimate reflections on attachment and passing time."
+  },
+  {
+    "name": "유안진 (Yu An-jin)",
+    "bio": "A Korean poet, essayist, and scholar whose writing spans lyric poetry and reflections on relationships.",
+    "work": "달하",
+    "url": "https://ko.wikipedia.org/wiki/%EC%9C%A0%EC%95%88%EC%A7%84",
+    "work_url": "https://ko.wikipedia.org/wiki/%EC%9C%A0%EC%95%88%EC%A7%84",
+    "style": "Supple musical phrasing, intimate address, and symbolic natural images carry longing, friendship, and self-discovery."
+  },
+  {
+    "name": "김광규 (Kim Kwang-gyu)",
+    "bio": "A Korean poet and German-literature scholar known for exposing social habits through ordinary language.",
+    "work": "우리를 적시는 마지막 꿈",
+    "url": "https://ko.wikipedia.org/wiki/%EA%B9%80%EA%B4%91%EA%B7%9C_(%EC%8B%9C%EC%9D%B8)",
+    "work_url": "https://ko.wikipedia.org/wiki/%EA%B9%80%EA%B4%91%EA%B7%9C_(%EC%8B%9C%EC%9D%B8)",
+    "style": "Plain narrative, everyday scenes, and understated irony reveal conformity, compromised ideals, and the absurdities of modern life."
+  },
+  {
+    "name": "마종기 (Ma Jong-gi)",
+    "bio": "A Korean poet and physician whose writing draws on medicine, migration, and the fragility of life.",
+    "work": "안 보이는 사랑의 나라",
+    "url": "https://ko.wikipedia.org/wiki/%EB%A7%88%EC%A2%85%EA%B8%B0",
+    "work_url": "https://ko.wikipedia.org/wiki/%EB%A7%88%EC%A2%85%EA%B8%B0",
+    "style": "Quiet conversational lines, bodily observation, and restrained tenderness connect mortality with memory and distant attachments."
+  },
+  {
+    "name": "오상순 (O Sang-sun)",
+    "bio": "An early modern Korean poet associated with the literary journal Pyeheo and a life of wandering.",
+    "work": "방랑의 마음",
+    "url": "https://ko.wikipedia.org/wiki/%EC%98%A4%EC%83%81%EC%88%9C",
+    "work_url": "https://ko.wikipedia.org/wiki/%EC%98%A4%EC%83%81%EC%88%9C",
+    "style": "Expansive contemplation, images of wandering, and a tension between emptiness and cosmic vitality shape a searching voice."
+  },
+  {
+    "name": "김동환 (Kim Dong-hwan)",
+    "bio": "A Korean poet and editor who helped establish the modern Korean narrative poem.",
+    "work": "국경의 밤",
+    "url": "https://ko.wikipedia.org/wiki/%EA%B9%80%EB%8F%99%ED%99%98_%28%EC%9E%91%EA%B0%80%29",
+    "work_url": "https://ko.wikipedia.org/wiki/%EA%B5%AD%EA%B2%BD%EC%9D%98_%EB%B0%A4",
+    "style": "Broad narrative movement, northern landscapes, and folk-inflected rhythms make individual hardship part of a larger social scene."
+  },
+  {
+    "name": "김종삼 (Kim Jong-sam)",
+    "bio": "A Korean poet known for spare, elliptical poems shaped by music, art, and memories of war.",
+    "work": "북치는 소년",
+    "url": "https://ko.wikipedia.org/wiki/%EA%B9%80%EC%A2%85%EC%82%BC",
+    "work_url": "https://ko.wikipedia.org/wiki/%EA%B9%80%EC%A2%85%EC%82%BC",
+    "style": "Omission, broken transitions, and small luminous scenes suggest an inaccessible world of beauty beyond deprivation."
+  },
+  {
+    "name": "김혜순 (Kim Hye-soon)",
+    "bio": "A Korean poet and essayist whose experimental work explores the female body, death, and collective trauma.",
+    "work": "죽음의 자서전",
+    "url": "https://ko.wikipedia.org/wiki/%EA%B9%80%ED%98%9C%EC%88%9C",
+    "work_url": "https://ko.wikipedia.org/wiki/%EA%B9%80%ED%98%9C%EC%88%9C",
+    "style": "Surreal bodily transformations, polyphonic voices, and unsettling humor dismantle stable identities and conventional lyric speech."
+  },
+  {
+    "name": "황인숙 (Hwang In-suk)",
+    "bio": "A Korean poet whose writing pays close attention to city streets, solitude, and overlooked lives.",
+    "work": "슬픔이 나를 깨운다",
+    "url": "https://ko.wikipedia.org/wiki/%ED%99%A9%EC%9D%B8%EC%88%99",
+    "work_url": "https://ko.wikipedia.org/wiki/%ED%99%A9%EC%9D%B8%EC%88%99",
+    "style": "Conversational agility, sudden humor, and quick urban images turn vulnerability and affection into restless lyric movement."
+  },
+  {
+    "name": "강은교 (Kang Eun-gyo)",
+    "bio": "A Korean poet and educator whose work connects mortality, emptiness, and the bonds among living beings.",
+    "work": "허무집",
+    "url": "https://ko.wikipedia.org/wiki/%EA%B0%95%EC%9D%80%EA%B5%90",
+    "work_url": "https://ko.wikipedia.org/wiki/%EA%B0%95%EC%9D%80%EA%B5%90",
+    "style": "Incantatory repetition, spare visionary images, and collective voices move between existential desolation and solidarity."
+  },
+  {
+    "name": "곽재구 (Kwak Jae-gu)",
+    "bio": "A Korean poet known for lyrical portraits of ordinary people and marginalized places.",
+    "work": "사평역에서",
+    "url": "https://ko.wikipedia.org/wiki/%EA%B3%BD%EC%9E%AC%EA%B5%AC",
+    "work_url": "https://ko.wikipedia.org/wiki/%EA%B3%BD%EC%9E%AC%EA%B5%AC",
+    "style": "Warm narrative, sensory local detail, and a measured elegiac rhythm discover dignity in waiting, labor, and small communities."
+  },
+  {
+    "name": "이성부 (Lee Seong-bu)",
+    "bio": "A Korean poet whose work joins social commitment with an enduring attention to mountains and walking.",
+    "work": "벼",
+    "url": "https://ko.wikipedia.org/wiki/%EC%9D%B4%EC%84%B1%EB%B6%80",
+    "work_url": "https://ko.wikipedia.org/wiki/%EC%9D%B4%EC%84%B1%EB%B6%80",
+    "style": "Earthy diction, strong natural images, and patient physical movement express collective endurance and ethical determination."
+  },
+  {
+    "name": "천양희 (Cheon Yang-hui)",
+    "bio": "A Korean poet whose writing transforms isolation and suffering into intense acts of perception.",
+    "work": "직소포에 들다",
+    "url": "https://ko.wikipedia.org/wiki/%EC%B2%9C%EC%96%91%ED%9D%AC",
+    "work_url": "https://ko.wikipedia.org/wiki/%EC%B2%9C%EC%96%91%ED%9D%AC",
+    "style": "Concentrated images, forceful internal rhythms, and searching questions turn private anguish into attention to the wider world."
+  },
+  {
+    "name": "허수경 (Heo Su-gyeong)",
+    "bio": "A Korean poet and archaeologist who lived in Germany and wrote of exile, memory, and historical wounds.",
+    "work": "혼자 가는 먼 집",
+    "url": "https://ko.wikipedia.org/wiki/%ED%97%88%EC%88%98%EA%B2%BD_(%EC%8B%9C%EC%9D%B8)",
+    "work_url": "https://ko.wikipedia.org/wiki/%ED%97%88%EC%88%98%EA%B2%BD_(%EC%8B%9C%EC%9D%B8)",
+    "style": "Earthy southern speech, bodily images, and intimate address make distance and dispossession feel physically present."
+  },
+  {
+    "name": "나희덕 (Na Hee-deok)",
+    "bio": "A Korean poet and educator whose work closely observes growth, vulnerability, and relationships.",
+    "work": "뿌리에게",
+    "url": "https://ko.wikipedia.org/wiki/%EB%82%98%ED%9D%AC%EB%8D%95",
+    "work_url": "https://ko.wikipedia.org/wiki/%EB%82%98%ED%9D%AC%EB%8D%95",
+    "style": "Restrained musical language, plant imagery, and attentive shifts of perspective give ordinary life ethical and emotional depth."
+  },
+  {
+    "name": "최영미 (Choi Yeong-mi)",
+    "bio": "A Korean poet and novelist whose first collection examined disillusionment after the political struggles of the 1980s.",
+    "work": "서른, 잔치는 끝났다",
+    "url": "https://ko.wikipedia.org/wiki/%EC%B5%9C%EC%98%81%EB%AF%B8_(%EC%8B%9C%EC%9D%B8)",
+    "work_url": "https://ko.wikipedia.org/wiki/%EC%B5%9C%EC%98%81%EB%AF%B8_(%EC%8B%9C%EC%9D%B8)",
+    "style": "Direct colloquial speech, sharp irony, and frank accounts of desire and disappointment question public ideals and private compromises."
+  },
+  {
+    "name": "이문재 (Lee Mun-jae)",
+    "bio": "A Korean poet and journalist whose work considers modern speed, ecological damage, and the practice of attention.",
+    "work": "산책시편",
+    "url": "https://ko.wikipedia.org/wiki/%EC%9D%B4%EB%AC%B8%EC%9E%AC_(%EC%8B%9C%EC%9D%B8)",
+    "work_url": "https://ko.wikipedia.org/wiki/%EC%9D%B4%EB%AC%B8%EC%9E%AC_(%EC%8B%9C%EC%9D%B8)",
+    "style": "Walking rhythms, reflective questions, and ordinary landscapes slow perception and expose the pressures of contemporary life."
+  },
+  {
+    "name": "문태준 (Moon Tae-jun)",
+    "bio": "A Korean poet whose work brings rural memory and Buddhist sensibility into contemporary lyric poetry.",
+    "work": "맨발",
+    "url": "https://ko.wikipedia.org/wiki/%EB%AC%B8%ED%83%9C%EC%A4%80_(%EC%8B%9C%EC%9D%B8)",
+    "work_url": "https://ko.wikipedia.org/wiki/%EB%AC%B8%ED%83%9C%EC%A4%80_(%EC%8B%9C%EC%9D%B8)",
+    "style": "Quiet precise images, patient observation, and gentle associations reveal shared vulnerability among people and other living beings."
+  },
+  {
+    "name": "손택수 (Son Taek-su)",
+    "bio": "A Korean poet whose writing connects rural childhood, urban displacement, and working lives.",
+    "work": "호랑이 발자국",
+    "url": "https://ko.wikipedia.org/wiki/%EC%86%90%ED%83%9D%EC%88%98",
+    "work_url": "https://ko.wikipedia.org/wiki/%EC%86%90%ED%83%9D%EC%88%98",
+    "style": "Tactile images, supple vernacular, and unexpected transformations connect family memory with animals, plants, and labor."
+  },
+  {
+    "name": "김기택 (Kim Ki-taek)",
+    "bio": "A Korean poet known for closely examining bodies, animals, and the pressures of routine urban existence.",
+    "work": "사무원",
+    "url": "https://ko.wikipedia.org/wiki/%EA%B9%80%EA%B8%B0%ED%83%9D_(%EC%8B%9C%EC%9D%B8)",
+    "work_url": "https://ko.wikipedia.org/wiki/%EA%B9%80%EA%B8%B0%ED%83%9D_(%EC%8B%9C%EC%9D%B8)",
+    "style": "Microscopic observation, unsettling bodily detail, and dry irony expose violence and constraint inside familiar movements."
+  },
+  {
+    "name": "이승훈 (Lee Seung-hun)",
+    "bio": "A Korean experimental poet and critic who questioned the stability of language, objects, and the poetic self.",
+    "work": "사물들",
+    "url": "https://ko.wikipedia.org/wiki/%EC%9D%B4%EC%8A%B9%ED%9B%88_(%EC%8B%9C%EC%9D%B8)",
+    "work_url": "https://ko.wikipedia.org/wiki/%EC%9D%B4%EC%8A%B9%ED%9B%88_(%EC%8B%9C%EC%9D%B8)",
+    "style": "Fragmentation, repetition, and self-questioning language unsettle ordinary categories and blur the boundary between poetry and daily life."
+  },
+  {
+    "name": "김종길 (Kim Jong-gil)",
+    "bio": "A Korean poet and English-literature scholar known for exact, restrained lyric craft.",
+    "work": "성탄제",
+    "url": "https://ko.wikipedia.org/wiki/%EA%B9%80%EC%A2%85%EA%B8%B8",
+    "work_url": "https://ko.wikipedia.org/wiki/%EA%B9%80%EC%A2%85%EA%B8%B8",
+    "style": "Clear sensory detail, disciplined cadence, and emotionally measured recollection let concrete scenes carry affection and loss."
+  },
+  {
+    "name": "송찬호 (Song Chan-ho)",
+    "bio": "A Korean poet whose work develops an imaginative world of animals, objects, and transformed landscapes.",
+    "work": "흙은 사각형의 기억을 갖고 있다",
+    "url": "https://ko.wikipedia.org/wiki/%EC%86%A1%EC%B0%AC%ED%98%B8",
+    "work_url": "https://ko.wikipedia.org/wiki/%EC%86%A1%EC%B0%AC%ED%98%B8",
+    "style": "Surreal metamorphosis, fablelike movement, and playful verbal precision make the familiar uncanny and newly visible."
+  },
+  {
+    "name": "문인수 (Moon In-su)",
+    "bio": "A Korean poet whose late literary debut preceded sustained writing about ordinary people, loss, and endurance.",
+    "work": "쉬!",
+    "url": "https://ko.wikipedia.org/wiki/%EB%AC%B8%EC%9D%B8%EC%88%98",
+    "work_url": "https://ko.wikipedia.org/wiki/%EB%AC%B8%EC%9D%B8%EC%88%98",
+    "style": "Spare conversational lines, sharply caught gestures, and sudden emotional turns find large griefs in small daily events."
+  },
+  {
+    "name": "하종오 (Ha Jong-o)",
+    "bio": "A Korean poet whose work has addressed rural life, historical violence, and the experiences of migrants.",
+    "work": "벼는 벼끼리 피는 피끼리",
+    "url": "https://ko.wikipedia.org/wiki/%ED%95%98%EC%A2%85%EC%98%A4",
+    "work_url": "https://ko.wikipedia.org/wiki/%ED%95%98%EC%A2%85%EC%98%A4",
+    "style": "Plain narrative, concrete labor scenes, and shifting social perspectives insist on the dignity of excluded people."
+  },
+  {
+    "name": "이재무 (Lee Jae-mu)",
+    "bio": "A Korean poet and educator whose writing attends to rural memory and the friction of everyday life.",
+    "work": "섣달그믐",
+    "url": "https://ko.wikipedia.org/wiki/%EC%9D%B4%EC%9E%AC%EB%AC%B4",
+    "work_url": "https://ko.wikipedia.org/wiki/%EC%9D%B4%EC%9E%AC%EB%AC%B4",
+    "style": "Earthy diction, sensuous observation, and colloquial turns make ordinary objects reveal desire, hardship, and stubborn vitality."
+  },
+  {
+    "name": "심보선 (Shim Bo-seon)",
+    "bio": "A Korean poet and sociologist whose writing investigates loneliness, community, and the possibility of human connection.",
+    "work": "슬픔이 없는 십오 초",
+    "url": "https://ko.wikipedia.org/wiki/%EC%8B%AC%EB%B3%B4%EC%84%A0",
+    "work_url": "https://ko.wikipedia.org/wiki/%EC%8B%AC%EB%B3%B4%EC%84%A0",
+    "style": "Conversational reasoning, ironic detours, and unexpected tenderness bring philosophical questions into ordinary encounters."
+  },
+  {
+    "name": "김소연 (Kim So-yeon)",
+    "bio": "A Korean poet and essayist known for precise language about intimacy, memory, and estrangement.",
+    "work": "극에 달하다",
+    "url": "https://ko.wikipedia.org/wiki/%EA%B9%80%EC%86%8C%EC%97%B0_(%EC%8B%9C%EC%9D%B8)",
+    "work_url": "https://ko.wikipedia.org/wiki/%EA%B9%80%EC%86%8C%EC%97%B0_(%EC%8B%9C%EC%9D%B8)",
+    "style": "Careful verbal distinctions, spare images, and oblique address reveal the distances hidden inside familiar relationships."
+  },
+  {
+    "name": "김경주 (Kim Gyeong-ju)",
+    "bio": "A Korean poet and playwright whose work moves across poetry, performance, and theatrical language.",
+    "work": "나는 이 세상에 없는 계절이다",
+    "url": "https://ko.wikipedia.org/wiki/%EA%B9%80%EA%B2%BD%EC%A3%BC_(%EC%8B%9C%EC%9D%B8)",
+    "work_url": "https://ko.wikipedia.org/wiki/%EA%B9%80%EA%B2%BD%EC%A3%BC_(%EC%8B%9C%EC%9D%B8)",
+    "style": "Dreamlike leaps, unstable speakers, and intense sensory associations create a restless world of displacement and impossible encounters."
+  },
+  {
+    "name": "이병률 (Lee Byeong-ryul)",
+    "bio": "A Korean poet and travel essayist whose work explores solitude, movement, and fleeting relationships.",
+    "work": "당신은 어딘가로 가려 한다",
+    "url": "https://ko.wikipedia.org/wiki/%EC%9D%B4%EB%B3%91%EB%A5%A0",
+    "work_url": "https://ko.wikipedia.org/wiki/%EC%9D%B4%EB%B3%91%EB%A5%A0",
+    "style": "Intimate address, spare travel images, and emotional ellipsis make departure and chance encounters resonate with longing."
+  },
+  {
+    "name": "박형준 (Park Hyeong-jun)",
+    "bio": "A Korean poet and educator whose writing reflects on childhood, poverty, and the persistence of memory.",
+    "work": "나는 이제 소멸에 대해서 이야기하련다",
+    "url": "https://ko.wikipedia.org/wiki/%EB%B0%95%ED%98%95%EC%A4%80_(1966%EB%85%84)",
+    "work_url": "https://ko.wikipedia.org/wiki/%EB%B0%95%ED%98%95%EC%A4%80_(1966%EB%85%84)",
+    "style": "Delicate sensory images, quiet narrative, and attention to fading traces make absence and memory physically palpable."
+  },
+  {
+    "name": "장석남 (Jang Seok-nam)",
+    "bio": "A Korean poet whose work renews lyric poetry through intimate observations and musical association.",
+    "work": "새떼들에게로의 망명",
+    "url": "https://ko.wikipedia.org/wiki/%EC%9E%A5%EC%84%9D%EB%82%A8",
+    "work_url": "https://ko.wikipedia.org/wiki/%EC%9E%A5%EC%84%9D%EB%82%A8",
+    "style": "Fluid images, subtle rhythm, and unexpected links among ordinary things create quiet wonder and emotional depth."
+  },
+  {
+    "name": "김상용 (Kim Sang-yong)",
+    "bio": "A Korean poet, translator, and scholar of English literature known for restrained pastoral lyrics.",
+    "work": "남으로 창을 내겠소",
+    "url": "https://ko.wikipedia.org/wiki/%EA%B9%80%EC%83%81%EC%9A%A9_(%EC%8B%9C%EC%9D%B8)",
+    "work_url": "https://ko.wikipedia.org/wiki/%EA%B9%80%EC%83%81%EC%9A%A9_(%EC%8B%9C%EC%9D%B8)",
+    "style": "Plain balanced phrasing, modest rural scenes, and understated humor suggest contentment beyond worldly ambition."
+  },
+  {
+    "name": "주요한 (Ju Yo-han)",
+    "bio": "An early modern Korean poet, journalist, and politician who helped introduce new forms of vernacular poetry.",
+    "work": "불놀이",
+    "url": "https://ko.wikipedia.org/wiki/%EC%A3%BC%EC%9A%94%ED%95%9C",
+    "work_url": "https://ko.wikipedia.org/wiki/%EC%A3%BC%EC%9A%94%ED%95%9C",
+    "style": "Sensory intensity, emotional directness, and flexible prose-poem rhythms break from inherited poetic conventions."
+  },
+  {
+    "name": "김동명 (Kim Dong-myeong)",
+    "bio": "A Korean poet and essayist whose lyrics frequently join natural imagery to longing and inward feeling.",
+    "work": "내 마음은",
+    "url": "https://ko.wikipedia.org/wiki/%EA%B9%80%EB%8F%99%EB%AA%85_(%EC%8B%9C%EC%9D%B8)",
+    "work_url": "https://ko.wikipedia.org/wiki/%EA%B9%80%EB%8F%99%EB%AA%85_(%EC%8B%9C%EC%9D%B8)",
+    "style": "Songlike repetition, direct metaphor, and lucid natural symbols give private emotion a readily memorable form."
+  },
+  {
+    "name": "조병화 (Jo Byeong-hwa)",
+    "bio": "A Korean poet and educator whose prolific lyric writing reflects on solitude, love, and transience.",
+    "work": "버리고 싶은 유산",
+    "url": "https://ko.wikipedia.org/wiki/%EC%A1%B0%EB%B3%91%ED%99%94",
+    "work_url": "https://ko.wikipedia.org/wiki/%EC%A1%B0%EB%B3%91%ED%99%94",
+    "style": "Accessible speech, recurring images of clouds and journeys, and gentle reflection make loneliness a companion of daily life."
+  },
+  {
+    "name": "박남수 (Park Nam-su)",
+    "bio": "A Korean poet who experienced national division and later emigrated to the United States.",
+    "work": "새",
+    "url": "https://ko.wikipedia.org/wiki/%EB%B0%95%EB%82%A8%EC%88%98",
+    "work_url": "https://ko.wikipedia.org/wiki/%EB%B0%95%EB%82%A8%EC%88%98",
+    "style": "Exact visual images, compressed language, and symbolic birds or light investigate perception, freedom, and the limits of innocence."
+  },
+  {
+    "name": "김달진 (Kim Dal-jin)",
+    "bio": "A Korean poet and translator of classical Chinese and Buddhist texts whose poetry seeks contemplative clarity.",
+    "work": "청시",
+    "url": "https://ko.wikipedia.org/wiki/%EA%B9%80%EB%8B%AC%EC%A7%84",
+    "work_url": "https://ko.wikipedia.org/wiki/%EA%B9%80%EB%8B%AC%EC%A7%84",
+    "style": "Quiet natural observation, spare imagery, and Buddhist and Daoist reflection dissolve the division between observer and world."
+  },
+  {
+    "name": "이형기 (Lee Hyeong-gi)",
+    "bio": "A Korean poet and critic whose work moved from traditional lyricism toward darker experimental forms.",
+    "work": "낙화",
+    "url": "https://ko.wikipedia.org/wiki/%EC%9D%B4%ED%98%95%EA%B8%B0",
+    "work_url": "https://ko.wikipedia.org/wiki/%EC%9D%B4%ED%98%95%EA%B8%B0",
+    "style": "Controlled lyric cadence gives way to grotesque images and irony, while transience and self-erasure remain recurring concerns."
+  },
+  {
+    "name": "정철 (Jeong Cheol)",
+    "bio": "A Joseon statesman and poet celebrated for long vernacular gasa and sijo.",
+    "work": "관동별곡",
+    "url": "https://ko.wikipedia.org/wiki/%EC%A0%95%EC%B2%A0",
+    "work_url": "https://ko.wikipedia.org/wiki/%EA%B4%80%EB%8F%99%EB%B3%84%EA%B3%A1",
+    "style": "Rolling gasa rhythms, richly staged landscapes, and courtly address combine personal feeling with political and moral aspiration."
+  },
+  {
+    "name": "윤선도 (Yun Seon-do)",
+    "bio": "A Joseon scholar, official, and poet whose sijo cycles explore life among mountains, rivers, and the sea.",
+    "work": "어부사시사",
+    "url": "https://ko.wikipedia.org/wiki/%EC%9C%A4%EC%84%A0%EB%8F%84",
+    "work_url": "https://ko.wikipedia.org/wiki/%EC%96%B4%EB%B6%80%EC%82%AC%EC%8B%9C%EC%82%AC",
+    "style": "Seasonal structure, recurring refrains, and precise natural images give withdrawal from public life a buoyant musical form."
+  },
+  {
+    "name": "황진이 (Hwang Jin-i)",
+    "bio": "A sixteenth-century gisaeng and poet remembered for exceptional literary skill and sijo of desire and separation.",
+    "work": "동짓달 기나긴 밤을",
+    "url": "https://ko.wikipedia.org/wiki/%ED%99%A9%EC%A7%84%EC%9D%B4",
+    "work_url": "https://ko.wikipedia.org/wiki/%ED%99%A9%EC%A7%84%EC%9D%B4",
+    "style": "Compressed three-part movement, ingenious metaphor, and poised wit give longing and emotional independence memorable shape."
+  },
+  {
+    "name": "허난설헌 (Heo Nan-seol-heon)",
+    "bio": "A sixteenth-century Joseon poet whose classical Chinese verse gained readership beyond Korea after her death.",
+    "work": "난설헌집",
+    "url": "https://ko.wikipedia.org/wiki/%ED%97%88%EB%82%9C%EC%84%A4%ED%97%8C",
+    "work_url": "https://ko.wikipedia.org/wiki/%EB%82%9C%EC%84%A4%ED%97%8C%EC%A7%91",
+    "style": "Refined classical imagery, imagined immortal realms, and intimate laments express frustrated talent, grief, and longing."
+  },
+  {
+    "name": "박인로 (Park In-no)",
+    "bio": "A Joseon soldier and poet known for gasa that explore duty, poverty, and rural life.",
+    "work": "누항사",
+    "url": "https://ko.wikipedia.org/wiki/%EB%B0%95%EC%9D%B8%EB%A1%9C",
+    "work_url": "https://ko.wikipedia.org/wiki/%EB%B0%95%EC%9D%B8%EB%A1%9C",
+    "style": "Extended vernacular rhythms, concrete rustic details, and Confucian reflection bring material hardship into sustained moral inquiry."
+  },
+  {
+    "name": "송순 (Song Sun)",
+    "bio": "A Joseon official and poet whose retirement landscape became the setting for influential gasa.",
+    "work": "면앙정가",
+    "url": "https://ko.wikipedia.org/wiki/%EC%86%A1%EC%88%9C",
+    "work_url": "https://ko.wikipedia.org/wiki/%EC%86%A1%EC%88%9C",
+    "style": "Flowing catalogues of scenery, balanced seasonal images, and a spacious viewpoint celebrate cultivated life in nature."
+  },
+  {
+    "name": "이황 (Yi Hwang)",
+    "bio": "A Joseon Neo-Confucian philosopher and educator whose poetry unites learning with life in nature.",
+    "work": "도산십이곡",
+    "url": "https://ko.wikipedia.org/wiki/%EC%9D%B4%ED%99%A9",
+    "work_url": "https://ko.wikipedia.org/wiki/%EB%8F%84%EC%82%B0%EC%8B%AD%EC%9D%B4%EA%B3%A1",
+    "style": "Ordered sijo sequences, mountain-and-stream imagery, and quiet exhortation connect self-cultivation with attentive perception."
+  },
+  {
+    "name": "이이 (Yi I)",
+    "bio": "A Joseon Neo-Confucian philosopher and statesman whose sijo also explore scholarly life in the landscape.",
+    "work": "고산구곡가",
+    "url": "https://ko.wikipedia.org/wiki/%EC%9D%B4%EC%9D%B4",
+    "work_url": "https://ko.wikipedia.org/wiki/%EA%B3%A0%EC%82%B0%EA%B5%AC%EA%B3%A1%EA%B0%80",
+    "style": "Structured landscape sequences, clear seasonal images, and measured moral reflection make nature a setting for learning."
+  },
+  {
+    "name": "정몽주 (Jeong Mong-ju)",
+    "bio": "A late Goryeo scholar and diplomat remembered for loyalty to the dynasty and his assassination during its fall.",
+    "work": "단심가",
+    "url": "https://ko.wikipedia.org/wiki/%EC%A0%95%EB%AA%BD%EC%A3%BC",
+    "work_url": "https://ko.wikipedia.org/wiki/%EB%8B%A8%EC%8B%AC%EA%B0%80",
+    "style": "Compact sijo argument, emphatic repetition, and images of bodily destruction express unwavering ethical resolve."
+  },
+  {
+    "name": "김삿갓 (Kim Sat-gat)",
+    "bio": "The pen name of Kim Byeong-yeon, a wandering nineteenth-century poet famed for satirical classical Chinese verse.",
+    "work": "김립시집",
+    "url": "https://ko.wikipedia.org/wiki/%EA%B9%80%EB%B3%91%EC%97%B0",
+    "work_url": "https://ko.wikipedia.org/wiki/%EA%B9%80%EB%B3%91%EC%97%B0",
+    "style": "Puns, double meanings, sharp reversals, and irreverent social observation expose pretension and delight in verbal surprise."
+  },
+  {
+    "name": "정약용 (Jeong Yak-yong)",
+    "bio": "A Joseon scholar of practical learning and official whose poetry records exile, poverty, and social injustice.",
+    "work": "애절양",
+    "url": "https://ko.wikipedia.org/wiki/%EC%A0%95%EC%95%BD%EC%9A%A9",
+    "work_url": "https://ko.wikipedia.org/wiki/%EC%A0%95%EC%95%BD%EC%9A%A9",
+    "style": "Concrete narrative, compassionate observation, and classical discipline turn individual suffering into a critique of unjust institutions."
+  },
+  {
+    "name": "이색 (Yi Saek)",
+    "bio": "A late Goryeo scholar, educator, and poet who helped transmit Neo-Confucian learning.",
+    "work": "목은시고",
+    "url": "https://ko.wikipedia.org/wiki/%EC%9D%B4%EC%83%89",
+    "work_url": "https://ko.wikipedia.org/wiki/%EC%9D%B4%EC%83%89",
+    "style": "Classical Chinese forms, historical reflection, and restrained landscape observation join scholarly discipline with dynastic melancholy."
+  },
+  {
+    "name": "김천택 (Kim Cheon-taek)",
+    "bio": "A Joseon singer, sijo poet, and compiler whose anthology helped preserve the Korean song tradition.",
+    "work": "청구영언",
+    "url": "https://ko.wikipedia.org/wiki/%EA%B9%80%EC%B2%9C%ED%83%9D",
+    "work_url": "https://ko.wikipedia.org/wiki/%EC%B2%AD%EA%B5%AC%EC%98%81%EC%96%B8",
+    "style": "Balanced sijo phrasing, conversational wit, and natural images make song a vehicle for feeling and social observation."
+  },
+  {
+    "name": "성삼문 (Seong Sam-mun)",
+    "bio": "A Joseon scholar and poet executed after an attempt to restore the deposed King Danjong.",
+    "work": "이 몸이 죽어 가서",
+    "url": "https://ko.wikipedia.org/wiki/%EC%84%B1%EC%82%BC%EB%AC%B8",
+    "work_url": "https://ko.wikipedia.org/wiki/%EC%84%B1%EC%82%BC%EB%AC%B8",
+    "style": "Compact sijo structure, steadfast declarative speech, and resilient natural symbols make loyalty the organizing emotional force."
+  },
+  {
+    "name": "김시습 (Kim Si-seup)",
+    "bio": "A Joseon poet, scholar, and Buddhist monk who lived outside official service after King Sejo seized the throne.",
+    "work": "매월당집",
+    "url": "https://ko.wikipedia.org/wiki/%EA%B9%80%EC%8B%9C%EC%8A%B5",
+    "work_url": "https://ko.wikipedia.org/wiki/%EA%B9%80%EC%8B%9C%EC%8A%B5",
+    "style": "Classical Chinese verse, wandering landscapes, Buddhist reflection, and moral unease express an independent, unsettled spirit."
+  },
+  {
+    "name": "윤석산 (Yun Seok-san)",
+    "bio": "A Korean poet and scholar of Donghak and Cheondoism whose work revisits folklore and ordinary urban lives.",
+    "work": "바다 속의 램프",
+    "url": "https://library.ltikorea.or.kr/writer/201077",
+    "work_url": "https://library.ltikorea.or.kr/writer/201077",
+    "style": "Reimagined traditional figures, reflective everyday scenes, and compassionate attention to overlooked people join historical memory with daily experience."
+  }
+]

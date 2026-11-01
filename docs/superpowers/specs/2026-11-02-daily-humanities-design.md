@@ -38,6 +38,26 @@ Investigation: backends._build_prompt explicitly asks for TWO poems with indepen
 generated titles. No parser validates translation correspondence. image._build_image_prompt
 always asks for atmospheric, soft, abstract painterly output and chooses no artist.
 
+## Approved local-first revision
+
+The user subsequently requested local repositories and approved automatic fast-forward
+updates for clean main checkouts. Discover the four configured local roots (including
+root checkouts and their immediate child repos/worktrees), pair them by GitHub origin,
+filter the three organizations and deduplicate by canonical remote plus commit SHA.
+Read local branches, origin tracking branches and detached HEADs. Local mode does not
+require a GitHub API token. Current inventory: 70 checkouts, 44 distinct repositories
+(27 qo-kr, 14 genideas-secure-labs, 3 k-gen-food).
+
+Only clean main checkouts may fetch and fast-forward. Never change a feature/detached
+checkout, stash changes, rebase or automatically resolve conflicts. Divergence, access
+failure and in-progress Git operations must be logged and skipped. Existing local
+history remains usable. The existing daily wrapper enables this approved update mode.
+
+Model poems use arrays of lines; legacy multiline strings are also accepted. OpenAI uses
+a strict JSON schema. The application preserves the literal commit anchor in both titles
+and renders the same combined bilingual title above both translations. One bounded
+validation repair request is allowed; a second invalid response fails without posting.
+
 Initial verification: 263 pytest tests passed. Ruff reports six pre-existing unused
 imports/variables in tests. Actual configured GitHub token lists 85 qo-kr repositories,
 34 genideas-secure-labs repositories, and zero visible k-gen-food repositories (HTTP 200).

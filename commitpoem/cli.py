@@ -4,13 +4,16 @@ import logging
 import sys
 from collections.abc import Callable
 from datetime import datetime, timezone
+from pathlib import Path
 
 import click
 
 from commitpoem.backends import LLMBackend, get_backend
+from commitpoem.catalog import Profile, select_daily
 from commitpoem.config import AppConfig, ConfigError, resolve_config
 from commitpoem.github_client import GitHubAPIError, GitHubAuthError, fetch_commits, fetch_org_commits
 from commitpoem.image import ImageGenError, generate_image
+from commitpoem.local_git import fetch_local_commits
 from commitpoem.poem import generate_poem
 from commitpoem.scheduler import run_scheduler
 from commitpoem.slack import SlackWebhookError, post_image, post_poem
@@ -55,7 +58,7 @@ def _parse_datetime(value: str) -> datetime:
     return dt
 
 
-def _deliver(config: AppConfig, poem: str, *, with_image: bool) -> None:
+def _deliver(config: AppConfig, poem: str, *, with_image: bool, painter: Profile | None = None) -> None:
     """Deliver *poem* to Slack, with an accompanying image when configured.
 
     When *with_image* is set and both ``slack_bot_token`` and ``slack_channel`` are
@@ -65,7 +68,9 @@ def _deliver(config: AppConfig, poem: str, *, with_image: bool) -> None:
     """
     if with_image and config.slack_bot_token and config.slack_channel:
         try:
-            image = generate_image(poem)
+            # The educational notes and quotation are not illustration instructions.
+            artwork_text = poem.split("*Behind the poem", 1)[0]
+            image = generate_image(artwork_text, painter=painter)
             post_image(
                 config.slack_bot_token,
                 config.slack_channel,
@@ -82,18 +87,20 @@ def _deliver(config: AppConfig, poem: str, *, with_image: bool) -> None:
 def _make_pipeline(
     config: AppConfig,
     repo: str | None,
-    org: str | None,
+    org: tuple[str, ...],
     since: datetime,
     until: datetime,
     *,
     with_image: bool,
+    local_roots: tuple[Path, ...] = (),
+    update_main: bool = False,
 ) -> Callable[[], None]:
     """Create a zero-argument pipeline callable that runs the full commit-poem workflow.
 
     Args:
         config: Resolved application configuration.
         repo: Repository in 'owner/repo' format, or None if using --org.
-        org: GitHub org login name, or None if using --repo.
+        org: GitHub organization logins; in local mode these filter paired origins.
         since: Start of the time range (timezone-aware).
         until: End of the time range (timezone-aware).
         with_image: Whether to attempt image generation + upload (when configured).
@@ -103,13 +110,18 @@ def _make_pipeline(
     """
 
     def pipeline() -> None:
-        if org is not None:
-            commits = fetch_org_commits(config.github_token, org, since, until)
+        poet, painter = select_daily()
+        if local_roots:
+            commits = fetch_local_commits(list(local_roots), since, until, organizations=org, sync_main=update_main)
+        elif org:
+            commits = []
+            for organization in dict.fromkeys(org):
+                commits.extend(fetch_org_commits(config.github_token, organization, since, until))
         else:
             commits = fetch_commits(config.github_token, repo, since, until)
         backend: LLMBackend = get_backend(config.llm_backend, config.llm_api_key)
-        poem = generate_poem(commits, backend, config.llm_model)
-        _deliver(config, poem, with_image=with_image)
+        poem = generate_poem(commits, backend, config.llm_model, poet=poet, painter=painter)
+        _deliver(config, poem, with_image=with_image, painter=painter)
 
     return pipeline
 
@@ -118,7 +130,7 @@ def _run_once_with_error_handling(pipeline: Callable[[], None]) -> None:
     """Run the pipeline once, handling known error types with exit-1 and logging others.
 
     - GitHubAuthError, GitHubAPIError, SlackWebhookError → print to stderr, sys.exit(1).
-    - Other Exception → logged at ERROR level (no traceback printed to user), exit 0.
+    - Other Exception → logged at ERROR level with traceback, sys.exit(1).
     - KeyboardInterrupt / SystemExit → propagate normally.
 
     Args:
@@ -137,11 +149,16 @@ def _run_once_with_error_handling(pipeline: Callable[[], None]) -> None:
         sys.exit(1)
     except Exception:
         logger.error("Pipeline raised an exception", exc_info=True)
+        sys.exit(1)
 
 
 @click.command()
 @click.option("--repo", default=None, help="GitHub repository in 'owner/repo' format.")
-@click.option("--org", default=None, help="GitHub organization login (fetches all repos under the org).")
+@click.option("--org", multiple=True, help="GitHub organization login; repeat to combine several organizations.")
+@click.option("--local-root", multiple=True, type=click.Path(exists=True, file_okay=False, path_type=Path),
+              help="Read local Git checkouts under this directory; repeat for multiple roots. --org filters owners.")
+@click.option("--update-main", is_flag=True,
+              help="In local mode, fetch and fast-forward clean main checkouts only; skip dirty/diverged branches.")
 @click.option("--since", "since_str", required=True, help="Start of time range (ISO 8601).")
 @click.option("--until", "until_str", required=True, help="End of time range (ISO 8601).")
 @click.option("--github-token", default=None, help="GitHub personal access token (env: GITHUB_TOKEN).")
@@ -168,7 +185,9 @@ def _run_once_with_error_handling(pipeline: Callable[[], None]) -> None:
 )
 def main(
     repo: str | None,
-    org: str | None,
+    org: tuple[str, ...],
+    local_root: tuple[Path, ...],
+    update_main: bool,
     since_str: str,
     until_str: str,
     github_token: str | None,
@@ -183,12 +202,16 @@ def main(
 ) -> None:
     """Generate a poem from recent GitHub commits and post it to Slack."""
     _load_dotenv()
+    logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
 
-    if repo is None and org is None:
-        click.echo("Error: one of --repo or --org is required.", err=True)
+    if repo is None and not org and not local_root:
+        click.echo("Error: one of --repo, --org or --local-root is required.", err=True)
         sys.exit(1)
-    if repo is not None and org is not None:
-        click.echo("Error: --repo and --org are mutually exclusive.", err=True)
+    if repo is not None and (org or local_root):
+        click.echo("Error: --repo and --org/--local-root are mutually exclusive.", err=True)
+        sys.exit(1)
+    if update_main and not local_root:
+        click.echo("Error: --update-main requires --local-root.", err=True)
         sys.exit(1)
 
     # Parse datetimes
@@ -204,6 +227,10 @@ def main(
         click.echo(f"Error: --until: {exc}", err=True)
         sys.exit(1)
 
+    if since > until:
+        click.echo("Error: --since must not be after --until.", err=True)
+        sys.exit(1)
+
     # Resolve configuration (handles env-var fallback and validation)
     try:
         config = resolve_config(
@@ -214,6 +241,7 @@ def main(
             llm_model=llm_model,
             slack_bot_token=slack_bot_token,
             slack_channel=slack_channel,
+            require_github=not bool(local_root),
         )
     except ConfigError as exc:
         msg = str(exc)
@@ -226,7 +254,8 @@ def main(
             click.echo(f"Error: {msg}", err=True)
         sys.exit(1)
 
-    pipeline = _make_pipeline(config, repo, org, since, until, with_image=with_image)
+    pipeline = _make_pipeline(config, repo, org, since, until, with_image=with_image,
+                              local_roots=local_root, update_main=update_main)
 
     if schedule is not None:
         # Scheduled (looping) mode
