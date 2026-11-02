@@ -65,6 +65,26 @@ def _write_png(
 
 
 class TestHelpers:
+    def test_poem_subjects_take_priority_over_painters_usual_subjects(self) -> None:
+        from commitpoem.catalog import PAINTERS
+
+        painter = next(person for person in PAINTERS if person.name == "Mary Cassatt")
+        poem = "A forest of whispering leaves and knotted branches, a path returning to itself."
+        prompt = _build_image_prompt(poem, painter=painter)
+        assert poem in prompt
+        assert "The poem determines the scene and subjects" in prompt
+        assert "not the painter's usual subjects" in prompt
+        assert "Do not add people" in prompt
+
+    def test_prompt_uses_selected_painters_specific_technique(self) -> None:
+        from commitpoem.catalog import PAINTERS
+
+        painter = PAINTERS[0]
+        prompt = _build_image_prompt(POEM, painter=painter)
+        assert painter.name in prompt and painter.style in prompt
+        assert "Soft and abstract is welcome" not in prompt
+        assert "untrusted" in prompt.lower()
+
     def test_parse_thread_id_found(self) -> None:
         assert _parse_thread_id(_stdout()) == THREAD_ID
 

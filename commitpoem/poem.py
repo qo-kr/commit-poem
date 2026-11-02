@@ -1,27 +1,38 @@
 from __future__ import annotations
 
 from commitpoem.backends import LLMBackend
+from commitpoem.catalog import Profile, select_daily
+from commitpoem.edition import Publication, parse_edition, render_edition
+from commitpoem.quotations import select_quote
 
 
-def generate_poem(commits: list[str], backend: LLMBackend, model: str) -> str:
-    """Generate a poem from commit messages using the given backend and model.
+def generate_publication(
+    commits: list[str], backend: LLMBackend, model: str,
+    *, poet: Profile | None = None, painter: Profile | None = None,
+) -> Publication:
+    """Generate and validate the main edition and its explanatory thread.
 
-    Delegates unconditionally to ``backend.generate_poem(commits, model)``.  When
-    *commits* is empty the backend's prompt builder substitutes ``(no commits)``
-    automatically, so no special branching is required here.
-
-    Args:
-        commits: List of git commit message strings (may be empty).
-        backend: An :class:`~commitpoem.backends.LLMBackend` implementation.
-        model:   Model identifier forwarded as-is to the backend.
-
-    Returns:
-        A non-empty poem string produced by the backend.
-
-    Raises:
-        ValueError: If the backend returns an empty or whitespace-only string.
+    Optional profiles let a caller freeze the day's selection across text generation
+    and image delivery, even when processing crosses midnight. Invalid model output
+    raises ValueError before any delivery occurs.
     """
-    result: str = backend.generate_poem(commits, model)
-    if not result.strip():
-        raise ValueError("backend returned an empty poem")
-    return result
+    if poet is None or painter is None:
+        daily_poet, daily_painter = select_daily()
+        poet = poet or daily_poet
+        painter = painter or daily_painter
+    result = backend.generate_poem(commits, model, poet=poet)
+    try:
+        edition = parse_edition(result, commits)
+    except ValueError as exc:
+        # One bounded repair attempt; malformed content is never delivered.
+        result = backend.generate_poem(commits, model, poet=poet, feedback=str(exc))
+        edition = parse_edition(result, commits)
+    return render_edition(edition, poet, painter, select_quote(commits))
+
+
+def generate_poem(
+    commits: list[str], backend: LLMBackend, model: str,
+    *, poet: Profile | None = None, painter: Profile | None = None,
+) -> str:
+    """Return the channel text; use generate_publication for its thread and artwork."""
+    return generate_publication(commits, backend, model, poet=poet, painter=painter).text

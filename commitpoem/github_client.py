@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import logging
 import re
 from datetime import datetime, timezone
 
@@ -14,6 +15,11 @@ class GitHubAPIError(Exception):
     """Raised on all non-auth GitHub API failures and network errors."""
 
 
+class GitHubRepositoryUnavailable(GitHubAPIError):
+    """A repository disappeared or has no git history; collection may continue."""
+
+
+logger = logging.getLogger(__name__)
 _API_BASE = "https://api.github.com"
 
 
@@ -90,7 +96,7 @@ def fetch_org_repos(token: str, org: str) -> list[str]:
     repos: list[str] = []
     while url is not None:
         try:
-            response = requests.get(url, headers=headers, params=params)
+            response = requests.get(url, headers=headers, params=params, timeout=30)
         except requests.exceptions.RequestException as e:
             raise GitHubAPIError(f"Network error while fetching repos for {org}: {e}") from e
         if response.status_code == 401:
@@ -99,9 +105,18 @@ def fetch_org_repos(token: str, org: str) -> list[str]:
             raise GitHubAPIError(
                 f"GitHub API error for org {org}: HTTP {response.status_code} — {response.text}"
             )
-        repos.extend(item["full_name"] for item in response.json())
+        try:
+            repos.extend(item["full_name"] for item in response.json())
+        except (ValueError, KeyError, TypeError) as exc:
+            raise GitHubAPIError(f"Invalid repository list returned for org {org}") from exc
         url = _parse_next_link(response.headers.get("Link"))
         params = None
+    if repos:
+        logger.info("GitHub organization %s: %d visible repositories", org, len(repos))
+    else:
+        logger.warning(
+            "GitHub organization %s: 0 visible repositories; check organization contents and token access", org,
+        )
     return repos
 
 
@@ -126,8 +141,9 @@ def fetch_org_commits(token: str, org: str, since: datetime, until: datetime) ->
     for repo in repos:
         try:
             all_messages.extend(fetch_commits(token, repo, since, until))
-        except GitHubAPIError:
-            pass  # skip repos that are inaccessible (e.g. private without permission)
+        except GitHubRepositoryUnavailable as exc:
+            logger.warning("Skipping unavailable repository %s: %s", repo, exc)
+    logger.info("GitHub organization %s: collected %d commits", org, len(all_messages))
     return all_messages
 
 
@@ -166,7 +182,7 @@ def fetch_commits(token: str, repo: str, since: datetime, until: datetime) -> li
 
     while url is not None:
         try:
-            response = requests.get(url, headers=headers, params=params)
+            response = requests.get(url, headers=headers, params=params, timeout=30)
         except requests.exceptions.RequestException as e:
             raise GitHubAPIError(f"Network error while fetching commits for {repo}: {e}") from e
 
@@ -175,7 +191,14 @@ def fetch_commits(token: str, repo: str, since: datetime, until: datetime) -> li
                 f"Authentication failed for {repo}: invalid or missing token"
             )
         if response.status_code == 404:
-            raise GitHubAPIError(f"Repository not found: {repo}")
+            raise GitHubRepositoryUnavailable(f"Repository not found: {repo}")
+        if response.status_code == 409:
+            try:
+                empty = response.json().get("message") == "Git Repository is empty."
+            except (ValueError, AttributeError):
+                empty = False
+            if empty:
+                raise GitHubRepositoryUnavailable(f"Repository has no commits: {repo}")
         if not response.ok:
             raise GitHubAPIError(
                 f"GitHub API error for {repo}: HTTP {response.status_code} — {response.text}"

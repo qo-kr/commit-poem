@@ -64,6 +64,7 @@ def resolve_config(
     llm_model: str | None = None,
     slack_bot_token: str | None = None,
     slack_channel: str | None = None,
+    require_github: bool = True,
 ) -> AppConfig:
     """Resolve all application configuration from CLI arguments and environment variables.
 
@@ -78,6 +79,7 @@ def resolve_config(
         llm_model: CLI-provided LLM model name.
         slack_bot_token: CLI-provided Slack bot token (optional; enables image upload).
         slack_channel: CLI-provided Slack channel ID (optional; enables image upload).
+        require_github: Require the API token; False for local Git collection.
 
     Returns:
         An AppConfig instance with all fields populated.
@@ -88,7 +90,7 @@ def resolve_config(
     missing: list[str] = []
 
     resolved_token = _resolve("GITHUB_TOKEN", github_token, required=True)
-    if resolved_token is None:
+    if resolved_token is None and require_github:
         missing.append("GITHUB_TOKEN")
 
     resolved_webhook = _resolve("SLACK_WEBHOOK_URL", slack_webhook_url, required=True)
@@ -120,7 +122,7 @@ def resolve_config(
     resolved_channel = _resolve("SLACK_CHANNEL", slack_channel, required=False)
 
     return AppConfig(
-        github_token=resolved_token,
+        github_token=resolved_token or "",
         slack_webhook_url=resolved_webhook,
         llm_api_key=resolved_api_key,
         llm_backend=resolved_backend,

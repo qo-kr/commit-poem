@@ -1,0 +1,802 @@
+[
+  {
+    "name": "William Shakespeare",
+    "bio": "English Renaissance playwright and sonneteer.",
+    "work": "Sonnets",
+    "url": "https://en.wikipedia.org/wiki/William_Shakespeare",
+    "work_url": "https://en.wikipedia.org/wiki/Shakespeare%27s_sonnets",
+    "style": "Dramatic turns, metaphor, and tightly argued sonnets."
+  },
+  {
+    "name": "Emily Dickinson",
+    "bio": "American poet whose compressed lyrics explore mortality and inward life.",
+    "work": "Because I could not stop for Death",
+    "url": "https://en.wikipedia.org/wiki/Emily_Dickinson",
+    "work_url": "https://en.wikipedia.org/wiki/Because_I_could_not_stop_for_Death",
+    "style": "Slant rhyme, dashes, paradox, and startling compression."
+  },
+  {
+    "name": "Robert Frost",
+    "bio": "American poet of New England landscapes and difficult human choices.",
+    "work": "The Road Not Taken",
+    "url": "https://en.wikipedia.org/wiki/Robert_Frost",
+    "work_url": "https://en.wikipedia.org/wiki/The_Road_Not_Taken",
+    "style": "Conversational meter, rural images, and unsettled conclusions."
+  },
+  {
+    "name": "Walt Whitman",
+    "bio": "American poet who expanded the possibilities of free verse.",
+    "work": "Leaves of Grass",
+    "url": "https://en.wikipedia.org/wiki/Walt_Whitman",
+    "work_url": "https://en.wikipedia.org/wiki/Leaves_of_Grass",
+    "style": "Expansive free verse, bodily imagery, and democratic catalogues."
+  },
+  {
+    "name": "Edgar Allan Poe",
+    "bio": "American poet and fiction writer associated with Gothic literature.",
+    "work": "The Raven",
+    "url": "https://en.wikipedia.org/wiki/Edgar_Allan_Poe",
+    "work_url": "https://en.wikipedia.org/wiki/The_Raven",
+    "style": "Incantatory rhyme, musical repetition, and Gothic atmosphere."
+  },
+  {
+    "name": "Maya Angelou",
+    "bio": "American poet and memoirist whose writing affirms Black resilience.",
+    "work": "And Still I Rise",
+    "url": "https://en.wikipedia.org/wiki/Maya_Angelou",
+    "work_url": "https://en.wikipedia.org/wiki/And_Still_I_Rise",
+    "style": "Direct address, rhythmic repetition, and defiant affirmation."
+  },
+  {
+    "name": "Langston Hughes",
+    "bio": "American Harlem Renaissance poet shaped by blues and jazz.",
+    "work": "The Weary Blues",
+    "url": "https://en.wikipedia.org/wiki/Langston_Hughes",
+    "work_url": "https://en.wikipedia.org/wiki/The_Weary_Blues",
+    "style": "Blues rhythms, colloquial speech, and Black everyday experience."
+  },
+  {
+    "name": "Sylvia Plath",
+    "bio": "American poet whose intense lyrics transform personal experience.",
+    "work": "Ariel",
+    "url": "https://en.wikipedia.org/wiki/Sylvia_Plath",
+    "work_url": "https://en.wikipedia.org/wiki/Ariel_%28poetry_collection%29",
+    "style": "Confessional intensity, sharp imagery, and controlled formal energy."
+  },
+  {
+    "name": "T.S. Eliot",
+    "bio": "American-born British modernist poet and critic.",
+    "work": "The Waste Land",
+    "url": "https://en.wikipedia.org/wiki/T._S._Eliot",
+    "work_url": "https://en.wikipedia.org/wiki/The_Waste_Land",
+    "style": "Fragmented voices, allusion, and urban spiritual unease."
+  },
+  {
+    "name": "E.E. Cummings",
+    "bio": "American poet and visual artist who experimented with typography.",
+    "work": "Tulips and Chimneys",
+    "url": "https://en.wikipedia.org/wiki/E._E._Cummings",
+    "work_url": "https://en.wikipedia.org/wiki/Tulips_and_Chimneys",
+    "style": "Broken syntax, playful typography, and intimate lyric surprise."
+  },
+  {
+    "name": "Wallace Stevens",
+    "bio": "American modernist poet concerned with imagination and reality.",
+    "work": "Harmonium",
+    "url": "https://en.wikipedia.org/wiki/Wallace_Stevens",
+    "work_url": "https://en.wikipedia.org/wiki/Harmonium_%28poetry_collection%29",
+    "style": "Meditative abstraction, sensuous images, and philosophical wit."
+  },
+  {
+    "name": "Allen Ginsberg",
+    "bio": "American Beat poet who joined personal witness to public protest.",
+    "work": "Howl",
+    "url": "https://en.wikipedia.org/wiki/Allen_Ginsberg",
+    "work_url": "https://en.wikipedia.org/wiki/Allen_Ginsberg",
+    "style": "Breath-length lines, accumulative imagery, and prophetic candor."
+  },
+  {
+    "name": "Ezra Pound",
+    "bio": "American modernist poet central to Imagism.",
+    "work": "In a Station of the Metro",
+    "url": "https://en.wikipedia.org/wiki/Ezra_Pound",
+    "work_url": "https://en.wikipedia.org/wiki/In_a_Station_of_the_Metro",
+    "style": "Precise images, compression, allusion, and juxtaposition."
+  },
+  {
+    "name": "Carl Sandburg",
+    "bio": "American poet who celebrated workers and urban life.",
+    "work": "Chicago Poems",
+    "url": "https://en.wikipedia.org/wiki/Carl_Sandburg",
+    "work_url": "https://en.wikipedia.org/wiki/Chicago_Poems",
+    "style": "Plainspoken free verse, public voices, and industrial landscapes."
+  },
+  {
+    "name": "Mary Oliver",
+    "bio": "American poet known for close attention to the natural world.",
+    "work": "American Primitive",
+    "url": "https://en.wikipedia.org/wiki/Mary_Oliver",
+    "work_url": "https://en.wikipedia.org/wiki/Mary_Oliver",
+    "style": "Clear observation, quiet questions, and nature-centered revelation."
+  },
+  {
+    "name": "Anne Sexton",
+    "bio": "American confessional poet who examined mental illness and domestic life.",
+    "work": "Live or Die",
+    "url": "https://en.wikipedia.org/wiki/Anne_Sexton",
+    "work_url": "https://en.wikipedia.org/wiki/Anne_Sexton",
+    "style": "Intimate disclosure, dark humor, and charged domestic imagery."
+  },
+  {
+    "name": "Edna St. Vincent Millay",
+    "bio": "American lyric poet and accomplished writer of sonnets.",
+    "work": "Renascence and Other Poems",
+    "url": "https://en.wikipedia.org/wiki/Edna_St._Vincent_Millay",
+    "work_url": "https://en.wikipedia.org/wiki/Edna_St._Vincent_Millay",
+    "style": "Musical formal verse, emotional candor, and independence."
+  },
+  {
+    "name": "Henry Wadsworth Longfellow",
+    "bio": "American nineteenth-century poet and translator.",
+    "work": "The Song of Hiawatha",
+    "url": "https://en.wikipedia.org/wiki/Henry_Wadsworth_Longfellow",
+    "work_url": "https://en.wikipedia.org/wiki/The_Song_of_Hiawatha",
+    "style": "Narrative song, strong meter, and memorable refrains."
+  },
+  {
+    "name": "Ralph Waldo Emerson",
+    "bio": "American essayist and poet associated with Transcendentalism.",
+    "work": "Brahma",
+    "url": "https://en.wikipedia.org/wiki/Ralph_Waldo_Emerson",
+    "work_url": "https://en.wikipedia.org/wiki/Brahma_%28poem%29",
+    "style": "Philosophical paradox, nature symbolism, and spiritual self-reliance."
+  },
+  {
+    "name": "Shel Silverstein",
+    "bio": "American poet, illustrator, and songwriter for children and adults.",
+    "work": "Where the Sidewalk Ends",
+    "url": "https://en.wikipedia.org/wiki/Shel_Silverstein",
+    "work_url": "https://en.wikipedia.org/wiki/Where_the_Sidewalk_Ends",
+    "style": "Playful rhyme, absurd situations, and tender reversals."
+  },
+  {
+    "name": "Oscar Wilde",
+    "bio": "Irish poet and dramatist associated with aestheticism.",
+    "work": "The Ballad of Reading Gaol",
+    "url": "https://en.wikipedia.org/wiki/Oscar_Wilde",
+    "work_url": "https://en.wikipedia.org/wiki/The_Ballad_of_Reading_Gaol",
+    "style": "Lyrical repetition, moral feeling, and polished verbal wit."
+  },
+  {
+    "name": "William Butler Yeats",
+    "bio": "Irish poet whose work joins national myth and modern uncertainty.",
+    "work": "The Second Coming",
+    "url": "https://en.wikipedia.org/wiki/W._B._Yeats",
+    "work_url": "https://en.wikipedia.org/wiki/The_Second_Coming_%28poem%29",
+    "style": "Symbolic landscapes, incantation, and visionary historical patterns."
+  },
+  {
+    "name": "John Keats",
+    "bio": "English Romantic poet attentive to beauty and mortality.",
+    "work": "Ode to a Nightingale",
+    "url": "https://en.wikipedia.org/wiki/John_Keats",
+    "work_url": "https://en.wikipedia.org/wiki/Ode_to_a_Nightingale",
+    "style": "Sensuous imagery, musical odes, and suspended longing."
+  },
+  {
+    "name": "William Blake",
+    "bio": "English poet, painter, and visionary printmaker.",
+    "work": "Songs of Innocence and of Experience",
+    "url": "https://en.wikipedia.org/wiki/William_Blake",
+    "work_url": "https://en.wikipedia.org/wiki/Songs_of_Innocence_and_of_Experience",
+    "style": "Songlike simplicity, prophetic symbols, and social critique."
+  },
+  {
+    "name": "William Wordsworth",
+    "bio": "English Romantic poet of memory and the natural world.",
+    "work": "I Wandered Lonely as a Cloud",
+    "url": "https://en.wikipedia.org/wiki/William_Wordsworth",
+    "work_url": "https://en.wikipedia.org/wiki/I_Wandered_Lonely_as_a_Cloud",
+    "style": "Plain diction, remembered landscapes, and reflective inward movement."
+  },
+  {
+    "name": "John Milton",
+    "bio": "English poet and polemicist of the seventeenth century.",
+    "work": "Paradise Lost",
+    "url": "https://en.wikipedia.org/wiki/John_Milton",
+    "work_url": "https://en.wikipedia.org/wiki/Paradise_Lost",
+    "style": "Elevated blank verse, epic scale, and moral struggle."
+  },
+  {
+    "name": "Geoffrey Chaucer",
+    "bio": "Medieval English poet who brought many social voices into verse.",
+    "work": "The Canterbury Tales",
+    "url": "https://en.wikipedia.org/wiki/Geoffrey_Chaucer",
+    "work_url": "https://en.wikipedia.org/wiki/The_Canterbury_Tales",
+    "style": "Narrative variety, social satire, and lively speaking voices."
+  },
+  {
+    "name": "Percy Bysshe Shelley",
+    "bio": "English Romantic poet of imagination and political hope.",
+    "work": "Ode to the West Wind",
+    "url": "https://en.wikipedia.org/wiki/Percy_Bysshe_Shelley",
+    "work_url": "https://en.wikipedia.org/wiki/Ode_to_the_West_Wind",
+    "style": "Rushing lyric music, elemental imagery, and revolutionary aspiration."
+  },
+  {
+    "name": "Lord Byron",
+    "bio": "English Romantic poet known for satire and rebellious heroes.",
+    "work": "Don Juan",
+    "url": "https://en.wikipedia.org/wiki/Lord_Byron",
+    "work_url": "https://en.wikipedia.org/wiki/Don_Juan_%28poem%29",
+    "style": "Conversational digression, biting irony, and restless romantic energy."
+  },
+  {
+    "name": "Samuel Taylor Coleridge",
+    "bio": "English Romantic poet and critic fascinated by imagination.",
+    "work": "The Rime of the Ancient Mariner",
+    "url": "https://en.wikipedia.org/wiki/Samuel_Taylor_Coleridge",
+    "work_url": "https://en.wikipedia.org/wiki/The_Rime_of_the_Ancient_Mariner",
+    "style": "Ballad rhythms, supernatural scenes, and dreamlike moral tension."
+  },
+  {
+    "name": "Alfred Lord Tennyson",
+    "bio": "Victorian British Poet Laureate who explored faith and loss.",
+    "work": "In Memoriam A.H.H.",
+    "url": "https://en.wikipedia.org/wiki/Alfred%2C_Lord_Tennyson",
+    "work_url": "https://en.wikipedia.org/wiki/In_Memoriam_A.H.H.",
+    "style": "Musical stanza forms, elegiac meditation, and sensuous landscape."
+  },
+  {
+    "name": "Rudyard Kipling",
+    "bio": "British poet and fiction writer associated with imperial-era literature.",
+    "work": "If—",
+    "url": "https://en.wikipedia.org/wiki/Rudyard_Kipling",
+    "work_url": "https://en.wikipedia.org/wiki/If%E2%80%94",
+    "style": "Strong rhythm, direct address, and memorable moral narrative."
+  },
+  {
+    "name": "Dylan Thomas",
+    "bio": "Welsh poet whose richly musical verse explores life and death.",
+    "work": "Do not go gentle into that good night",
+    "url": "https://en.wikipedia.org/wiki/Dylan_Thomas",
+    "work_url": "https://en.wikipedia.org/wiki/Do_not_go_gentle_into_that_good_night",
+    "style": "Dense sound, elemental imagery, and intense patterned repetition."
+  },
+  {
+    "name": "John Donne",
+    "bio": "English metaphysical poet and cleric.",
+    "work": "The Flea",
+    "url": "https://en.wikipedia.org/wiki/John_Donne",
+    "work_url": "https://en.wikipedia.org/wiki/The_Flea_%28poem%29",
+    "style": "Extended conceits, argumentative intimacy, and startling comparisons."
+  },
+  {
+    "name": "Gerard Manley Hopkins",
+    "bio": "English Jesuit poet who developed sprung rhythm.",
+    "work": "The Windhover",
+    "url": "https://en.wikipedia.org/wiki/Gerard_Manley_Hopkins",
+    "work_url": "https://en.wikipedia.org/wiki/The_Windhover",
+    "style": "Stressed rhythm, compound words, and close natural observation."
+  },
+  {
+    "name": "Philip Larkin",
+    "bio": "English poet whose restrained lyrics examine ordinary disappointments.",
+    "work": "The Whitsun Weddings",
+    "url": "https://en.wikipedia.org/wiki/Philip_Larkin",
+    "work_url": "https://en.wikipedia.org/wiki/The_Whitsun_Weddings",
+    "style": "Conversational precision, formal control, and melancholy observation."
+  },
+  {
+    "name": "Ted Hughes",
+    "bio": "English poet known for elemental depictions of animals and myth.",
+    "work": "Crow",
+    "url": "https://en.wikipedia.org/wiki/Ted_Hughes",
+    "work_url": "https://en.wikipedia.org/wiki/Crow_%28poetry%29",
+    "style": "Muscular language, animal energy, and stark mythic imagery."
+  },
+  {
+    "name": "Robert Burns",
+    "bio": "Scottish poet and songwriter who wrote in Scots and English.",
+    "work": "Auld Lang Syne",
+    "url": "https://en.wikipedia.org/wiki/Robert_Burns",
+    "work_url": "https://en.wikipedia.org/wiki/Auld_Lang_Syne",
+    "style": "Song rhythms, vernacular warmth, satire, and human fellowship."
+  },
+  {
+    "name": "Robert Browning",
+    "bio": "Victorian English poet who developed the dramatic monologue.",
+    "work": "My Last Duchess",
+    "url": "https://en.wikipedia.org/wiki/Robert_Browning",
+    "work_url": "https://en.wikipedia.org/wiki/My_Last_Duchess",
+    "style": "Dramatic speakers, psychological tension, and revealing indirect speech."
+  },
+  {
+    "name": "Elizabeth Barrett Browning",
+    "bio": "Victorian English poet whose work addresses love and social injustice.",
+    "work": "Sonnets from the Portuguese",
+    "url": "https://en.wikipedia.org/wiki/Elizabeth_Barrett_Browning",
+    "work_url": "https://en.wikipedia.org/wiki/Sonnets_from_the_Portuguese",
+    "style": "Intimate sonnets, emotional argument, and lyrical musicality."
+  },
+  {
+    "name": "Christina Rossetti",
+    "bio": "English Victorian poet of devotional and imaginative verse.",
+    "work": "Goblin Market",
+    "url": "https://en.wikipedia.org/wiki/Christina_Rossetti",
+    "work_url": "https://en.wikipedia.org/wiki/Goblin_Market",
+    "style": "Songlike rhythms, symbolic detail, and desire tempered by renunciation."
+  },
+  {
+    "name": "W.H. Auden",
+    "bio": "British-born American poet concerned with private and public ethics.",
+    "work": "Funeral Blues",
+    "url": "https://en.wikipedia.org/wiki/W._H._Auden",
+    "work_url": "https://en.wikipedia.org/wiki/Funeral_Blues",
+    "style": "Formal versatility, conversational intelligence, and moral inquiry."
+  },
+  {
+    "name": "Seamus Heaney",
+    "bio": "Irish poet whose writing connects rural memory with historical conflict.",
+    "work": "Death of a Naturalist",
+    "url": "https://en.wikipedia.org/wiki/Seamus_Heaney",
+    "work_url": "https://en.wikipedia.org/wiki/Death_of_a_Naturalist",
+    "style": "Tactile language, rural labor, and layered historical memory."
+  },
+  {
+    "name": "Amy Lowell",
+    "bio": "American Imagist poet and advocate of modern poetry.",
+    "work": "Patterns",
+    "url": "https://en.wikipedia.org/wiki/Amy_Lowell",
+    "work_url": "https://en.wikipedia.org/wiki/Amy_Lowell",
+    "style": "Precise visual detail, free verse, and sensuous rhythmic pattern."
+  },
+  {
+    "name": "Johann Wolfgang von Goethe",
+    "bio": "German poet and dramatist central to European Romanticism.",
+    "work": "Faust",
+    "url": "https://en.wikipedia.org/wiki/Johann_Wolfgang_von_Goethe",
+    "work_url": "https://en.wikipedia.org/wiki/Faust_%28Goethe%29",
+    "style": "Lyrical clarity, dramatic transformation, and inquiry into human striving."
+  },
+  {
+    "name": "Rainer Maria Rilke",
+    "bio": "German-language poet born in Prague whose work explores inward transformation.",
+    "work": "Duino Elegies",
+    "url": "https://en.wikipedia.org/wiki/Rainer_Maria_Rilke",
+    "work_url": "https://en.wikipedia.org/wiki/Duino_Elegies",
+    "style": "Meditative address, luminous objects, and existential questioning."
+  },
+  {
+    "name": "Paul Celan",
+    "bio": "German-language poet and Holocaust survivor born in Chernivtsi.",
+    "work": "Death Fugue",
+    "url": "https://en.wikipedia.org/wiki/Paul_Celan",
+    "work_url": "https://en.wikipedia.org/wiki/Death_Fugue",
+    "style": "Compressed syntax, fractured language, and memory under historical pressure."
+  },
+  {
+    "name": "Charles Baudelaire",
+    "bio": "French poet whose urban lyrics helped shape modern poetry.",
+    "work": "Les Fleurs du mal",
+    "url": "https://en.wikipedia.org/wiki/Charles_Baudelaire",
+    "work_url": "https://en.wikipedia.org/wiki/Les_Fleurs_du_mal",
+    "style": "Sensuous symbolism, urban unease, and beauty mingled with decay."
+  },
+  {
+    "name": "Arthur Rimbaud",
+    "bio": "French poet whose youthful work transformed modern verse.",
+    "work": "Illuminations",
+    "url": "https://en.wikipedia.org/wiki/Arthur_Rimbaud",
+    "work_url": "https://en.wikipedia.org/wiki/Illuminations_%28poetry_collection%29",
+    "style": "Visionary images, dislocated perception, and bold verbal experimentation."
+  },
+  {
+    "name": "Paul Verlaine",
+    "bio": "French Symbolist poet celebrated for musical verse.",
+    "work": "Romances sans paroles",
+    "url": "https://en.wikipedia.org/wiki/Paul_Verlaine",
+    "work_url": "https://en.wikipedia.org/wiki/Paul_Verlaine",
+    "style": "Muted emotion, suggestive landscapes, and delicate verbal music."
+  },
+  {
+    "name": "Victor Hugo",
+    "bio": "French Romantic poet, novelist, and public intellectual.",
+    "work": "Les Contemplations",
+    "url": "https://en.wikipedia.org/wiki/Victor_Hugo",
+    "work_url": "https://en.wikipedia.org/wiki/Les_Contemplations",
+    "style": "Expansive rhetoric, intimate elegy, and social conscience."
+  },
+  {
+    "name": "Stephane Mallarme",
+    "bio": "French Symbolist poet who explored suggestion and the page's visual space.",
+    "work": "A Throw of the Dice will Never Abolish Chance",
+    "url": "https://en.wikipedia.org/wiki/St%C3%A9phane_Mallarm%C3%A9",
+    "work_url": "https://en.wikipedia.org/wiki/Un_coup_de_d%C3%A9s_jamais_n%27abolira_le_hasard",
+    "style": "Elliptical syntax, symbolic suggestion, and spatial arrangement."
+  },
+  {
+    "name": "Paul Valery",
+    "bio": "French poet and essayist concerned with consciousness and poetic form.",
+    "work": "Le Cimetière marin",
+    "url": "https://en.wikipedia.org/wiki/Paul_Val%C3%A9ry",
+    "work_url": "https://en.wikipedia.org/wiki/Le_Cimeti%C3%A8re_marin",
+    "style": "Formal precision, intellectual reflection, and luminous Mediterranean imagery."
+  },
+  {
+    "name": "Dante Alighieri",
+    "bio": "Medieval Italian poet whose vernacular epic follows a spiritual journey.",
+    "work": "Divine Comedy",
+    "url": "https://en.wikipedia.org/wiki/Dante_Alighieri",
+    "work_url": "https://en.wikipedia.org/wiki/Divine_Comedy",
+    "style": "Interlocking tercets, vivid encounters, and moral architecture."
+  },
+  {
+    "name": "Petrarch",
+    "bio": "Italian Renaissance poet whose sonnets shaped European love poetry.",
+    "work": "Canzoniere",
+    "url": "https://en.wikipedia.org/wiki/Petrarch",
+    "work_url": "https://en.wikipedia.org/wiki/Canzoniere",
+    "style": "Introspective sonnets, idealized love, and tension between desire and time."
+  },
+  {
+    "name": "Giuseppe Ungaretti",
+    "bio": "Italian modernist poet whose wartime verse seeks extreme concentration.",
+    "work": "L'Allegria",
+    "url": "https://en.wikipedia.org/wiki/Giuseppe_Ungaretti",
+    "work_url": "https://en.wikipedia.org/wiki/Giuseppe_Ungaretti",
+    "style": "Short lines, silence, and concentrated images of fragility."
+  },
+  {
+    "name": "Eugenio Montale",
+    "bio": "Italian poet and Nobel laureate who explored modern spiritual uncertainty.",
+    "work": "Ossi di seppia",
+    "url": "https://en.wikipedia.org/wiki/Eugenio_Montale",
+    "work_url": "https://en.wikipedia.org/wiki/Eugenio_Montale",
+    "style": "Dry landscapes, concrete objects, and oblique existential insight."
+  },
+  {
+    "name": "Giacomo Leopardi",
+    "bio": "Italian poet and thinker whose lyrics confront desire and limits.",
+    "work": "L'infinito",
+    "url": "https://en.wikipedia.org/wiki/Giacomo_Leopardi",
+    "work_url": "https://en.wikipedia.org/wiki/L%27infinito",
+    "style": "Meditative lyric, vast imagined spaces, and lucid melancholy."
+  },
+  {
+    "name": "Federico Garcia Lorca",
+    "bio": "Spanish poet and dramatist associated with the Generation of 1927.",
+    "work": "Romancero gitano",
+    "url": "https://en.wikipedia.org/wiki/Federico_Garc%C3%ADa_Lorca",
+    "work_url": "https://en.wikipedia.org/wiki/Romancero_gitano",
+    "style": "Ballad rhythm, surreal symbols, and Andalusian song traditions."
+  },
+  {
+    "name": "Fernando Pessoa",
+    "bio": "Portuguese poet who wrote through multiple literary personae.",
+    "work": "Mensagem",
+    "url": "https://en.wikipedia.org/wiki/Fernando_Pessoa",
+    "work_url": "https://en.wikipedia.org/wiki/Mensagem",
+    "style": "Distinct poetic personae, lucid introspection, and metaphysical unease."
+  },
+  {
+    "name": "Alexander Pushkin",
+    "bio": "Russian poet whose work helped establish modern Russian literature.",
+    "work": "Eugene Onegin",
+    "url": "https://en.wikipedia.org/wiki/Alexander_Pushkin",
+    "work_url": "https://en.wikipedia.org/wiki/Eugene_Onegin",
+    "style": "Fluid narrative verse, irony, and precise emotional observation."
+  },
+  {
+    "name": "Anna Akhmatova",
+    "bio": "Russian poet who bore witness to personal grief and political terror.",
+    "work": "Requiem",
+    "url": "https://en.wikipedia.org/wiki/Anna_Akhmatova",
+    "work_url": "https://en.wikipedia.org/wiki/Requiem_%28Anna_Akhmatova%29",
+    "style": "Restrained clarity, intimate address, and collective remembrance."
+  },
+  {
+    "name": "Marina Tsvetaeva",
+    "bio": "Russian poet whose work is marked by emotional and formal intensity.",
+    "work": "Poem of the End",
+    "url": "https://en.wikipedia.org/wiki/Marina_Tsvetaeva",
+    "work_url": "https://en.wikipedia.org/wiki/Marina_Tsvetaeva",
+    "style": "Abrupt rhythms, dashes, compressed syntax, and passionate address."
+  },
+  {
+    "name": "Boris Pasternak",
+    "bio": "Russian poet and novelist whose lyrics connect nature and inner life.",
+    "work": "My Sister, Life",
+    "url": "https://en.wikipedia.org/wiki/Boris_Pasternak",
+    "work_url": "https://en.wikipedia.org/wiki/My_Sister%2C_Life",
+    "style": "Associative imagery, musical language, and animate landscapes."
+  },
+  {
+    "name": "Osip Mandelstam",
+    "bio": "Russian Acmeist poet who defended cultural memory under repression.",
+    "work": "Tristia",
+    "url": "https://en.wikipedia.org/wiki/Osip_Mandelstam",
+    "work_url": "https://en.wikipedia.org/wiki/Osip_Mandelstam",
+    "style": "Dense allusion, architectural precision, and historical resonance."
+  },
+  {
+    "name": "Pablo Neruda",
+    "bio": "Chilean poet and Nobel laureate whose work ranges from love lyrics to political epic.",
+    "work": "Twenty Love Poems and a Song of Despair",
+    "url": "https://en.wikipedia.org/wiki/Pablo_Neruda",
+    "work_url": "https://en.wikipedia.org/wiki/Twenty_Love_Poems_and_a_Song_of_Despair",
+    "style": "Sensuous imagery, expansive metaphor, and elemental rhythms."
+  },
+  {
+    "name": "Octavio Paz",
+    "bio": "Mexican poet and essayist whose work explores time, identity, and desire.",
+    "work": "Sunstone",
+    "url": "https://en.wikipedia.org/wiki/Octavio_Paz",
+    "work_url": "https://en.wikipedia.org/wiki/Octavio_Paz",
+    "style": "Circular movement, surreal images, and reflective sensuality."
+  },
+  {
+    "name": "Gabriela Mistral",
+    "bio": "Chilean poet and educator who became a Nobel laureate.",
+    "work": "Desolación",
+    "url": "https://en.wikipedia.org/wiki/Gabriela_Mistral",
+    "work_url": "https://en.wikipedia.org/wiki/Desolaci%C3%B3n",
+    "style": "Maternal voices, spiritual longing, and elemental landscapes."
+  },
+  {
+    "name": "Cesar Vallejo",
+    "bio": "Peruvian poet whose experimental verse addresses suffering and solidarity.",
+    "work": "Trilce",
+    "url": "https://en.wikipedia.org/wiki/C%C3%A9sar_Vallejo",
+    "work_url": "https://en.wikipedia.org/wiki/Trilce",
+    "style": "Disrupted syntax, invented words, and intense human compassion."
+  },
+  {
+    "name": "Homer",
+    "bio": "Ancient Greek poet traditionally credited with foundational epic poems.",
+    "work": "Iliad",
+    "url": "https://en.wikipedia.org/wiki/Homer",
+    "work_url": "https://en.wikipedia.org/wiki/Iliad",
+    "style": "Epic similes, repeated epithets, heroic conflict, and oral cadence."
+  },
+  {
+    "name": "Sappho",
+    "bio": "Ancient Greek lyric poet from the island of Lesbos.",
+    "work": "Ode to Aphrodite",
+    "url": "https://en.wikipedia.org/wiki/Sappho",
+    "work_url": "https://en.wikipedia.org/wiki/Ode_to_Aphrodite",
+    "style": "Intimate address, vivid sensory detail, and concentrated longing."
+  },
+  {
+    "name": "Virgil",
+    "bio": "Roman poet whose epic recasts the origins of Rome.",
+    "work": "Aeneid",
+    "url": "https://en.wikipedia.org/wiki/Virgil",
+    "work_url": "https://en.wikipedia.org/wiki/Aeneid",
+    "style": "Measured epic narrative, pastoral detail, and duty shadowed by loss."
+  },
+  {
+    "name": "Ovid",
+    "bio": "Roman poet of love, exile, and mythological transformation.",
+    "work": "Metamorphoses",
+    "url": "https://en.wikipedia.org/wiki/Ovid",
+    "work_url": "https://en.wikipedia.org/wiki/Metamorphoses",
+    "style": "Fluid narrative, playful wit, and continual transformations."
+  },
+  {
+    "name": "Catullus",
+    "bio": "Roman lyric poet whose poems mingle love, friendship, and invective.",
+    "work": "Carmina",
+    "url": "https://en.wikipedia.org/wiki/Catullus",
+    "work_url": "https://en.wikipedia.org/wiki/Poetry_of_Catullus",
+    "style": "Direct personal address, compact feeling, and sharp tonal shifts."
+  },
+  {
+    "name": "Lucretius",
+    "bio": "Roman poet who explained Epicurean philosophy in verse.",
+    "work": "De rerum natura",
+    "url": "https://en.wikipedia.org/wiki/Lucretius",
+    "work_url": "https://en.wikipedia.org/wiki/De_rerum_natura",
+    "style": "Didactic argument, material imagery, and wonder at natural processes."
+  },
+  {
+    "name": "Pindar",
+    "bio": "Ancient Greek lyric poet known for victory odes.",
+    "work": "Olympian Odes",
+    "url": "https://en.wikipedia.org/wiki/Pindar",
+    "work_url": "https://en.wikipedia.org/wiki/Epinikion",
+    "style": "Elevated praise, mythic allusion, and complex choral movement."
+  },
+  {
+    "name": "Horace",
+    "bio": "Roman lyric poet and satirist.",
+    "work": "Odes",
+    "url": "https://en.wikipedia.org/wiki/Horace",
+    "work_url": "https://en.wikipedia.org/wiki/Odes_%28Horace%29",
+    "style": "Balanced phrasing, urbane wit, and reflection on passing time."
+  },
+  {
+    "name": "Rumi",
+    "bio": "Persian-language poet and Sufi thinker who lived in medieval Anatolia.",
+    "work": "Masnavi",
+    "url": "https://en.wikipedia.org/wiki/Rumi",
+    "work_url": "https://en.wikipedia.org/wiki/Masnavi",
+    "style": "Spiritual parables, ecstatic address, and images of separation and reunion."
+  },
+  {
+    "name": "Omar Khayyam",
+    "bio": "Persian mathematician and philosopher associated with the rubaiyat tradition.",
+    "work": "Rubaiyat",
+    "url": "https://en.wikipedia.org/wiki/Omar_Khayyam",
+    "work_url": "https://en.wikipedia.org/wiki/Rubaiyat_of_Omar_Khayyam",
+    "style": "Quatrain concision, wine imagery, and questions about fate and transience."
+  },
+  {
+    "name": "Hafiz",
+    "bio": "Fourteenth-century Persian poet celebrated for his ghazals.",
+    "work": "Divan",
+    "url": "https://en.wikipedia.org/wiki/Hafez",
+    "work_url": "https://en.wikipedia.org/wiki/Divan_of_Hafez",
+    "style": "Layered love and wine imagery, musical ghazals, and mystical ambiguity."
+  },
+  {
+    "name": "Al-Mutanabbi",
+    "bio": "Tenth-century Arabic poet renowned for panegyric and aphoristic verse.",
+    "work": "Diwan of al-Mutanabbi",
+    "url": "https://en.wikipedia.org/wiki/Al-Mutanabbi",
+    "work_url": "https://en.wikipedia.org/wiki/Al-Mutanabbi",
+    "style": "Grand rhetoric, proud self-address, and memorable philosophical maxims."
+  },
+  {
+    "name": "Mahmoud Darwish",
+    "bio": "Palestinian poet whose work joins personal memory with national experience.",
+    "work": "Unfortunately, It Was Paradise",
+    "url": "https://en.wikipedia.org/wiki/Mahmoud_Darwish",
+    "work_url": "https://en.wikipedia.org/wiki/Mahmoud_Darwish",
+    "style": "Lyrical repetition, exile imagery, and interwoven private and collective voices."
+  },
+  {
+    "name": "Nizar Qabbani",
+    "bio": "Syrian poet whose writing joins love and social criticism.",
+    "work": "Childhood of a Breast",
+    "url": "https://en.wikipedia.org/wiki/Nizar_Qabbani",
+    "work_url": "https://en.wikipedia.org/wiki/Nizar_Qabbani",
+    "style": "Clear modern diction, intimate address, and sensuous imagery."
+  },
+  {
+    "name": "Rabindranath Tagore",
+    "bio": "Bengali poet, composer, and Nobel laureate.",
+    "work": "Gitanjali",
+    "url": "https://en.wikipedia.org/wiki/Rabindranath_Tagore",
+    "work_url": "https://en.wikipedia.org/wiki/Gitanjali",
+    "style": "Songlike devotion, natural imagery, and intimate spiritual address."
+  },
+  {
+    "name": "Kalidasa",
+    "bio": "Classical Sanskrit poet and dramatist celebrated for nature and love poetry.",
+    "work": "Meghaduta",
+    "url": "https://en.wikipedia.org/wiki/K%C4%81lid%C4%81sa",
+    "work_url": "https://en.wikipedia.org/wiki/Meghad%C5%ABta",
+    "style": "Elaborate similes, seasonal landscapes, and graceful emotional suggestion."
+  },
+  {
+    "name": "Matsuo Basho",
+    "bio": "Japanese poet who helped shape the haiku tradition.",
+    "work": "The Narrow Road to the Deep North",
+    "url": "https://en.wikipedia.org/wiki/Matsuo_Bash%C5%8D",
+    "work_url": "https://en.wikipedia.org/wiki/Oku_no_Hosomichi",
+    "style": "Seasonal detail, spare juxtaposition, and travel-centered awareness."
+  },
+  {
+    "name": "Li Bai",
+    "bio": "Tang-dynasty Chinese poet associated with imaginative freedom.",
+    "work": "Quiet Night Thought",
+    "url": "https://en.wikipedia.org/wiki/Li_Bai",
+    "work_url": "https://en.wikipedia.org/wiki/Quiet_Night_Thought",
+    "style": "Luminous landscapes, wine, moonlight, and soaring imaginative movement."
+  },
+  {
+    "name": "Du Fu",
+    "bio": "Tang-dynasty Chinese poet whose verse records social upheaval.",
+    "work": "Spring View",
+    "url": "https://en.wikipedia.org/wiki/Du_Fu",
+    "work_url": "https://en.wikipedia.org/wiki/Du_Fu",
+    "style": "Formal precision, historical witness, and compassion for ordinary people."
+  },
+  {
+    "name": "Wang Wei",
+    "bio": "Tang-dynasty Chinese poet, painter, and Buddhist practitioner.",
+    "work": "Wang River Collection",
+    "url": "https://en.wikipedia.org/wiki/Wang_Wei_%28Tang_dynasty%29",
+    "work_url": "https://en.wikipedia.org/wiki/Wang_Wei_%28Tang_dynasty%29",
+    "style": "Quiet landscapes, empty spaces, and contemplative natural detail."
+  },
+  {
+    "name": "Bai Juyi",
+    "bio": "Tang-dynasty Chinese poet known for accessible language and social concern.",
+    "work": "Song of Everlasting Regret",
+    "url": "https://en.wikipedia.org/wiki/Bai_Juyi",
+    "work_url": "https://en.wikipedia.org/wiki/Bai_Juyi",
+    "style": "Clear narrative, musical phrasing, and humane social observation."
+  },
+  {
+    "name": "Wole Soyinka",
+    "bio": "Nigerian poet, dramatist, and Nobel laureate.",
+    "work": "A Shuttle in the Crypt",
+    "url": "https://en.wikipedia.org/wiki/Wole_Soyinka",
+    "work_url": "https://en.wikipedia.org/wiki/A_Shuttle_in_the_Crypt",
+    "style": "Mythic allusion, dramatic voices, and resistance to oppression."
+  },
+  {
+    "name": "Leopold Sedar Senghor",
+    "bio": "Senegalese poet and statesman associated with Négritude.",
+    "work": "Chants d'ombre",
+    "url": "https://en.wikipedia.org/wiki/L%C3%A9opold_S%C3%A9dar_Senghor",
+    "work_url": "https://en.wikipedia.org/wiki/L%C3%A9opold_S%C3%A9dar_Senghor",
+    "style": "Oral cadence, cultural memory, and lyrical celebration of African identity."
+  },
+  {
+    "name": "Derek Walcott",
+    "bio": "Saint Lucian poet and playwright who reimagined epic through Caribbean experience.",
+    "work": "Omeros",
+    "url": "https://en.wikipedia.org/wiki/Derek_Walcott",
+    "work_url": "https://en.wikipedia.org/wiki/Omeros",
+    "style": "Lush seascapes, historical layering, and classical forms reshaped by island life."
+  },
+  {
+    "name": "Aime Cesaire",
+    "bio": "Martinican poet and statesman who helped found Négritude.",
+    "work": "Notebook of a Return to the Native Land",
+    "url": "https://en.wikipedia.org/wiki/Aim%C3%A9_C%C3%A9saire",
+    "work_url": "https://en.wikipedia.org/wiki/Cahier_d%27un_retour_au_pays_natal",
+    "style": "Surreal images, volcanic rhetoric, and anticolonial affirmation."
+  },
+  {
+    "name": "Wislawa Szymborska",
+    "bio": "Polish poet and Nobel laureate known for philosophical wit.",
+    "work": "View with a Grain of Sand",
+    "url": "https://en.wikipedia.org/wiki/Wis%C5%82awa_Szymborska",
+    "work_url": "https://en.wikipedia.org/wiki/Wis%C5%82awa_Szymborska",
+    "style": "Plain language, ironic questions, and surprising changes of scale."
+  },
+  {
+    "name": "Czeslaw Milosz",
+    "bio": "Polish poet and Nobel laureate whose work examines history and conscience.",
+    "work": "Rescue",
+    "url": "https://en.wikipedia.org/wiki/Czes%C5%82aw_Mi%C5%82osz",
+    "work_url": "https://en.wikipedia.org/wiki/Czes%C5%82aw_Mi%C5%82osz",
+    "style": "Moral reflection, lucid detail, and tension between memory and historical violence."
+  },
+  {
+    "name": "Tomas Transtromer",
+    "bio": "Swedish poet and Nobel laureate whose condensed images open onto larger worlds.",
+    "work": "Baltics",
+    "url": "https://en.wikipedia.org/wiki/Tomas_Transtr%C3%B6mer",
+    "work_url": "https://en.wikipedia.org/wiki/Baltics_%28poem%29",
+    "style": "Compressed metaphors, quiet observation, and sudden shifts of perception."
+  },
+  {
+    "name": "Yehuda Amichai",
+    "bio": "Israeli poet who brought everyday Hebrew speech into modern lyric.",
+    "work": "Open Closed Open",
+    "url": "https://en.wikipedia.org/wiki/Yehuda_Amichai",
+    "work_url": "https://en.wikipedia.org/wiki/Yehuda_Amichai",
+    "style": "Conversational intimacy, unexpected metaphor, and history inside ordinary life."
+  },
+  {
+    "name": "Bei Dao",
+    "bio": "Chinese poet associated with the Misty Poets movement.",
+    "work": "The Answer",
+    "url": "https://en.wikipedia.org/wiki/Bei_Dao",
+    "work_url": "https://en.wikipedia.org/wiki/Bei_Dao",
+    "style": "Oblique images, compressed language, and skeptical moral witness."
+  },
+  {
+    "name": "Nikoloz Baratashvili",
+    "bio": "Georgian Romantic poet whose lyrics explore longing and human aspiration.",
+    "work": "Merani",
+    "url": "https://en.wikipedia.org/wiki/Nikoloz_Baratashvili",
+    "work_url": "https://en.wikipedia.org/wiki/Nikoloz_Baratashvili",
+    "style": "Romantic longing, restless motion, and symbolic landscapes."
+  }
+]
