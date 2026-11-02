@@ -59,6 +59,16 @@ class Edition:
     behind_ko: str
 
 
+@dataclass(frozen=True)
+class Publication:
+    """Separate channel content from its explanatory thread and artwork input."""
+
+    text: str
+    comment: str = ""
+    artwork: str = ""
+    title: str = ""
+
+
 def parse_edition(raw: str, commits: list[str]) -> Edition:
     """Validate model output before any part of it can reach a delivery endpoint."""
     if not isinstance(raw, str) or not raw.strip():
@@ -107,25 +117,33 @@ def _escape(text: str) -> str:
     return text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 
-def render_edition(edition: Edition, poet: Profile, painter: Profile, quote: Quotation | None = None) -> str:
-    """Render both language editions from the exact same title and curated references."""
+def render_edition(
+    edition: Edition, poet: Profile, painter: Profile, quote: Quotation | None = None,
+) -> Publication:
+    """Keep poetry and quotation in the parent, with introductions in its thread."""
     title = _escape(f"{edition.title_en} / {edition.title_ko}")
     sections = [
         f"🇺🇸 *{title}*\n{_escape(edition.poem_en)}",
         f"🇰🇷 *{title}*\n{_escape(edition.poem_ko)}",
+    ]
+    artwork = "\n\n".join(sections)
+    comments = [
         "*Behind the poem · 영감과 해석*\n"
         f"{_escape(edition.behind_ko)}\n{_escape(edition.behind_en)}",
     ]
     for label, person in (("오늘의 시인", poet), ("오늘의 화가", painter)):
-        sections.append(
+        comments.append(
             f"*{label} · {_escape(person.name)}*\n{_escape(person.bio)}\n"
             f"대표작: <{person.work_url}|{_escape(person.work)}> · <{person.url}|인물 소개 / Reference>"
         )
     if quote is not None:
         sections.append(
-            f"*오늘의 한마디 · {_escape(quote.author)}*\n“{_escape(quote.text)}”\n"
-            f"{_escape(quote.translation)}\n<{quote.source}|출처> · {_escape(quote.context)}"
+            f"*{title}*\n“{_escape(quote.text)}”\n{_escape(quote.translation)}\n"
+            f"— {_escape(quote.author.split(' · ', 1)[0])}"
         )
-    sections.append("AI 창작 시·번역·해설 및 화풍에서 영감을 얻은 그림입니다. 인물의 실제 작품·발언이 아닙니다."
-                    " 인용문은 별도 출처를 표시합니다.")
-    return "\n\n".join(sections)
+        comments.append(
+            f"*명언의 인물 · {_escape(quote.author)}*\n{_escape(quote.bio)}\n"
+            f"<{quote.url}|인물 소개 / Reference>\n"
+            f"<{quote.source}|명언 출처> · {_escape(quote.context)}"
+        )
+    return Publication(text="\n\n".join(sections), comment="\n\n".join(comments), artwork=artwork, title=title)

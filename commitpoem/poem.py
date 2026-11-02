@@ -2,15 +2,15 @@ from __future__ import annotations
 
 from commitpoem.backends import LLMBackend
 from commitpoem.catalog import Profile, select_daily
-from commitpoem.edition import parse_edition, render_edition
+from commitpoem.edition import Publication, parse_edition, render_edition
 from commitpoem.quotations import select_quote
 
 
-def generate_poem(
+def generate_publication(
     commits: list[str], backend: LLMBackend, model: str,
     *, poet: Profile | None = None, painter: Profile | None = None,
-) -> str:
-    """Generate, validate and render one bilingual edition with curated references.
+) -> Publication:
+    """Generate and validate the main edition and its explanatory thread.
 
     Optional profiles let a caller freeze the day's selection across text generation
     and image delivery, even when processing crosses midnight. Invalid model output
@@ -28,3 +28,11 @@ def generate_poem(
         result = backend.generate_poem(commits, model, poet=poet, feedback=str(exc))
         edition = parse_edition(result, commits)
     return render_edition(edition, poet, painter, select_quote(commits))
+
+
+def generate_poem(
+    commits: list[str], backend: LLMBackend, model: str,
+    *, poet: Profile | None = None, painter: Profile | None = None,
+) -> str:
+    """Return the channel text; use generate_publication for its thread and artwork."""
+    return generate_publication(commits, backend, model, poet=poet, painter=painter).text

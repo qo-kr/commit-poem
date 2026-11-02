@@ -7,7 +7,7 @@ import pytest
 
 from commitpoem.backends import LLMBackend
 from commitpoem.catalog import select_daily
-from commitpoem.poem import generate_poem
+from commitpoem.poem import generate_poem, generate_publication
 
 
 @pytest.fixture
@@ -25,15 +25,15 @@ def backend() -> MagicMock:
 
 def test_generation_uses_same_curated_profiles_and_validates_output(backend: MagicMock) -> None:
     poet, painter = select_daily()
-    result = generate_poem(['fix: cache'], backend, 'test-model', poet=poet, painter=painter)
+    result = generate_publication(['fix: cache'], backend, 'test-model', poet=poet, painter=painter)
     backend.generate_poem.assert_called_once_with(['fix: cache'], 'test-model', poet=poet)
-    assert result.count('The cache at dawn / 새벽의 cache') == 2
-    assert poet.work in result and painter.work in result
-    assert '열린 문' in result
+    assert result.text.count('The cache at dawn / 새벽의 cache') == 2
+    assert poet.work in result.comment and painter.work in result.comment
+    assert '열린 문' in result.comment and '열린 문' not in result.text
 
 
 def test_default_generation_selects_profiles(backend: MagicMock) -> None:
-    assert '오늘의 시인' in generate_poem(['fix: cache'], backend, 'test-model')
+    assert '오늘의 시인' in generate_publication(['fix: cache'], backend, 'test-model').comment
 
 
 @pytest.mark.parametrize('raw', ['', '   ', 'not a JSON edition', None])

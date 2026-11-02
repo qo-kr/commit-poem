@@ -26,12 +26,28 @@ def test_shared_title_repeated_verbatim_for_both_languages(content: dict[str, st
     poet, painter = select_daily()
     result = render_edition(edition, poet, painter)
     title = "The cache at dawn / 새벽의 cache"
-    assert result.count(title) == 2
-    assert content["behind_ko"] in result and content["behind_en"] in result
+    assert result.text.count(title) == 2
+    assert content["behind_ko"] in result.comment and content["behind_en"] in result.comment
+    assert "Behind the poem" not in result.text
     for person in (poet, painter):
-        assert person.name in result and person.work in result
-        assert person.url in result and person.work_url in result
-    assert "AI" in result
+        assert person.name in result.comment and person.work in result.comment
+        assert person.url in result.comment and person.work_url in result.comment
+        assert person.bio not in result.text
+    assert "AI 창작" not in result.text + result.comment
+
+
+def test_quotation_has_same_title_and_person_details_are_in_comment(content: dict[str, str]) -> None:
+    from commitpoem.catalog import select_daily
+
+    quote = select_quote(["feat: team collaboration"])
+    assert quote is not None
+    result = render_edition(parse_edition(json.dumps(content), ["fix: cache"]), *select_daily(), quote)
+    assert result.text.count(result.title) == 3
+    assert quote.text in result.text and quote.translation in result.text
+    assert "오늘의 한마디" not in result.text + result.comment
+    assert quote.source in result.comment and quote.context in result.comment
+    assert quote.bio in result.comment and quote.url in result.comment
+    assert quote.text not in result.artwork and "Behind the poem" not in result.artwork
 
 
 @pytest.mark.parametrize("raw", ["not JSON", "[]", "null", '{"title_en":"alone"}'])

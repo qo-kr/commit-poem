@@ -11,12 +11,13 @@ import click
 from commitpoem.backends import LLMBackend, get_backend
 from commitpoem.catalog import Profile, select_daily
 from commitpoem.config import AppConfig, ConfigError, resolve_config
+from commitpoem.edition import Publication
 from commitpoem.github_client import GitHubAPIError, GitHubAuthError, fetch_commits, fetch_org_commits
 from commitpoem.image import ImageGenError, generate_image
 from commitpoem.local_git import fetch_local_commits
-from commitpoem.poem import generate_poem
+from commitpoem.poem import generate_publication
 from commitpoem.scheduler import run_scheduler
-from commitpoem.slack import SlackWebhookError, post_image, post_poem
+from commitpoem.slack import SlackWebhookError, post_poem, post_publication
 
 __all__ = ["main"]
 
@@ -58,31 +59,30 @@ def _parse_datetime(value: str) -> datetime:
     return dt
 
 
-def _deliver(config: AppConfig, poem: str, *, with_image: bool, painter: Profile | None = None) -> None:
-    """Deliver *poem* to Slack, with an accompanying image when configured.
+def _deliver(
+    config: AppConfig, publication: Publication | str, *, with_image: bool, painter: Profile | None = None,
+) -> None:
+    """Post image-first channel content and its notes as a threaded bot reply."""
+    if isinstance(publication, str):
+        publication = Publication(text=publication, artwork=publication)
+    if config.slack_bot_token and config.slack_channel:
+        image = None
+        if with_image:
+            try:
+                image = generate_image(publication.artwork, painter=painter)
+            except ImageGenError as exc:
+                logger.error("Image generation failed; publishing text with threaded notes: %s", exc)
+        # Do not fall back to a second parent when posting its reply fails.
+        parent_ts = post_publication(
+            config.slack_bot_token, config.slack_channel, publication.text, publication.comment,
+            image=image, title=publication.title,
+        )
+        logger.info("Daily edition delivered to Slack with threaded notes; parent_ts=%s", parent_ts)
+        return
 
-    When *with_image* is set and both ``slack_bot_token`` and ``slack_channel`` are
-    configured, generate an image from the poem and upload it (with the poem as the
-    caption) via the Slack bot token. If image generation or upload fails — or image
-    posting is not configured — fall back to the plain webhook text post.
-    """
-    if with_image and config.slack_bot_token and config.slack_channel:
-        try:
-            # The educational notes and quotation are not illustration instructions.
-            artwork_text = poem.split("*Behind the poem", 1)[0]
-            image = generate_image(artwork_text, painter=painter)
-            post_image(
-                config.slack_bot_token,
-                config.slack_channel,
-                image,
-                initial_comment=poem,
-            )
-            logger.info("Daily edition delivered to Slack with image")
-            return
-        except (ImageGenError, SlackWebhookError) as exc:
-            logger.error("Image posting failed; falling back to text-only: %s", exc)
-
-    post_poem(config.slack_webhook_url, poem)
+    post_poem(config.slack_webhook_url, publication.text)
+    if publication.comment:
+        logger.warning("Threaded notes require SLACK_BOT_TOKEN and SLACK_CHANNEL")
     logger.info("Daily edition delivered to Slack (text-only)")
 
 
@@ -122,8 +122,8 @@ def _make_pipeline(
         else:
             commits = fetch_commits(config.github_token, repo, since, until)
         backend: LLMBackend = get_backend(config.llm_backend, config.llm_api_key)
-        poem = generate_poem(commits, backend, config.llm_model, poet=poet, painter=painter)
-        _deliver(config, poem, with_image=with_image, painter=painter)
+        publication = generate_publication(commits, backend, config.llm_model, poet=poet, painter=painter)
+        _deliver(config, publication, with_image=with_image, painter=painter)
 
     return pipeline
 

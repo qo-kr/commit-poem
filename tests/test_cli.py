@@ -100,7 +100,7 @@ def test_oneshot_success(runner: CliRunner) -> None:
     with (
         patch("commitpoem.cli.fetch_commits", return_value=["fix bug"]) as mock_fetch,
         patch("commitpoem.cli.get_backend", return_value=mock_backend),
-        patch("commitpoem.cli.generate_poem", return_value="roses are red") as mock_gen,
+        patch("commitpoem.cli.generate_publication", return_value="roses are red") as mock_gen,
         patch("commitpoem.cli.post_poem") as mock_post,
     ):
         result = runner.invoke(main, BASE_ARGS, env=_full_env(), catch_exceptions=False)
@@ -123,10 +123,10 @@ def _image_env() -> dict[str, str]:
 def test_posts_image_when_configured(runner: CliRunner) -> None:
     with (
         patch("commitpoem.cli.fetch_commits", return_value=["fix bug"]),
-        patch("commitpoem.cli.generate_poem", return_value="a poem"),
+        patch("commitpoem.cli.generate_publication", return_value="a poem"),
         patch("commitpoem.cli.get_backend", return_value=MagicMock()),
         patch("commitpoem.cli.generate_image", return_value=b"PNG") as mock_img,
-        patch("commitpoem.cli.post_image") as mock_post_image,
+        patch("commitpoem.cli.post_publication") as mock_post_image,
         patch("commitpoem.cli.post_poem") as mock_post_poem,
     ):
         result = runner.invoke(main, BASE_ARGS, env=_image_env(), catch_exceptions=False)
@@ -137,16 +137,17 @@ def test_posts_image_when_configured(runner: CliRunner) -> None:
     # Poem rides along as the image caption; no separate webhook text post.
     mock_post_poem.assert_not_called()
     _, kwargs = mock_post_image.call_args
-    assert kwargs["initial_comment"] == "a poem"
+    assert mock_post_image.call_args.args[2] == "a poem"
+    assert kwargs["image"] == b"PNG"
 
 
-def test_no_image_flag_uses_webhook(runner: CliRunner) -> None:
+def test_no_image_flag_keeps_threaded_bot_posting(runner: CliRunner) -> None:
     with (
         patch("commitpoem.cli.fetch_commits", return_value=["fix bug"]),
-        patch("commitpoem.cli.generate_poem", return_value="a poem"),
+        patch("commitpoem.cli.generate_publication", return_value="a poem"),
         patch("commitpoem.cli.get_backend", return_value=MagicMock()),
         patch("commitpoem.cli.generate_image") as mock_img,
-        patch("commitpoem.cli.post_image") as mock_post_image,
+        patch("commitpoem.cli.post_publication") as mock_post_image,
         patch("commitpoem.cli.post_poem") as mock_post_poem,
     ):
         result = runner.invoke(
@@ -155,24 +156,26 @@ def test_no_image_flag_uses_webhook(runner: CliRunner) -> None:
 
     assert result.exit_code == 0
     mock_img.assert_not_called()
-    mock_post_image.assert_not_called()
-    mock_post_poem.assert_called_once()
+    mock_post_image.assert_called_once()
+    assert mock_post_image.call_args.kwargs["image"] is None
+    mock_post_poem.assert_not_called()
 
 
-def test_image_failure_falls_back_to_webhook(runner: CliRunner) -> None:
+def test_image_failure_keeps_threaded_text_posting(runner: CliRunner) -> None:
     with (
         patch("commitpoem.cli.fetch_commits", return_value=["fix bug"]),
-        patch("commitpoem.cli.generate_poem", return_value="a poem"),
+        patch("commitpoem.cli.generate_publication", return_value="a poem"),
         patch("commitpoem.cli.get_backend", return_value=MagicMock()),
         patch("commitpoem.cli.generate_image", side_effect=ImageGenError("codex down")),
-        patch("commitpoem.cli.post_image") as mock_post_image,
+        patch("commitpoem.cli.post_publication") as mock_post_image,
         patch("commitpoem.cli.post_poem") as mock_post_poem,
     ):
         result = runner.invoke(main, BASE_ARGS, env=_image_env(), catch_exceptions=False)
 
     assert result.exit_code == 0
-    mock_post_image.assert_not_called()
-    mock_post_poem.assert_called_once()
+    mock_post_image.assert_called_once()
+    assert mock_post_image.call_args.kwargs["image"] is None
+    mock_post_poem.assert_not_called()
 
 
 # ---------------------------------------------------------------------------
@@ -315,7 +318,7 @@ def test_github_api_error_exits_1(runner: CliRunner) -> None:
 def test_slack_webhook_error_exits_1(runner: CliRunner) -> None:
     with (
         patch("commitpoem.cli.fetch_commits", return_value=["fix bug"]),
-        patch("commitpoem.cli.generate_poem", return_value="a poem"),
+        patch("commitpoem.cli.generate_publication", return_value="a poem"),
         patch("commitpoem.cli.post_poem", side_effect=SlackWebhookError("webhook failed")),
     ):
         result = runner.invoke(main, BASE_ARGS, env=_full_env(), catch_exceptions=True)
@@ -360,7 +363,7 @@ def test_naive_datetime_string_in_cli_coerced_to_utc(runner: CliRunner) -> None:
 
     with (
         patch("commitpoem.cli.fetch_commits", return_value=[]) as mock_fetch,
-        patch("commitpoem.cli.generate_poem", return_value="poem"),
+        patch("commitpoem.cli.generate_publication", return_value="poem"),
         patch("commitpoem.cli.post_poem"),
     ):
         result = runner.invoke(
@@ -389,7 +392,7 @@ def test_cli_flag_overrides_env_github_token(runner: CliRunner) -> None:
     env["GITHUB_TOKEN"] = "env-token"
 
     with patch("commitpoem.cli.fetch_commits", return_value=[]) as mock_fetch, patch(
-        "commitpoem.cli.generate_poem", return_value="poem"
+        "commitpoem.cli.generate_publication", return_value="poem"
     ), patch("commitpoem.cli.post_poem"):
         runner.invoke(
             main,
@@ -417,7 +420,7 @@ def test_cli_flag_overrides_env_llm_backend(runner: CliRunner) -> None:
     with (
         patch("commitpoem.cli.fetch_commits", return_value=[]),
         patch("commitpoem.cli.get_backend", side_effect=fake_get_backend),
-        patch("commitpoem.cli.generate_poem", return_value="poem"),
+        patch("commitpoem.cli.generate_publication", return_value="poem"),
         patch("commitpoem.cli.post_poem"),
     ):
         runner.invoke(
@@ -451,7 +454,7 @@ def test_default_backend_is_anthropic(runner: CliRunner) -> None:
     with (
         patch("commitpoem.cli.fetch_commits", return_value=[]),
         patch("commitpoem.cli.get_backend", side_effect=fake_get_backend),
-        patch("commitpoem.cli.generate_poem", return_value="poem"),
+        patch("commitpoem.cli.generate_publication", return_value="poem"),
         patch("commitpoem.cli.post_poem"),
     ):
         result = runner.invoke(main, BASE_ARGS, env=env, catch_exceptions=False)
@@ -470,7 +473,7 @@ def test_empty_github_token_flag_falls_through_to_env(runner: CliRunner) -> None
     env["GITHUB_TOKEN"] = "env-token"
 
     with patch("commitpoem.cli.fetch_commits", return_value=[]) as mock_fetch, patch(
-        "commitpoem.cli.generate_poem", return_value="poem"
+        "commitpoem.cli.generate_publication", return_value="poem"
     ), patch("commitpoem.cli.post_poem"):
         runner.invoke(
             main,
@@ -504,7 +507,7 @@ def test_all_orgs_aggregated_once_in_one_edition(runner: CliRunner) -> None:
     with (
         patch('commitpoem.cli.fetch_org_commits', side_effect=lambda token, org, since, until: [org]) as fetch,
         patch('commitpoem.cli.get_backend'),
-        patch('commitpoem.cli.generate_poem', return_value='edition') as generate,
+        patch('commitpoem.cli.generate_publication', return_value='edition') as generate,
         patch('commitpoem.cli.post_poem') as post,
     ):
         result = runner.invoke(main, [
@@ -526,7 +529,7 @@ def test_repo_and_org_are_exclusive(runner: CliRunner) -> None:
 def test_invalid_edition_is_failure_and_never_posts(runner: CliRunner) -> None:
     with (
         patch('commitpoem.cli.fetch_commits', return_value=[]),
-        patch('commitpoem.cli.generate_poem', side_effect=ValueError('invalid edition')),
+        patch('commitpoem.cli.generate_publication', side_effect=ValueError('invalid edition')),
         patch('commitpoem.cli.post_poem') as post,
     ):
         result = runner.invoke(main, BASE_ARGS, env=_full_env())
@@ -548,7 +551,7 @@ def test_local_mode_needs_no_github_token(runner: CliRunner, tmp_path) -> None:
         patch('commitpoem.cli.fetch_local_commits', return_value=['[qo-kr/repo] fix: cache']) as fetch,
         patch('commitpoem.cli.fetch_org_commits') as remote,
         patch('commitpoem.cli.get_backend'),
-        patch('commitpoem.cli.generate_poem', return_value='edition'),
+        patch('commitpoem.cli.generate_publication', return_value='edition'),
         patch('commitpoem.cli.post_poem'),
     ):
         result = runner.invoke(main, ['--local-root', str(tmp_path), '--org', 'qo-kr', '--update-main',
@@ -562,3 +565,18 @@ def test_main_sync_requires_local_mode(runner: CliRunner) -> None:
     result = runner.invoke(main, BASE_ARGS + ['--update-main'], env=_full_env())
     assert result.exit_code == 1
     assert '--local-root' in result.stderr
+
+
+def test_thread_failure_never_duplicates_parent_via_webhook(runner: CliRunner) -> None:
+    from commitpoem.edition import Publication
+    from commitpoem.slack import SlackThreadError
+    with (
+        patch('commitpoem.cli.fetch_commits', return_value=[]),
+        patch('commitpoem.cli.generate_publication', return_value=Publication(text='poem', comment='notes')),
+        patch('commitpoem.cli.post_publication', side_effect=SlackThreadError('100.001')) as post,
+        patch('commitpoem.cli.post_poem') as webhook,
+    ):
+        result = runner.invoke(main, BASE_ARGS + ['--no-image'], env=_image_env())
+    assert result.exit_code == 1
+    post.assert_called_once()
+    webhook.assert_not_called()
