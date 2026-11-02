@@ -27,6 +27,8 @@ def test_shared_title_repeated_verbatim_for_both_languages(content: dict[str, st
     result = render_edition(edition, poet, painter)
     title = "The cache at dawn / 새벽의 cache"
     assert result.text.count(title) == 2
+    assert result.text.count(f"— in the style of {poet.name}") == 2
+    assert "in the style of" not in result.artwork
     assert content["behind_ko"] in result.comment and content["behind_en"] in result.comment
     assert "Behind the poem" not in result.text
     for person in (poet, painter):

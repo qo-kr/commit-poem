@@ -65,6 +65,17 @@ def _write_png(
 
 
 class TestHelpers:
+    def test_poem_subjects_take_priority_over_painters_usual_subjects(self) -> None:
+        from commitpoem.catalog import PAINTERS
+
+        painter = next(person for person in PAINTERS if person.name == "Mary Cassatt")
+        poem = "A forest of whispering leaves and knotted branches, a path returning to itself."
+        prompt = _build_image_prompt(poem, painter=painter)
+        assert poem in prompt
+        assert "The poem determines the scene and subjects" in prompt
+        assert "not the painter's usual subjects" in prompt
+        assert "Do not add people" in prompt
+
     def test_prompt_uses_selected_painters_specific_technique(self) -> None:
         from commitpoem.catalog import PAINTERS
 

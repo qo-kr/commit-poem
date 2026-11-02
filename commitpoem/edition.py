@@ -127,6 +127,8 @@ def render_edition(
         f"🇰🇷 *{title}*\n{_escape(edition.poem_ko)}",
     ]
     artwork = "\n\n".join(sections)
+    signature = f"— in the style of {_escape(poet.name)}"
+    sections = [f"{section}\n{signature}" for section in sections]
     comments = [
         "*Behind the poem · 영감과 해석*\n"
         f"{_escape(edition.behind_ko)}\n{_escape(edition.behind_en)}",
