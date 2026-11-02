@@ -237,6 +237,10 @@ class TestOpenAIBackend:
 # ---------------------------------------------------------------------------
 
 class TestBuildPrompt:
+    def test_prompt_supplies_a_literal_source_anchor_instead_of_asking_model_to_choose(self) -> None:
+        prompt = _build_prompt(["[qo-kr/repo] fix: cache"])
+        assert 'Required literal anchor: "cache"' in prompt
+
     def test_requests_one_work_and_translation_with_structured_title(self) -> None:
         prompt = _build_prompt(["fix: cache"])
         assert "ONE original poem" in prompt

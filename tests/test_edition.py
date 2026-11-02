@@ -48,8 +48,37 @@ def test_required_fields_cannot_be_blank(content: dict[str, str], key: str) -> N
 
 
 def test_anchor_must_come_from_commits(content: dict[str, str]) -> None:
-    with pytest.raises(ValueError, match="anchor"):
-        parse_edition(json.dumps(content), ["docs: readme"])
+    edition = parse_edition(json.dumps(content), ["docs: readme"])
+    assert edition.anchor == "readme"
+    assert "readme" in edition.title_en and "readme" in edition.title_ko
+
+
+def test_model_does_not_need_to_supply_a_factual_anchor(content: dict[str, str]) -> None:
+    del content["anchor"]
+    assert parse_edition(json.dumps(content), ["fix: cache"]).anchor == "cache"
+
+
+@pytest.mark.parametrize("model_anchor", ["invented image", "", "x" * 81])
+def test_invented_model_anchor_cannot_stop_delivery(content: dict[str, str], model_anchor: str) -> None:
+    content["anchor"] = model_anchor
+    assert parse_edition(json.dumps(content), ["fix: cache"]).anchor == "cache"
+
+
+@pytest.mark.parametrize("commits,expected", [
+    (["[qo-kr/repo] fix(cache): repair cache.py"], "cache.py"),
+    (["feat: 한글검색 지원"], "한글검색"),
+    (["fix: " + "x" * 120], "x" * 80),
+    (["🚀"], "🚀"),
+    (["", "  "], ""),
+    ([], ""),
+])
+def test_anchor_selection_is_literal_bounded_and_repeatable(commits: list[str], expected: str) -> None:
+    from commitpoem.edition import select_anchor
+
+    assert select_anchor(commits) == expected
+    assert select_anchor(commits) == select_anchor(commits)
+    assert len(expected) <= 80
+    assert not expected or any(expected in commit for commit in commits)
 
 
 def test_both_titles_keep_literal_anchor(content: dict[str, str]) -> None:
@@ -63,6 +92,13 @@ def test_model_line_arrays_are_rendered_as_lines(content: dict[str, str]) -> Non
     data["poem_en"] = content["poem_en"].splitlines()
     data["poem_ko"] = content["poem_ko"].splitlines()
     assert parse_edition(json.dumps(data), ["fix: cache"]).poem_en == content["poem_en"]
+
+
+def test_stanza_breaks_do_not_reject_valid_model_poems(content: dict[str, str]) -> None:
+    data = dict(content)
+    lines = content["poem_ko"].splitlines()
+    data["poem_ko"] = [*lines[:2], "", *lines[2:]]
+    assert parse_edition(json.dumps(data), ["fix: cache"]).poem_ko == "\n".join(data["poem_ko"])
 
 
 def test_empty_day_does_not_invent_anchor(content: dict[str, str]) -> None:

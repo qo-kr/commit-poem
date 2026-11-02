@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import re
 from dataclasses import dataclass, fields
 
 from commitpoem.catalog import Profile
@@ -10,11 +11,39 @@ EDITION_SCHEMA: dict = {
     "type": "object",
     "properties": {
         key: {"type": "array", "items": {"type": "string"}} if key.startswith("poem_") else {"type": "string"}
-        for key in ("anchor", "title_en", "title_ko", "poem_en", "poem_ko", "behind_en", "behind_ko")
+        for key in ("title_en", "title_ko", "poem_en", "poem_ko", "behind_en", "behind_ko")
     },
-    "required": ["anchor", "title_en", "title_ko", "poem_en", "poem_ko", "behind_en", "behind_ko"],
+    "required": ["title_en", "title_ko", "poem_en", "poem_ko", "behind_en", "behind_ko"],
     "additionalProperties": False,
 }
+
+_GENERIC_WORDS = frozenset({
+    "add", "added", "fix", "fixed", "update", "updated", "remove", "removed", "repair", "merge",
+    "branch", "bump", "the", "and", "for", "with", "from", "into", "to", "of", "a", "in", "on",
+    "feat", "chore", "docs", "test", "refactor", "build", "main", "master",
+})
+
+
+def select_anchor(commits: list[str]) -> str:
+    """Pick a bounded literal keyword from source subjects without trusting model output."""
+    fallback = ""
+    for commit in commits:
+        if not commit.strip():
+            continue
+        subject = commit.strip().splitlines()[0]
+        subject = re.sub(r"^\[[^\]]+\]\s*", "", subject)
+        subject = re.sub(
+            r"^(?:feat|fix|refactor|perf|docs|test|build|ci|chore|style|revert)(?:\([^)]*\))?!?:\s*",
+            "", subject, flags=re.IGNORECASE,
+        )
+        tokens = re.findall(r"\w[\w./-]*", subject)
+        if not fallback:
+            fallback = tokens[0][:80] if tokens else next((char for char in subject if char.isprintable()
+                                                         and not char.isspace()), "")
+        for token in tokens:
+            if token.casefold() not in _GENERIC_WORDS:
+                return token[:80]
+    return fallback
 
 
 @dataclass(frozen=True)
@@ -43,11 +72,14 @@ def parse_edition(raw: str, commits: list[str]) -> Edition:
         raise ValueError("backend returned invalid edition JSON") from exc
     if not isinstance(data, dict):
         raise ValueError("edition must be a JSON object")
+    # The application owns factual provenance. Ignore a legacy model-supplied
+    # anchor and derive it from the same sources used to build the prompt.
+    data["anchor"] = select_anchor(commits)
     names = {field.name for field in fields(Edition)}
     if set(data) != names:
         raise ValueError("edition JSON has missing or unexpected fields")
     for key in ("poem_en", "poem_ko"):
-        if isinstance(data[key], list) and all(isinstance(line, str) and line.strip() for line in data[key]):
+        if isinstance(data[key], list) and all(isinstance(line, str) for line in data[key]):
             data[key] = "\n".join(data[key])
     for key in names:
         if not isinstance(data[key], str) or (key != "anchor" and not data[key].strip()):
@@ -57,20 +89,16 @@ def parse_edition(raw: str, commits: list[str]) -> Edition:
         if "\n" in data[key] or len(data[key]) > 160:
             raise ValueError(f"edition field {key} must be one short title line")
     for key in ("poem_en", "poem_ko"):
-        if not 4 <= len(data[key].splitlines()) <= 8:
+        if not 4 <= sum(bool(line.strip()) for line in data[key].splitlines()) <= 8:
             raise ValueError(f"edition field {key} must contain 4–8 lines")
     if any(len(data[key]) > 1000 for key in names - {"anchor"}):
         raise ValueError("edition fields must remain short enough for daily delivery")
     anchor = data["anchor"]
-    if commits:
-        if not anchor or len(anchor) > 80 or not any(anchor in commit for commit in commits):
-            raise ValueError("anchor must appear literally in the source commits")
+    if anchor:
         # Models sometimes translate away the literal keyword. Preserve it ourselves.
         for key in ("title_en", "title_ko"):
             if anchor not in data[key]:
                 data[key] = f"{anchor} · {data[key]}"
-    elif anchor:
-        raise ValueError("an empty commit day must not invent a factual anchor")
     return Edition(**data)
 
 

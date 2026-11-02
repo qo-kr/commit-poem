@@ -77,11 +77,13 @@ def _deliver(config: AppConfig, poem: str, *, with_image: bool, painter: Profile
                 image,
                 initial_comment=poem,
             )
+            logger.info("Daily edition delivered to Slack with image")
             return
         except (ImageGenError, SlackWebhookError) as exc:
             logger.error("Image posting failed; falling back to text-only: %s", exc)
 
     post_poem(config.slack_webhook_url, poem)
+    logger.info("Daily edition delivered to Slack (text-only)")
 
 
 def _make_pipeline(
