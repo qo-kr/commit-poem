@@ -1,5 +1,10 @@
 # Changelog
 
+## [2026-11-03]
+
+- Bound poem source input to prevent large daily commit collections from exceeding the model context window.
+  Sample across the full collection, shorten long messages safely, and log the input size.
+
 ## [2026-11-02]
 
 - Collect daily work from local repositories in qo-kr, genideas-secure-labs and k-gen-food,
