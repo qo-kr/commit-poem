@@ -188,12 +188,14 @@ def _post_message(bot_token: str, payload: dict) -> str:
 
 def post_publication(
     bot_token: str, channel: str, text: str, comment: str, *, image: bytes | None = None, title: str = "시화",
+    artwork_caption: str = "",
 ) -> str:
     """Post ordered image/text blocks, then reply with notes to the returned parent."""
     blocks: list[dict] = []
     text_blocks = _text_blocks(text)
     comment_blocks = _text_blocks(comment)
-    if len(text_blocks) + (image is not None) > 50 or len(comment_blocks) > 50:
+    caption_blocks = _text_blocks(artwork_caption) if image is not None else []
+    if len(text_blocks) + (image is not None) + len(caption_blocks) > 50 or len(comment_blocks) > 50:
         raise SlackWebhookError("Publication exceeds Slack's 50-block message limit")
     if image is not None:
         try:
@@ -202,10 +204,12 @@ def post_publication(
             logger.error("Image upload failed; publishing text with threaded notes: %s", exc)
         else:
             blocks.append({"type": "image", "slack_file": {"id": file_id}, "alt_text": title or "시화"})
+            blocks.extend(caption_blocks)
+    fallback_text = f"{artwork_caption}\n\n{text}" if blocks and artwork_caption else text
     blocks.extend(text_blocks)
     for attempt in range(5):
         try:
-            parent_ts = _post_message(bot_token, {"channel": channel, "text": text, "blocks": blocks})
+            parent_ts = _post_message(bot_token, {"channel": channel, "text": fallback_text, "blocks": blocks})
             break
         except SlackAPIError as exc:
             pending_image = bool(blocks) and blocks[0]["type"] == "image" and exc.code == "invalid_blocks" and any(

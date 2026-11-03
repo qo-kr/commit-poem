@@ -1,0 +1,802 @@
+[
+  {
+    "name": "William Shakespeare",
+    "bio": "English Renaissance playwright and sonneteer.",
+    "work": "Sonnets",
+    "url": "https://en.wikipedia.org/wiki/William_Shakespeare",
+    "work_url": "https://en.wikipedia.org/wiki/Shakespeare%27s_sonnets",
+    "style": "Dramatic turns, metaphor, and tightly argued sonnets."
+  },
+  {
+    "name": "Emily Dickinson",
+    "bio": "American poet whose compressed lyrics explore mortality and inward life.",
+    "work": "Because I could not stop for Death",
+    "url": "https://en.wikipedia.org/wiki/Emily_Dickinson",
+    "work_url": "https://en.wikipedia.org/wiki/Because_I_could_not_stop_for_Death",
+    "style": "Slant rhyme, dashes, paradox, and startling compression."
+  },
+  {
+    "name": "Robert Frost",
+    "bio": "American poet of New England landscapes and difficult human choices.",
+    "work": "The Road Not Taken",
+    "url": "https://en.wikipedia.org/wiki/Robert_Frost",
+    "work_url": "https://en.wikipedia.org/wiki/The_Road_Not_Taken",
+    "style": "Conversational meter, rural images, and unsettled conclusions."
+  },
+  {
+    "name": "Walt Whitman",
+    "bio": "American poet who expanded the possibilities of free verse.",
+    "work": "Leaves of Grass",
+    "url": "https://en.wikipedia.org/wiki/Walt_Whitman",
+    "work_url": "https://en.wikipedia.org/wiki/Leaves_of_Grass",
+    "style": "Expansive free verse, bodily imagery, and democratic catalogues."
+  },
+  {
+    "name": "Edgar Allan Poe",
+    "bio": "American poet and fiction writer associated with Gothic literature.",
+    "work": "The Raven",
+    "url": "https://en.wikipedia.org/wiki/Edgar_Allan_Poe",
+    "work_url": "https://en.wikipedia.org/wiki/The_Raven",
+    "style": "Incantatory rhyme, musical repetition, and Gothic atmosphere."
+  },
+  {
+    "name": "Maya Angelou",
+    "bio": "American poet and memoirist whose writing affirms Black resilience.",
+    "work": "And Still I Rise",
+    "url": "https://en.wikipedia.org/wiki/Maya_Angelou",
+    "work_url": "https://en.wikipedia.org/wiki/And_Still_I_Rise",
+    "style": "Direct address, rhythmic repetition, and defiant affirmation."
+  },
+  {
+    "name": "Langston Hughes",
+    "bio": "American Harlem Renaissance poet shaped by blues and jazz.",
+    "work": "The Weary Blues",
+    "url": "https://en.wikipedia.org/wiki/Langston_Hughes",
+    "work_url": "https://en.wikipedia.org/wiki/The_Weary_Blues",
+    "style": "Blues rhythms, colloquial speech, and Black everyday experience."
+  },
+  {
+    "name": "Sylvia Plath",
+    "bio": "American poet whose intense lyrics transform personal experience.",
+    "work": "Ariel",
+    "url": "https://en.wikipedia.org/wiki/Sylvia_Plath",
+    "work_url": "https://en.wikipedia.org/wiki/Ariel_%28poetry_collection%29",
+    "style": "Confessional intensity, sharp imagery, and controlled formal energy."
+  },
+  {
+    "name": "T.S. Eliot",
+    "bio": "American-born British modernist poet and critic.",
+    "work": "The Waste Land",
+    "url": "https://en.wikipedia.org/wiki/T._S._Eliot",
+    "work_url": "https://en.wikipedia.org/wiki/The_Waste_Land",
+    "style": "Fragmented voices, allusion, and urban spiritual unease."
+  },
+  {
+    "name": "E.E. Cummings",
+    "bio": "American poet and visual artist who experimented with typography.",
+    "work": "Tulips and Chimneys",
+    "url": "https://en.wikipedia.org/wiki/E._E._Cummings",
+    "work_url": "https://en.wikipedia.org/wiki/Tulips_and_Chimneys",
+    "style": "Broken syntax, playful typography, and intimate lyric surprise."
+  },
+  {
+    "name": "Wallace Stevens",
+    "bio": "American modernist poet concerned with imagination and reality.",
+    "work": "Harmonium",
+    "url": "https://en.wikipedia.org/wiki/Wallace_Stevens",
+    "work_url": "https://en.wikipedia.org/wiki/Harmonium_%28poetry_collection%29",
+    "style": "Meditative abstraction, sensuous images, and philosophical wit."
+  },
+  {
+    "name": "Allen Ginsberg",
+    "bio": "American Beat poet who joined personal witness to public protest.",
+    "work": "Howl",
+    "url": "https://en.wikipedia.org/wiki/Allen_Ginsberg",
+    "work_url": "https://en.wikipedia.org/wiki/Allen_Ginsberg",
+    "style": "Breath-length lines, accumulative imagery, and prophetic candor."
+  },
+  {
+    "name": "Ezra Pound",
+    "bio": "American modernist poet central to Imagism.",
+    "work": "In a Station of the Metro",
+    "url": "https://en.wikipedia.org/wiki/Ezra_Pound",
+    "work_url": "https://en.wikipedia.org/wiki/In_a_Station_of_the_Metro",
+    "style": "Precise images, compression, allusion, and juxtaposition."
+  },
+  {
+    "name": "Carl Sandburg",
+    "bio": "American poet who celebrated workers and urban life.",
+    "work": "Chicago Poems",
+    "url": "https://en.wikipedia.org/wiki/Carl_Sandburg",
+    "work_url": "https://en.wikipedia.org/wiki/Chicago_Poems",
+    "style": "Plainspoken free verse, public voices, and industrial landscapes."
+  },
+  {
+    "name": "Mary Oliver",
+    "bio": "American poet known for close attention to the natural world.",
+    "work": "American Primitive",
+    "url": "https://en.wikipedia.org/wiki/Mary_Oliver",
+    "work_url": "https://en.wikipedia.org/wiki/Mary_Oliver",
+    "style": "Clear observation, quiet questions, and nature-centered revelation."
+  },
+  {
+    "name": "Anne Sexton",
+    "bio": "American confessional poet who examined mental illness and domestic life.",
+    "work": "Live or Die",
+    "url": "https://en.wikipedia.org/wiki/Anne_Sexton",
+    "work_url": "https://en.wikipedia.org/wiki/Anne_Sexton",
+    "style": "Intimate disclosure, dark humor, and charged domestic imagery."
+  },
+  {
+    "name": "Edna St. Vincent Millay",
+    "bio": "American lyric poet and accomplished writer of sonnets.",
+    "work": "Renascence and Other Poems",
+    "url": "https://en.wikipedia.org/wiki/Edna_St._Vincent_Millay",
+    "work_url": "https://en.wikipedia.org/wiki/Edna_St._Vincent_Millay",
+    "style": "Musical formal verse, emotional candor, and independence."
+  },
+  {
+    "name": "Henry Wadsworth Longfellow",
+    "bio": "American nineteenth-century poet and translator.",
+    "work": "The Song of Hiawatha",
+    "url": "https://en.wikipedia.org/wiki/Henry_Wadsworth_Longfellow",
+    "work_url": "https://en.wikipedia.org/wiki/The_Song_of_Hiawatha",
+    "style": "Narrative song, strong meter, and memorable refrains."
+  },
+  {
+    "name": "Ralph Waldo Emerson",
+    "bio": "American essayist and poet associated with Transcendentalism.",
+    "work": "Brahma",
+    "url": "https://en.wikipedia.org/wiki/Ralph_Waldo_Emerson",
+    "work_url": "https://en.wikipedia.org/wiki/Brahma_%28poem%29",
+    "style": "Philosophical paradox, nature symbolism, and spiritual self-reliance."
+  },
+  {
+    "name": "Shel Silverstein",
+    "bio": "American poet, illustrator, and songwriter for children and adults.",
+    "work": "Where the Sidewalk Ends",
+    "url": "https://en.wikipedia.org/wiki/Shel_Silverstein",
+    "work_url": "https://en.wikipedia.org/wiki/Where_the_Sidewalk_Ends",
+    "style": "Playful rhyme, absurd situations, and tender reversals."
+  },
+  {
+    "name": "Oscar Wilde",
+    "bio": "Irish poet and dramatist associated with aestheticism.",
+    "work": "The Ballad of Reading Gaol",
+    "url": "https://en.wikipedia.org/wiki/Oscar_Wilde",
+    "work_url": "https://en.wikipedia.org/wiki/The_Ballad_of_Reading_Gaol",
+    "style": "Lyrical repetition, moral feeling, and polished verbal wit."
+  },
+  {
+    "name": "William Butler Yeats",
+    "bio": "Irish poet whose work joins national myth and modern uncertainty.",
+    "work": "The Second Coming",
+    "url": "https://en.wikipedia.org/wiki/W._B._Yeats",
+    "work_url": "https://en.wikipedia.org/wiki/The_Second_Coming_%28poem%29",
+    "style": "Symbolic landscapes, incantation, and visionary historical patterns."
+  },
+  {
+    "name": "John Keats",
+    "bio": "English Romantic poet attentive to beauty and mortality.",
+    "work": "Ode to a Nightingale",
+    "url": "https://en.wikipedia.org/wiki/John_Keats",
+    "work_url": "https://en.wikipedia.org/wiki/Ode_to_a_Nightingale",
+    "style": "Sensuous imagery, musical odes, and suspended longing."
+  },
+  {
+    "name": "William Blake",
+    "bio": "English poet, painter, and visionary printmaker.",
+    "work": "Songs of Innocence and of Experience",
+    "url": "https://en.wikipedia.org/wiki/William_Blake",
+    "work_url": "https://en.wikipedia.org/wiki/Songs_of_Innocence_and_of_Experience",
+    "style": "Songlike simplicity, prophetic symbols, and social critique."
+  },
+  {
+    "name": "William Wordsworth",
+    "bio": "English Romantic poet of memory and the natural world.",
+    "work": "I Wandered Lonely as a Cloud",
+    "url": "https://en.wikipedia.org/wiki/William_Wordsworth",
+    "work_url": "https://en.wikipedia.org/wiki/I_Wandered_Lonely_as_a_Cloud",
+    "style": "Plain diction, remembered landscapes, and reflective inward movement."
+  },
+  {
+    "name": "John Milton",
+    "bio": "English poet and polemicist of the seventeenth century.",
+    "work": "Paradise Lost",
+    "url": "https://en.wikipedia.org/wiki/John_Milton",
+    "work_url": "https://en.wikipedia.org/wiki/Paradise_Lost",
+    "style": "Elevated blank verse, epic scale, and moral struggle."
+  },
+  {
+    "name": "Geoffrey Chaucer",
+    "bio": "Medieval English poet who brought many social voices into verse.",
+    "work": "The Canterbury Tales",
+    "url": "https://en.wikipedia.org/wiki/Geoffrey_Chaucer",
+    "work_url": "https://en.wikipedia.org/wiki/The_Canterbury_Tales",
+    "style": "Narrative variety, social satire, and lively speaking voices."
+  },
+  {
+    "name": "Percy Bysshe Shelley",
+    "bio": "English Romantic poet of imagination and political hope.",
+    "work": "Ode to the West Wind",
+    "url": "https://en.wikipedia.org/wiki/Percy_Bysshe_Shelley",
+    "work_url": "https://en.wikipedia.org/wiki/Ode_to_the_West_Wind",
+    "style": "Rushing lyric music, elemental imagery, and revolutionary aspiration."
+  },
+  {
+    "name": "Lord Byron",
+    "bio": "English Romantic poet known for satire and rebellious heroes.",
+    "work": "Don Juan",
+    "url": "https://en.wikipedia.org/wiki/Lord_Byron",
+    "work_url": "https://en.wikipedia.org/wiki/Don_Juan_%28poem%29",
+    "style": "Conversational digression, biting irony, and restless romantic energy."
+  },
+  {
+    "name": "Samuel Taylor Coleridge",
+    "bio": "English Romantic poet and critic fascinated by imagination.",
+    "work": "The Rime of the Ancient Mariner",
+    "url": "https://en.wikipedia.org/wiki/Samuel_Taylor_Coleridge",
+    "work_url": "https://en.wikipedia.org/wiki/The_Rime_of_the_Ancient_Mariner",
+    "style": "Ballad rhythms, supernatural scenes, and dreamlike moral tension."
+  },
+  {
+    "name": "Alfred Lord Tennyson",
+    "bio": "Victorian British Poet Laureate who explored faith and loss.",
+    "work": "In Memoriam A.H.H.",
+    "url": "https://en.wikipedia.org/wiki/Alfred%2C_Lord_Tennyson",
+    "work_url": "https://en.wikipedia.org/wiki/In_Memoriam_A.H.H.",
+    "style": "Musical stanza forms, elegiac meditation, and sensuous landscape."
+  },
+  {
+    "name": "Rudyard Kipling",
+    "bio": "British poet and fiction writer associated with imperial-era literature.",
+    "work": "If—",
+    "url": "https://en.wikipedia.org/wiki/Rudyard_Kipling",
+    "work_url": "https://en.wikipedia.org/wiki/If%E2%80%94",
+    "style": "Strong rhythm, direct address, and memorable moral narrative."
+  },
+  {
+    "name": "Dylan Thomas",
+    "bio": "Welsh poet whose richly musical verse explores life and death.",
+    "work": "Do not go gentle into that good night",
+    "url": "https://en.wikipedia.org/wiki/Dylan_Thomas",
+    "work_url": "https://en.wikipedia.org/wiki/Do_not_go_gentle_into_that_good_night",
+    "style": "Dense sound, elemental imagery, and intense patterned repetition."
+  },
+  {
+    "name": "John Donne",
+    "bio": "English metaphysical poet and cleric.",
+    "work": "The Flea",
+    "url": "https://en.wikipedia.org/wiki/John_Donne",
+    "work_url": "https://en.wikipedia.org/wiki/The_Flea_%28poem%29",
+    "style": "Extended conceits, argumentative intimacy, and startling comparisons."
+  },
+  {
+    "name": "Gerard Manley Hopkins",
+    "bio": "English Jesuit poet who developed sprung rhythm.",
+    "work": "The Windhover",
+    "url": "https://en.wikipedia.org/wiki/Gerard_Manley_Hopkins",
+    "work_url": "https://en.wikipedia.org/wiki/The_Windhover",
+    "style": "Stressed rhythm, compound words, and close natural observation."
+  },
+  {
+    "name": "Philip Larkin",
+    "bio": "English poet whose restrained lyrics examine ordinary disappointments.",
+    "work": "The Whitsun Weddings",
+    "url": "https://en.wikipedia.org/wiki/Philip_Larkin",
+    "work_url": "https://en.wikipedia.org/wiki/The_Whitsun_Weddings",
+    "style": "Conversational precision, formal control, and melancholy observation."
+  },
+  {
+    "name": "Ted Hughes",
+    "bio": "English poet known for elemental depictions of animals and myth.",
+    "work": "Crow",
+    "url": "https://en.wikipedia.org/wiki/Ted_Hughes",
+    "work_url": "https://en.wikipedia.org/wiki/Crow_%28poetry%29",
+    "style": "Muscular language, animal energy, and stark mythic imagery."
+  },
+  {
+    "name": "Robert Burns",
+    "bio": "Scottish poet and songwriter who wrote in Scots and English.",
+    "work": "Auld Lang Syne",
+    "url": "https://en.wikipedia.org/wiki/Robert_Burns",
+    "work_url": "https://en.wikipedia.org/wiki/Auld_Lang_Syne",
+    "style": "Song rhythms, vernacular warmth, satire, and human fellowship."
+  },
+  {
+    "name": "Robert Browning",
+    "bio": "Victorian English poet who developed the dramatic monologue.",
+    "work": "My Last Duchess",
+    "url": "https://en.wikipedia.org/wiki/Robert_Browning",
+    "work_url": "https://en.wikipedia.org/wiki/My_Last_Duchess",
+    "style": "Dramatic speakers, psychological tension, and revealing indirect speech."
+  },
+  {
+    "name": "Elizabeth Barrett Browning",
+    "bio": "Victorian English poet whose work addresses love and social injustice.",
+    "work": "Sonnets from the Portuguese",
+    "url": "https://en.wikipedia.org/wiki/Elizabeth_Barrett_Browning",
+    "work_url": "https://en.wikipedia.org/wiki/Sonnets_from_the_Portuguese",
+    "style": "Intimate sonnets, emotional argument, and lyrical musicality."
+  },
+  {
+    "name": "Christina Rossetti",
+    "bio": "English Victorian poet of devotional and imaginative verse.",
+    "work": "Goblin Market",
+    "url": "https://en.wikipedia.org/wiki/Christina_Rossetti",
+    "work_url": "https://en.wikipedia.org/wiki/Goblin_Market",
+    "style": "Songlike rhythms, symbolic detail, and desire tempered by renunciation."
+  },
+  {
+    "name": "W.H. Auden",
+    "bio": "British-born American poet concerned with private and public ethics.",
+    "work": "Funeral Blues",
+    "url": "https://en.wikipedia.org/wiki/W._H._Auden",
+    "work_url": "https://en.wikipedia.org/wiki/Funeral_Blues",
+    "style": "Formal versatility, conversational intelligence, and moral inquiry."
+  },
+  {
+    "name": "Seamus Heaney",
+    "bio": "Irish poet whose writing connects rural memory with historical conflict.",
+    "work": "Death of a Naturalist",
+    "url": "https://en.wikipedia.org/wiki/Seamus_Heaney",
+    "work_url": "https://en.wikipedia.org/wiki/Death_of_a_Naturalist",
+    "style": "Tactile language, rural labor, and layered historical memory."
+  },
+  {
+    "name": "Amy Lowell",
+    "bio": "American Imagist poet and advocate of modern poetry.",
+    "work": "Patterns",
+    "url": "https://en.wikipedia.org/wiki/Amy_Lowell",
+    "work_url": "https://en.wikipedia.org/wiki/Amy_Lowell",
+    "style": "Precise visual detail, free verse, and sensuous rhythmic pattern."
+  },
+  {
+    "name": "Wole Soyinka",
+    "bio": "Nigerian poet, dramatist, and Nobel laureate.",
+    "work": "A Shuttle in the Crypt",
+    "url": "https://en.wikipedia.org/wiki/Wole_Soyinka",
+    "work_url": "https://en.wikipedia.org/wiki/A_Shuttle_in_the_Crypt",
+    "style": "Mythic allusion, dramatic voices, and resistance to oppression."
+  },
+  {
+    "name": "Derek Walcott",
+    "bio": "Saint Lucian poet and playwright who reimagined epic through Caribbean experience.",
+    "work": "Omeros",
+    "url": "https://en.wikipedia.org/wiki/Derek_Walcott",
+    "work_url": "https://en.wikipedia.org/wiki/Omeros",
+    "style": "Lush seascapes, historical layering, and classical forms reshaped by island life."
+  },
+  {
+    "name": "Geoffrey Hill",
+    "bio": "English poet whose dense verse examines history, faith, and moral responsibility.",
+    "work": "Mercian Hymns",
+    "url": "https://en.wikipedia.org/wiki/Geoffrey_Hill",
+    "work_url": "https://en.wikipedia.org/wiki/Geoffrey_Hill",
+    "style": "Compressed allusions, knotted syntax, and historical voices under moral pressure."
+  },
+  {
+    "name": "Thom Gunn",
+    "bio": "English poet who joined formal discipline with life in San Francisco and queer experience.",
+    "work": "The Man with Night Sweats",
+    "url": "https://en.wikipedia.org/wiki/Thom_Gunn",
+    "work_url": "https://en.wikipedia.org/wiki/Thom_Gunn",
+    "style": "Measured stanzas, bodily detail, and restrained tenderness amid urban life and loss."
+  },
+  {
+    "name": "Thomas Hardy",
+    "bio": "English novelist and poet of rural memory, disappointed love, and an indifferent universe.",
+    "work": "The Darkling Thrush",
+    "url": "https://en.wikipedia.org/wiki/Thomas_Hardy",
+    "work_url": "https://en.wikipedia.org/wiki/The_Darkling_Thrush",
+    "style": "Uneven songlike meters, weathered landscapes, and skeptical turns toward fragile hope."
+  },
+  {
+    "name": "A.E. Housman",
+    "bio": "English classical scholar and poet of youth, separation, and mortality.",
+    "work": "A Shropshire Lad",
+    "url": "https://en.wikipedia.org/wiki/A._E._Housman",
+    "work_url": "https://en.wikipedia.org/wiki/A_Shropshire_Lad",
+    "style": "Plain diction, ballad rhythms, and stoic endings that sharpen private grief."
+  },
+  {
+    "name": "Thomas Gray",
+    "bio": "English poet whose reflective verse helped shape the graveyard tradition.",
+    "work": "Elegy Written in a Country Churchyard",
+    "url": "https://en.wikipedia.org/wiki/Thomas_Gray",
+    "work_url": "https://en.wikipedia.org/wiki/Elegy_Written_in_a_Country_Churchyard",
+    "style": "Balanced quatrains, twilight imagery, and dignified reflection on overlooked lives."
+  },
+  {
+    "name": "Andrew Marvell",
+    "bio": "English metaphysical poet and parliamentarian known for wit and political satire.",
+    "work": "To His Coy Mistress",
+    "url": "https://en.wikipedia.org/wiki/Andrew_Marvell",
+    "work_url": "https://en.wikipedia.org/wiki/To_His_Coy_Mistress",
+    "style": "Ingenious arguments, elastic conceits, and swift shifts between desire and time."
+  },
+  {
+    "name": "Richard Crashaw",
+    "bio": "English metaphysical poet of intensely sensuous Catholic devotion.",
+    "work": "The Flaming Heart",
+    "url": "https://en.wikipedia.org/wiki/Richard_Crashaw",
+    "work_url": "https://en.wikipedia.org/wiki/Richard_Crashaw",
+    "style": "Baroque ornament, ecstatic repetition, and images of flame, wounds, and spiritual longing."
+  },
+  {
+    "name": "George Herbert",
+    "bio": "Welsh-born English devotional poet and Anglican priest.",
+    "work": "The Temple",
+    "url": "https://en.wikipedia.org/wiki/George_Herbert",
+    "work_url": "https://en.wikipedia.org/wiki/George_Herbert",
+    "style": "Conversational prayer, intricate stanza shapes, and humble objects turned into spiritual arguments."
+  },
+  {
+    "name": "Henry Vaughan",
+    "bio": "Welsh metaphysical poet whose English lyrics explore spiritual vision and renewal.",
+    "work": "The Retreat",
+    "url": "https://en.wikipedia.org/wiki/Henry_Vaughan",
+    "work_url": "https://en.wikipedia.org/wiki/Henry_Vaughan",
+    "style": "Luminous natural images, memories of childhood, and meditative movement toward eternity."
+  },
+  {
+    "name": "Thomas Traherne",
+    "bio": "English poet and Anglican clergyman who celebrated perception and divine abundance.",
+    "work": "Centuries of Meditations",
+    "url": "https://en.wikipedia.org/wiki/Thomas_Traherne",
+    "work_url": "https://en.wikipedia.org/wiki/Thomas_Traherne",
+    "style": "Expansive wonder, recurring images of light, and a childlike sense of limitless possession."
+  },
+  {
+    "name": "Robert Herrick",
+    "bio": "English lyric poet and priest known for brief poems on pleasure and passing time.",
+    "work": "Hesperides",
+    "url": "https://en.wikipedia.org/wiki/Robert_Herrick_(poet)",
+    "work_url": "https://en.wikipedia.org/wiki/Hesperides_(poetry_collection)",
+    "style": "Graceful short stanzas, floral imagery, and festive invitations shadowed by mortality."
+  },
+  {
+    "name": "Thomas Campion",
+    "bio": "English poet and composer who wrote lyrics for lute songs.",
+    "work": "There Is a Garden in Her Face",
+    "url": "https://en.wikipedia.org/wiki/Thomas_Campion",
+    "work_url": "https://en.wikipedia.org/wiki/There_Is_a_Garden_in_Her_Face",
+    "style": "Musical phrasing, lucid diction, and compact meditations on love and transience."
+  },
+  {
+    "name": "Thomas Wyatt",
+    "bio": "English Tudor courtier and poet who helped introduce the sonnet into English.",
+    "work": "Whoso List to Hunt",
+    "url": "https://en.wikipedia.org/wiki/Thomas_Wyatt_(poet)",
+    "work_url": "https://en.wikipedia.org/wiki/Whoso_List_to_Hunt",
+    "style": "Taut courtly speech, restless rhythms, and guarded desire expressed through pursuit and restraint."
+  },
+  {
+    "name": "Henry Howard, Earl of Surrey",
+    "bio": "English Tudor poet who developed the English sonnet and early blank verse.",
+    "work": "The Soote Season",
+    "url": "https://en.wikipedia.org/wiki/Henry_Howard%2C_Earl_of_Surrey",
+    "work_url": "https://en.wikipedia.org/wiki/Henry_Howard%2C_Earl_of_Surrey",
+    "style": "Courtly restraint, balanced sonnet argument, and seasonal contrasts that expose private sorrow."
+  },
+  {
+    "name": "Edmund Spenser",
+    "bio": "English Renaissance poet of allegorical romance and elaborate stanza forms.",
+    "work": "The Faerie Queene",
+    "url": "https://en.wikipedia.org/wiki/Edmund_Spenser",
+    "work_url": "https://en.wikipedia.org/wiki/The_Faerie_Queene",
+    "style": "Interwoven allegory, archaic diction, and richly patterned nine-line stanzas."
+  },
+  {
+    "name": "Philip Sidney",
+    "bio": "English Renaissance courtier, poet, and defender of imaginative literature.",
+    "work": "Astrophil and Stella",
+    "url": "https://en.wikipedia.org/wiki/Philip_Sidney",
+    "work_url": "https://en.wikipedia.org/wiki/Astrophil_and_Stella",
+    "style": "Self-questioning sonnets, rhetorical wit, and conflicts between reason and desire."
+  },
+  {
+    "name": "Michael Drayton",
+    "bio": "English poet who mapped British landscapes and history in ambitious verse.",
+    "work": "Poly-Olbion",
+    "url": "https://en.wikipedia.org/wiki/Michael_Drayton",
+    "work_url": "https://en.wikipedia.org/wiki/Poly-Olbion",
+    "style": "Personified rivers, topographical catalogues, and rolling descriptions of national memory."
+  },
+  {
+    "name": "Samuel Daniel",
+    "bio": "English Renaissance poet and historian known for reflective sonnets and verse histories.",
+    "work": "Delia",
+    "url": "https://en.wikipedia.org/wiki/Samuel_Daniel",
+    "work_url": "https://en.wikipedia.org/wiki/Samuel_Daniel",
+    "style": "Polished sonnet phrasing, sober reflection, and controlled arguments about love and time."
+  },
+  {
+    "name": "Christopher Marlowe",
+    "bio": "English Elizabethan dramatist and poet known for forceful verse and classical desire.",
+    "work": "Hero and Leander",
+    "url": "https://en.wikipedia.org/wiki/Christopher_Marlowe",
+    "work_url": "https://en.wikipedia.org/wiki/Hero_and_Leander_(poem)",
+    "style": "Sensuous narrative couplets, learned ornament, and a teasingly skeptical narrative voice."
+  },
+  {
+    "name": "Ben Jonson",
+    "bio": "English Renaissance dramatist and poet who favored classical form and direct address.",
+    "work": "On My First Sonne",
+    "url": "https://en.wikipedia.org/wiki/Ben_Jonson",
+    "work_url": "https://en.wikipedia.org/wiki/On_My_First_Sonne",
+    "style": "Epigrammatic precision, balanced statements, and intimate feeling held inside formal restraint."
+  },
+  {
+    "name": "John Dryden",
+    "bio": "English Restoration poet, critic, and translator celebrated for public satire.",
+    "work": "Absalom and Achitophel",
+    "url": "https://en.wikipedia.org/wiki/John_Dryden",
+    "work_url": "https://en.wikipedia.org/wiki/Absalom_and_Achitophel",
+    "style": "Driving heroic couplets, sharply drawn portraits, and sustained political allegory."
+  },
+  {
+    "name": "Alexander Pope",
+    "bio": "English Augustan poet whose satires examine taste, vanity, and social power.",
+    "work": "The Rape of the Lock",
+    "url": "https://en.wikipedia.org/wiki/Alexander_Pope",
+    "work_url": "https://en.wikipedia.org/wiki/The_Rape_of_the_Lock",
+    "style": "Polished heroic couplets, mock-epic scale, and poised irony about social rituals."
+  },
+  {
+    "name": "Jonathan Swift",
+    "bio": "Irish satirist and poet whose verse exposes vanity and everyday disorder.",
+    "work": "A Description of a City Shower",
+    "url": "https://en.wikipedia.org/wiki/Jonathan_Swift",
+    "work_url": "https://en.wikipedia.org/wiki/A_Description_of_a_City_Shower",
+    "style": "Brisk couplets, concrete urban grime, and dry observation that punctures pretension."
+  },
+  {
+    "name": "Samuel Johnson",
+    "bio": "English writer, critic, and poet who examined human ambition through moral satire.",
+    "work": "The Vanity of Human Wishes",
+    "url": "https://en.wikipedia.org/wiki/Samuel_Johnson",
+    "work_url": "https://en.wikipedia.org/wiki/The_Vanity_of_Human_Wishes",
+    "style": "Grave couplets, cumulative examples, and stern reflections on misplaced human hopes."
+  },
+  {
+    "name": "Thomas Chatterton",
+    "bio": "English poet who created medieval-style poems attributed to the invented Thomas Rowley.",
+    "work": "Rowley Poems",
+    "url": "https://en.wikipedia.org/wiki/Thomas_Chatterton",
+    "work_url": "https://en.wikipedia.org/wiki/Thomas_Chatterton",
+    "style": "Invented archaic diction, dramatic medieval scenes, and youthful Romantic intensity."
+  },
+  {
+    "name": "Oliver Goldsmith",
+    "bio": "Irish poet, novelist, and dramatist who wrote in English about social change.",
+    "work": "The Deserted Village",
+    "url": "https://en.wikipedia.org/wiki/Oliver_Goldsmith",
+    "work_url": "https://en.wikipedia.org/wiki/The_Deserted_Village",
+    "style": "Flowing couplets, pastoral recollection, and elegiac criticism of displacement and luxury."
+  },
+  {
+    "name": "William Cowper",
+    "bio": "English poet whose verse joins domestic observation, faith, and humane reflection.",
+    "work": "The Task",
+    "url": "https://en.wikipedia.org/wiki/William_Cowper",
+    "work_url": "https://en.wikipedia.org/wiki/The_Task_(poem)",
+    "style": "Conversational blank verse, homely particulars, and moral reflection unfolding through rural walks."
+  },
+  {
+    "name": "George Crabbe",
+    "bio": "English poet and clergyman known for unsentimental portraits of rural and coastal life.",
+    "work": "The Borough",
+    "url": "https://en.wikipedia.org/wiki/George_Crabbe",
+    "work_url": "https://en.wikipedia.org/wiki/The_Borough_(poem)",
+    "style": "Plain narrative couplets, exact social detail, and compassion sharpened by harsh circumstance."
+  },
+  {
+    "name": "Christopher Smart",
+    "bio": "English poet known for devotional verse and the visionary poem Jubilate Agno.",
+    "work": "Jubilate Agno",
+    "url": "https://en.wikipedia.org/wiki/Christopher_Smart",
+    "work_url": "https://en.wikipedia.org/wiki/Jubilate_Agno",
+    "style": "Litany-like parallel clauses, exuberant praise, and startling links between animals and sacred order."
+  },
+  {
+    "name": "Charlotte Smith",
+    "bio": "English poet and novelist who helped renew the sonnet before Romanticism.",
+    "work": "Elegiac Sonnets",
+    "url": "https://en.wikipedia.org/wiki/Charlotte_Smith_(writer)",
+    "work_url": "https://en.wikipedia.org/wiki/Elegiac_Sonnets",
+    "style": "Melancholy sonnets, coastal and botanical detail, and private sorrow tied to public injustice."
+  },
+  {
+    "name": "Anna Laetitia Barbauld",
+    "bio": "English poet and essayist whose work connects domestic feeling with public ethics.",
+    "work": "Eighteen Hundred and Eleven",
+    "url": "https://en.wikipedia.org/wiki/Anna_Laetitia_Barbauld",
+    "work_url": "https://en.wikipedia.org/wiki/Eighteen_Hundred_and_Eleven",
+    "style": "Clear argumentative verse, prophetic historical perspective, and humane attention to ordinary lives."
+  },
+  {
+    "name": "Felicia Hemans",
+    "bio": "English poet whose widely read lyrics explore home, loyalty, exile, and sacrifice.",
+    "work": "Casabianca",
+    "url": "https://en.wikipedia.org/wiki/Felicia_Hemans",
+    "work_url": "https://en.wikipedia.org/wiki/Casabianca_(poem)",
+    "style": "Memorable ballad cadences, heightened scenes of duty, and domestic feeling tested by public events."
+  },
+  {
+    "name": "John Clare",
+    "bio": "English poet of rural labor, local ecology, and threatened common land.",
+    "work": "I Am",
+    "url": "https://en.wikipedia.org/wiki/John_Clare",
+    "work_url": "https://en.wikipedia.org/wiki/I_Am_(poem)",
+    "style": "Minute field observations, vernacular turns, and intimate rhythms of belonging and estrangement."
+  },
+  {
+    "name": "James Macpherson",
+    "bio": "Scottish poet whose English Ossian poems claimed to translate ancient Gaelic sources.",
+    "work": "Ossian",
+    "url": "https://en.wikipedia.org/wiki/James_Macpherson",
+    "work_url": "https://en.wikipedia.org/wiki/Ossian",
+    "style": "Rhapsodic prose rhythms, misty battle landscapes, and repeated laments for vanished heroes."
+  },
+  {
+    "name": "Thomas Moore",
+    "bio": "Irish poet and songwriter whose English lyrics helped popularize Irish musical traditions.",
+    "work": "Irish Melodies",
+    "url": "https://en.wikipedia.org/wiki/Thomas_Moore",
+    "work_url": "https://en.wikipedia.org/wiki/Irish_Melodies",
+    "style": "Song-shaped stanzas, affectionate address, and national memory carried through wistful refrains."
+  },
+  {
+    "name": "Leigh Hunt",
+    "bio": "English poet, essayist, and editor associated with the Romantic circle.",
+    "work": "Abou Ben Adhem",
+    "url": "https://en.wikipedia.org/wiki/Leigh_Hunt",
+    "work_url": "https://en.wikipedia.org/wiki/Leigh_Hunt",
+    "style": "Easy narrative movement, genial directness, and moral feeling revealed through a brief encounter."
+  },
+  {
+    "name": "Walter Scott",
+    "bio": "Scottish poet and novelist whose English narrative poems draw on border history and legend.",
+    "work": "The Lady of the Lake",
+    "url": "https://en.wikipedia.org/wiki/Walter_Scott",
+    "work_url": "https://en.wikipedia.org/wiki/The_Lady_of_the_Lake_(poem)",
+    "style": "Galloping narrative meters, ballad refrains, and vivid historical landscapes of conflict and loyalty."
+  },
+  {
+    "name": "Robert Southey",
+    "bio": "English Romantic poet and poet laureate who wrote historical epics and ballads.",
+    "work": "After Blenheim",
+    "url": "https://en.wikipedia.org/wiki/Robert_Southey",
+    "work_url": "https://en.wikipedia.org/wiki/After_Blenheim",
+    "style": "Plain storytelling, recurring refrains, and ironic gaps between public glory and human cost."
+  },
+  {
+    "name": "William Morris",
+    "bio": "English poet, designer, and socialist whose verse revives medieval storytelling.",
+    "work": "The Earthly Paradise",
+    "url": "https://en.wikipedia.org/wiki/William_Morris",
+    "work_url": "https://en.wikipedia.org/wiki/The_Earthly_Paradise",
+    "style": "Patient narrative verse, richly material settings, and yearning for distant worlds and fellowship."
+  },
+  {
+    "name": "Dante Gabriel Rossetti",
+    "bio": "English Pre-Raphaelite poet and painter of intense symbolic and sensual scenes.",
+    "work": "The Blessed Damozel",
+    "url": "https://en.wikipedia.org/wiki/Dante_Gabriel_Rossetti",
+    "work_url": "https://en.wikipedia.org/wiki/The_Blessed_Damozel",
+    "style": "Jewel-like visual detail, medieval echoes, and desire suspended between earthly and spiritual worlds."
+  },
+  {
+    "name": "Algernon Charles Swinburne",
+    "bio": "English Victorian poet known for virtuosic rhythms and provocative themes.",
+    "work": "Atalanta in Calydon",
+    "url": "https://en.wikipedia.org/wiki/Algernon_Charles_Swinburne",
+    "work_url": "https://en.wikipedia.org/wiki/Atalanta_in_Calydon",
+    "style": "Surging musical repetition, elaborate rhyme, and classical images of passion and fate."
+  },
+  {
+    "name": "Ernest Dowson",
+    "bio": "English Decadent poet of unfulfilled desire, fleeting pleasure, and regret.",
+    "work": "Non sum qualis eram bonae sub regno Cynarae",
+    "url": "https://en.wikipedia.org/wiki/Ernest_Dowson",
+    "work_url": "https://en.wikipedia.org/wiki/Ernest_Dowson",
+    "style": "Haunting refrains, languid musical lines, and repeated returns to an unattainable beloved."
+  },
+  {
+    "name": "George William Russell",
+    "bio": "Irish poet, artist, and mystic who published in English under the name AE.",
+    "work": "The Earth Breath",
+    "url": "https://en.wikipedia.org/wiki/George_William_Russell",
+    "work_url": "https://en.wikipedia.org/wiki/George_William_Russell",
+    "style": "Visionary rural landscapes, luminous spiritual presences, and quiet lyric rhythms."
+  },
+  {
+    "name": "Edward Thomas",
+    "bio": "English poet whose country walks register memory, hesitation, and approaching war.",
+    "work": "Adlestrop",
+    "url": "https://en.wikipedia.org/wiki/Edward_Thomas_(poet)",
+    "work_url": "https://en.wikipedia.org/wiki/Adlestrop_(poem)",
+    "style": "Conversational pauses, exact sounds of the countryside, and emotion carried by understated observation."
+  },
+  {
+    "name": "Isaac Rosenberg",
+    "bio": "English poet and painter whose First World War poems attend to bodily vulnerability.",
+    "work": "Break of Day in the Trenches",
+    "url": "https://en.wikipedia.org/wiki/Isaac_Rosenberg",
+    "work_url": "https://en.wikipedia.org/wiki/Isaac_Rosenberg",
+    "style": "Uneven speech rhythms, startling animal images, and dark wit amid material wartime detail."
+  },
+  {
+    "name": "Wilfred Owen",
+    "bio": "English soldier-poet whose First World War verse exposes suffering and patriotic rhetoric.",
+    "work": "Dulce et Decorum est",
+    "url": "https://en.wikipedia.org/wiki/Wilfred_Owen",
+    "work_url": "https://en.wikipedia.org/wiki/Dulce_et_Decorum_est",
+    "style": "Pararhyme, broken rhythms, and graphic sensory shocks that challenge ceremonial language."
+  },
+  {
+    "name": "Siegfried Sassoon",
+    "bio": "English soldier-poet and memoirist known for bitter First World War satire.",
+    "work": "Attack",
+    "url": "https://en.wikipedia.org/wiki/Siegfried_Sassoon",
+    "work_url": "https://en.wikipedia.org/wiki/Siegfried_Sassoon",
+    "style": "Clipped narrative, harsh battlefield particulars, and sudden turns into accusation or dread."
+  },
+  {
+    "name": "Rupert Brooke",
+    "bio": "English poet whose early First World War sonnets joined idealism with national belonging.",
+    "work": "The Soldier",
+    "url": "https://en.wikipedia.org/wiki/Rupert_Brooke",
+    "work_url": "https://en.wikipedia.org/wiki/The_Soldier_(poem)",
+    "style": "Smooth sonnet argument, idealized landscape, and intimate feeling expanded into patriotic vision."
+  },
+  {
+    "name": "Edward Lear",
+    "bio": "English poet and artist celebrated for literary nonsense and illustrated verse.",
+    "work": "A Book of Nonsense",
+    "url": "https://en.wikipedia.org/wiki/Edward_Lear",
+    "work_url": "https://en.wikipedia.org/wiki/A_Book_of_Nonsense",
+    "style": "Buoyant limerick rhythms, impossible creatures, and comic logic touched by loneliness."
+  },
+  {
+    "name": "Lewis Carroll",
+    "bio": "English writer and mathematician whose poems explore nonsense and language games.",
+    "work": "Jabberwocky",
+    "url": "https://en.wikipedia.org/wiki/Lewis_Carroll",
+    "work_url": "https://en.wikipedia.org/wiki/Jabberwocky",
+    "style": "Invented words, exact metrical play, and absurd narratives built from familiar grammatical patterns."
+  },
+  {
+    "name": "Stevie Smith",
+    "bio": "English poet and novelist whose deceptively simple verse explores isolation and death.",
+    "work": "Not Waving but Drowning",
+    "url": "https://en.wikipedia.org/wiki/Stevie_Smith",
+    "work_url": "https://en.wikipedia.org/wiki/Not_Waving_but_Drowning",
+    "style": "Nursery-rhyme cadences, abrupt tonal turns, and deadpan voices that unsettle everyday assumptions."
+  },
+  {
+    "name": "John Betjeman",
+    "bio": "English poet and broadcaster known for affectionate attention to buildings and social habits.",
+    "work": "Slough",
+    "url": "https://en.wikipedia.org/wiki/John_Betjeman",
+    "work_url": "https://en.wikipedia.org/wiki/Slough_(poem)",
+    "style": "Jaunty regular meters, architectural particulars, and nostalgia mingled with social comedy."
+  },
+  {
+    "name": "Denise Levertov",
+    "bio": "British-born American poet whose lyrics connect perception, conscience, and spiritual inquiry.",
+    "work": "The Jacob's Ladder",
+    "url": "https://en.wikipedia.org/wiki/Denise_Levertov",
+    "work_url": "https://en.wikipedia.org/wiki/Denise_Levertov",
+    "style": "Breath-shaped free verse, attentive line breaks, and images that open into ethical or spiritual questions."
+  },
+  {
+    "name": "Elizabeth Bishop",
+    "bio": "American poet whose precise observations explore travel, displacement, and loss.",
+    "work": "One Art",
+    "url": "https://en.wikipedia.org/wiki/Elizabeth_Bishop",
+    "work_url": "https://en.wikipedia.org/wiki/One_Art",
+    "style": "Exact descriptive detail, poised conversational syntax, and formal patterns strained by withheld emotion."
+  }
+]

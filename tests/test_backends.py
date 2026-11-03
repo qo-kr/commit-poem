@@ -184,6 +184,21 @@ class TestAnthropicBackend:
 # ---------------------------------------------------------------------------
 
 class TestOpenAIBackend:
+    @pytest.mark.parametrize('language,keys', [
+        ('en', {'title_en', 'title_ko', 'poem_en', 'behind_en'}),
+        ('ko', {'poem_ko', 'behind_ko'}),
+    ])
+    def test_language_requests_have_independent_output_schemas(self, language: str, keys: set[str]) -> None:
+        constructor_mock = _make_openai_mock()
+        with patch('commitpoem.backends.OpenAI', constructor_mock):
+            OpenAIBackend(API_KEY).generate_poem(COMMITS, MODEL, language=language,
+                                                shared_title=('A door', '문') if language == 'ko' else None)
+        kwargs = constructor_mock.return_value.chat.completions.create.call_args.kwargs
+        schema = kwargs['response_format']['json_schema']['schema']
+        assert set(schema['properties']) == keys
+        assert set(schema['required']) == keys
+        assert schema['additionalProperties'] is False
+
     def test_returns_content_from_response(self) -> None:
         constructor_mock = _make_openai_mock()
         with patch("commitpoem.backends.OpenAI", constructor_mock):
@@ -238,6 +253,25 @@ class TestOpenAIBackend:
 # ---------------------------------------------------------------------------
 
 class TestBuildPrompt:
+    def test_korean_request_shares_titles_but_not_an_english_poem(self) -> None:
+        prompt = _build_prompt(['fix: cache'], language='ko', shared_title=('A door', '문'))
+        assert 'Compose only the Korean poem' in prompt
+        assert '"A door"' in prompt and '"문"' in prompt
+        assert 'Do not translate' in prompt
+        assert 'title_en, title_ko, poem_en' not in prompt
+
+    def test_separate_poet_styles_request_independent_poems(self) -> None:
+        from commitpoem.catalog import POETS
+
+        english, korean = POETS[101], POETS[0]
+        prompt = _build_prompt(["fix: cache"], poet=english, korean_poet=korean)
+        assert english.name in prompt and english.style in prompt
+        assert korean.name in prompt and korean.style in prompt
+        assert "independently composed" in prompt
+        assert "not translations" in prompt
+        assert "ONE shared bilingual title" in prompt
+        assert "faithful Korean translation" not in prompt
+
     @pytest.mark.parametrize("body", ["가나다🙂" * 3000, '\\"\n\t' * 5000], ids=["unicode", "escaping"])
     def test_large_daily_input_is_bounded_valid_json(self, body: str) -> None:
         commits = [f"[org/repo-{index}] fix: cache {body}" for index in range(554)]
@@ -269,13 +303,12 @@ class TestBuildPrompt:
         prompt = _build_prompt(["[qo-kr/repo] fix: cache"])
         assert 'Required literal anchor: "cache"' in prompt
 
-    def test_requests_one_work_and_translation_with_structured_title(self) -> None:
+    def test_requests_independent_works_with_shared_structured_title(self) -> None:
         prompt = _build_prompt(["fix: cache"])
-        assert "ONE original poem" in prompt
-        assert "translation" in prompt
+        assert "TWO independently composed" in prompt
+        assert "not translations" in prompt
         assert "title_en" in prompt and "title_ko" in prompt
         assert "behind_en" in prompt and "behind_ko" in prompt
-        assert "TWO short poems" not in prompt
         assert "untrusted" in prompt.lower()
 
     def test_includes_commits(self) -> None:
