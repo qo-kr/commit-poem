@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 from unittest.mock import MagicMock, patch
 
 import pytest
@@ -237,6 +238,33 @@ class TestOpenAIBackend:
 # ---------------------------------------------------------------------------
 
 class TestBuildPrompt:
+    @pytest.mark.parametrize("body", ["가나다🙂" * 3000, '\\"\n\t' * 5000], ids=["unicode", "escaping"])
+    def test_large_daily_input_is_bounded_valid_json(self, body: str) -> None:
+        commits = [f"[org/repo-{index}] fix: cache {body}" for index in range(554)]
+        prompt = _build_prompt(commits)
+        source = prompt.split("<commits>", 1)[1].split("</commits>", 1)[0]
+        excerpts = json.loads(source)
+        assert len(source.encode("utf-8")) <= 48_000
+        assert len(prompt.encode("utf-8")) < 55_000
+        assert len(excerpts) <= 200
+        assert excerpts[0].startswith("[org/repo-0] fix: cache")
+        assert excerpts[-1].startswith("[org/repo-553] fix: cache")
+        assert "shortened" in prompt
+        assert 'Required literal anchor: "cache"' in prompt
+        assert len(commits) == 554  # Preparing source must not modify collection results.
+
+    def test_one_enormous_commit_is_shortened(self) -> None:
+        prompt = _build_prompt(["fix: cache\n" + "details " * 100_000])
+        source = prompt.split("<commits>", 1)[1].split("</commits>", 1)[0]
+        assert len(source.encode("utf-8")) < 2_100
+        assert json.loads(source)[0].startswith("fix: cache\n")
+
+    def test_small_source_is_preserved_exactly(self) -> None:
+        commits = ['[org/repo] fix: 한글 cache\nBody with "quotes" and \\slashes']
+        prompt = _build_prompt(commits)
+        source = prompt.split("<commits>", 1)[1].split("</commits>", 1)[0]
+        assert json.loads(source) == commits
+
     def test_prompt_supplies_a_literal_source_anchor_instead_of_asking_model_to_choose(self) -> None:
         prompt = _build_prompt(["[qo-kr/repo] fix: cache"])
         assert 'Required literal anchor: "cache"' in prompt
