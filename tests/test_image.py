@@ -82,6 +82,7 @@ class TestHelpers:
         painter = PAINTERS[0]
         prompt = _build_image_prompt(POEM, painter=painter)
         assert painter.name in prompt and painter.style in prompt
+        assert f"in the style of {painter.name}" in prompt
         assert "Soft and abstract is welcome" not in prompt
         assert "untrusted" in prompt.lower()
 

@@ -4,7 +4,7 @@ import json
 import re
 from dataclasses import dataclass, fields
 
-from commitpoem.catalog import Profile
+from commitpoem.catalog import Profile, select_daily_poets
 from commitpoem.quotations import Quotation
 
 EDITION_SCHEMA: dict = {
@@ -16,6 +16,8 @@ EDITION_SCHEMA: dict = {
     "required": ["title_en", "title_ko", "poem_en", "poem_ko", "behind_en", "behind_ko"],
     "additionalProperties": False,
 }
+ENGLISH_FIELDS = ("title_en", "title_ko", "poem_en", "behind_en")
+KOREAN_FIELDS = ("poem_ko", "behind_ko")
 
 _GENERIC_WORDS = frozenset({
     "add", "added", "fix", "fixed", "update", "updated", "remove", "removed", "repair", "merge",
@@ -32,6 +34,9 @@ def select_anchor(commits: list[str]) -> str:
             continue
         subject = commit.strip().splitlines()[0]
         subject = re.sub(r"^\[[^\]]+\]\s*", "", subject)
+        if re.match(r"^Merge (?:pull request|branch|remote-tracking branch)\b", subject, re.IGNORECASE):
+            fallback = fallback or subject.split()[0]
+            continue
         subject = re.sub(
             r"^(?:feat|fix|refactor|perf|docs|test|build|ci|chore|style|revert)(?:\([^)]*\))?!?:\s*",
             "", subject, flags=re.IGNORECASE,
@@ -48,7 +53,7 @@ def select_anchor(commits: list[str]) -> str:
 
 @dataclass(frozen=True)
 class Edition:
-    """One poem and its translation, with one canonical bilingual title."""
+    """Two independently composed poems with one canonical bilingual title."""
 
     anchor: str
     title_en: str
@@ -67,10 +72,10 @@ class Publication:
     comment: str = ""
     artwork: str = ""
     title: str = ""
+    artwork_caption: str = ""
 
 
-def parse_edition(raw: str, commits: list[str]) -> Edition:
-    """Validate model output before any part of it can reach a delivery endpoint."""
+def _decode_response(raw: str) -> dict:
     if not isinstance(raw, str) or not raw.strip():
         raise ValueError("backend returned an empty poem")
     text = raw.strip()
@@ -82,6 +87,29 @@ def parse_edition(raw: str, commits: list[str]) -> Edition:
         raise ValueError("backend returned invalid edition JSON") from exc
     if not isinstance(data, dict):
         raise ValueError("edition must be a JSON object")
+    return data
+
+
+def parse_fragment(raw: str, language: str) -> dict:
+    """Validate a language-specific response before combining independently written poems."""
+    data = _decode_response(raw)
+    required = set(ENGLISH_FIELDS if language == "en" else KOREAN_FIELDS)
+    if set(data) != required:
+        raise ValueError("language response has missing or unexpected fields")
+    for key, value in data.items():
+        if key.startswith("poem_") and isinstance(value, list) and all(isinstance(line, str) for line in value):
+            value = "\n".join(value)
+        if not isinstance(value, str) or not value.strip() or len(value) > 1000:
+            raise ValueError(f"language response field {key} must be a short non-empty string or poem lines")
+        if key.startswith("title_") and ("\n" in value or len(value) > 160):
+            raise ValueError(f"language response field {key} must be one short title line")
+        data[key] = value.strip()
+    return data
+
+
+def parse_edition(raw: str, commits: list[str]) -> Edition:
+    """Validate model output before any part of it can reach a delivery endpoint."""
+    data = _decode_response(raw)
     # The application owns factual provenance. Ignore a legacy model-supplied
     # anchor and derive it from the same sources used to build the prompt.
     data["anchor"] = select_anchor(commits)
@@ -119,21 +147,24 @@ def _escape(text: str) -> str:
 
 def render_edition(
     edition: Edition, poet: Profile, painter: Profile, quote: Quotation | None = None,
+    *, korean_poet: Profile | None = None,
 ) -> Publication:
     """Keep poetry and quotation in the parent, with introductions in its thread."""
     title = _escape(f"{edition.title_en} / {edition.title_ko}")
+    korean_poet = korean_poet or select_daily_poets()[1]
     sections = [
         f"🇺🇸 *{title}*\n{_escape(edition.poem_en)}",
         f"🇰🇷 *{title}*\n{_escape(edition.poem_ko)}",
     ]
     artwork = "\n\n".join(sections)
-    signature = f"— in the style of {_escape(poet.name)}"
-    sections = [f"{section}\n{signature}" for section in sections]
+    sections = [f"{section}\n— in the style of {_escape(person.name)}"
+                for section, person in zip(sections, (poet, korean_poet))]
     comments = [
         "*Behind the poem · 영감과 해석*\n"
         f"{_escape(edition.behind_ko)}\n{_escape(edition.behind_en)}",
     ]
-    for label, person in (("오늘의 시인", poet), ("오늘의 화가", painter)):
+    for label, person in (("오늘의 시인 · English", poet), ("오늘의 시인 · 한국어", korean_poet),
+                          ("오늘의 화가", painter)):
         comments.append(
             f"*{label} · {_escape(person.name)}*\n{_escape(person.bio)}\n"
             f"대표작: <{person.work_url}|{_escape(person.work)}> · <{person.url}|인물 소개 / Reference>"
@@ -148,4 +179,7 @@ def render_edition(
             f"<{quote.url}|인물 소개 / Reference>\n"
             f"<{quote.source}|명언 출처> · {_escape(quote.context)}"
         )
-    return Publication(text="\n\n".join(sections), comment="\n\n".join(comments), artwork=artwork, title=title)
+    caption = (f"*{title}*\n{_escape(painter.name)}의 화풍에서 영감을 얻은 그림"
+               f" · in the style of {_escape(painter.name)}")
+    return Publication(text="\n\n".join(sections), comment="\n\n".join(comments), artwork=artwork,
+                       title=title, artwork_caption=caption)

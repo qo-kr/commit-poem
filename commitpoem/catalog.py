@@ -31,7 +31,9 @@ def _load_profiles(filename: str) -> tuple[Profile, ...]:
     return tuple(Profile(**entry) for entry in json.loads(source))
 
 
-POETS: tuple[Profile, ...] = _load_profiles("korean_poets.json") + _load_profiles("international_poets.json")
+KOREAN_POETS: tuple[Profile, ...] = _load_profiles("korean_poets.json")
+POETS: tuple[Profile, ...] = KOREAN_POETS + _load_profiles("international_poets.json")
+ENGLISH_POETS: tuple[Profile, ...] = _load_profiles("english_poets.json")
 PAINTERS: tuple[Profile, ...] = _load_profiles("painters.json")
 
 
@@ -43,6 +45,8 @@ def _rotation(profiles: tuple[Profile, ...], seed: str) -> tuple[Profile, ...]:
 
 # Separate fixed seeds mix eras and regions without touching global random state.
 _POET_ROTATION = _rotation(POETS, "commitpoem-poets-v1")
+_ENGLISH_ROTATION = _rotation(ENGLISH_POETS, "commitpoem-english-poets-v1")
+_KOREAN_ROTATION = _rotation(KOREAN_POETS, "commitpoem-korean-poets-v1")
 _PAINTER_ROTATION = _rotation(PAINTERS, "commitpoem-painters-v1")
 
 
@@ -57,3 +61,11 @@ def select_daily(day: date | None = None) -> tuple[Profile, Profile]:
         day = datetime.now(ZoneInfo("Asia/Seoul")).date()
     index = day.toordinal() - 1
     return _POET_ROTATION[index % len(POETS)], _PAINTER_ROTATION[index % len(PAINTERS)]
+
+
+def select_daily_poets(day: date | None = None) -> tuple[Profile, Profile]:
+    """Return separate English-language and Korean poet profiles for a Seoul day."""
+    if day is None:
+        day = datetime.now(ZoneInfo("Asia/Seoul")).date()
+    index = day.toordinal() - 1
+    return _ENGLISH_ROTATION[index % len(ENGLISH_POETS)], _KOREAN_ROTATION[index % len(KOREAN_POETS)]

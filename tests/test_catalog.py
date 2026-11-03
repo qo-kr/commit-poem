@@ -70,3 +70,27 @@ def test_historical_dates_are_supported() -> None:
     poet, painter = select_daily(date(1, 1, 1))
     assert poet in POETS
     assert painter in PAINTERS
+
+
+def test_each_language_selects_its_own_poet_without_repeats() -> None:
+    from commitpoem.catalog import ENGLISH_POETS, KOREAN_POETS, select_daily_poets
+
+    assert len(KOREAN_POETS) == 100
+    assert len(ENGLISH_POETS) == 100
+    assert not set(ENGLISH_POETS) & set(KOREAN_POETS)
+    start = date(2026, 11, 3)
+    selections = [select_daily_poets(start + timedelta(days=i)) for i in range(200)]
+    assert all(english in ENGLISH_POETS and korean in KOREAN_POETS for english, korean in selections)
+    assert len({english for english, _ in selections[:100]}) == 100
+    assert len({korean for _, korean in selections[:100]}) == 100
+    assert selections[0][0] == selections[100][0]
+    assert selections[0][1] == selections[100][1]
+
+
+def test_language_poets_use_seoul_date() -> None:
+    from commitpoem.catalog import select_daily_poets
+
+    instant = datetime(2026, 11, 2, 16, 0, tzinfo=timezone.utc)
+    with patch("commitpoem.catalog.datetime") as clock:
+        clock.now.side_effect = lambda zone: instant.astimezone(zone)
+        assert select_daily_poets() == select_daily_poets(date(2026, 11, 3))

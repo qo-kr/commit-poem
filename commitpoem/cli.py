@@ -5,11 +5,12 @@ import sys
 from collections.abc import Callable
 from datetime import datetime, timezone
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 import click
 
 from commitpoem.backends import LLMBackend, get_backend
-from commitpoem.catalog import Profile, select_daily
+from commitpoem.catalog import Profile
 from commitpoem.config import AppConfig, ConfigError, resolve_config
 from commitpoem.edition import Publication
 from commitpoem.github_client import GitHubAPIError, GitHubAuthError, fetch_commits, fetch_org_commits
@@ -17,6 +18,7 @@ from commitpoem.image import ImageGenError, generate_image
 from commitpoem.local_git import fetch_local_commits
 from commitpoem.poem import generate_publication
 from commitpoem.scheduler import run_scheduler
+from commitpoem.selection import choose_daily, record_delivery
 from commitpoem.slack import SlackWebhookError, post_poem, post_publication
 
 __all__ = ["main"]
@@ -75,7 +77,7 @@ def _deliver(
         # Do not fall back to a second parent when posting its reply fails.
         parent_ts = post_publication(
             config.slack_bot_token, config.slack_channel, publication.text, publication.comment,
-            image=image, title=publication.title,
+            image=image, title=publication.title, artwork_caption=publication.artwork_caption,
         )
         logger.info("Daily edition delivered to Slack with threaded notes; parent_ts=%s", parent_ts)
         return
@@ -112,7 +114,7 @@ def _make_pipeline(
     """
 
     def pipeline() -> None:
-        poet, painter = select_daily()
+        day = datetime.now(ZoneInfo("Asia/Seoul")).date()
         if local_roots:
             commits = fetch_local_commits(list(local_roots), since, until, organizations=org, sync_main=update_main)
         elif org:
@@ -121,9 +123,18 @@ def _make_pipeline(
                 commits.extend(fetch_org_commits(config.github_token, organization, since, until))
         else:
             commits = fetch_commits(config.github_token, repo, since, until)
+        selected = choose_daily(commits, day=day)
+        logger.info("Daily references: English=%s; Korean=%s; painter=%s; quotation=%s",
+                    selected.english_poet.name, selected.korean_poet.name, selected.painter.name,
+                    selected.quote.author if selected.quote else "none relevant and unused")
         backend: LLMBackend = get_backend(config.llm_backend, config.llm_api_key)
-        publication = generate_publication(commits, backend, config.llm_model, poet=poet, painter=painter)
-        _deliver(config, publication, with_image=with_image, painter=painter)
+        publication = generate_publication(commits, backend, config.llm_model, selection=selected)
+        _deliver(config, publication, with_image=with_image, painter=selected.painter)
+        try:
+            record_delivery(selected)
+        except (OSError, ValueError):
+            logger.exception("Edition was delivered but history could not be saved; do not blindly republish")
+            raise
 
     return pipeline
 

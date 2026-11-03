@@ -111,6 +111,38 @@ def test_oneshot_success(runner: CliRunner) -> None:
     mock_post.assert_called_once()
 
 
+@pytest.mark.parametrize("delivery_fails", [False, True])
+def test_daily_people_are_recorded_only_after_successful_delivery(runner: CliRunner, delivery_fails: bool) -> None:
+    from commitpoem.catalog import select_daily, select_daily_poets
+    from commitpoem.selection import DailySelection
+
+    english, korean = select_daily_poets()
+    selected = DailySelection(datetime.now().date(), english, korean, select_daily()[1], None)
+    events = []
+
+    def deliver(*args, **kwargs) -> None:
+        events.append("deliver")
+        if delivery_fails:
+            raise SlackWebhookError("failed")
+
+    def record(selection) -> None:
+        assert selection == selected
+        events.append("record")
+
+    with (
+        patch("commitpoem.cli.fetch_commits", return_value=["fix: cache"]),
+        patch("commitpoem.cli.choose_daily", return_value=selected),
+        patch("commitpoem.cli.get_backend", return_value=MagicMock()),
+        patch("commitpoem.cli.generate_publication", return_value="poems") as generate,
+        patch("commitpoem.cli._deliver", side_effect=deliver),
+        patch("commitpoem.cli.record_delivery", side_effect=record),
+    ):
+        result = runner.invoke(main, BASE_ARGS, env=_full_env())
+    assert events == (["deliver"] if delivery_fails else ["deliver", "record"])
+    assert result.exit_code == (1 if delivery_fails else 0)
+    assert generate.call_args.kwargs["selection"] == selected
+
+
 # ---------------------------------------------------------------------------
 # 2b. Image delivery
 # ---------------------------------------------------------------------------

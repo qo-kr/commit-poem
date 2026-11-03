@@ -14,6 +14,44 @@ def response(data: dict) -> MagicMock:
     return result
 
 
+def test_artwork_caption_is_directly_under_image_before_poems() -> None:
+    with (
+        patch("commitpoem.slack._upload_image", return_value="F123"),
+        patch("requests.post", return_value=response({"ok": True, "ts": "100.001"})) as post,
+    ):
+        post_publication("token", "C123", "poems", "", image=b"PNG", artwork_caption="Title · Giotto style")
+    payload = post.call_args.kwargs["json"]
+    assert payload["blocks"][0]["type"] == "image"
+    assert payload["blocks"][1]["text"]["text"] == "Title · Giotto style"
+    assert payload["blocks"][2]["text"]["text"] == "poems"
+    assert payload["text"] == "Title · Giotto style\n\npoems"
+
+
+@pytest.mark.parametrize("upload_fails", [False, True])
+def test_no_attached_image_means_no_artwork_caption(upload_fails: bool) -> None:
+    from commitpoem.slack import SlackWebhookError
+
+    with (
+        patch("commitpoem.slack._upload_image", side_effect=SlackWebhookError("failed")),
+        patch("requests.post", return_value=response({"ok": True, "ts": "100.001"})) as post,
+    ):
+        post_publication("token", "C123", "poems", "", image=b"PNG" if upload_fails else None,
+                         artwork_caption="Title · Giotto style")
+    payload = post.call_args.kwargs["json"]
+    assert payload["blocks"] == [{"type": "section", "text": {"type": "mrkdwn", "text": "poems"}}]
+    assert payload["text"] == "poems"
+
+
+def test_caption_counts_toward_parent_block_limit_before_upload() -> None:
+    from commitpoem.slack import SlackWebhookError
+
+    with patch("commitpoem.slack._upload_image") as upload, patch("requests.post") as post:
+        with pytest.raises(SlackWebhookError, match="50-block"):
+            post_publication("token", "C123", "a" * (49 * 3000), "", image=b"PNG", artwork_caption="caption")
+    upload.assert_not_called()
+    post.assert_not_called()
+
+
 def test_image_is_first_block_and_notes_reply_to_exact_parent() -> None:
     with (
         patch("commitpoem.slack._upload_image", return_value="F123") as upload,

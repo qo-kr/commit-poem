@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+from datetime import date
 
 import pytest
 
@@ -20,18 +21,24 @@ def content() -> dict[str, str]:
 
 
 def test_shared_title_repeated_verbatim_for_both_languages(content: dict[str, str]) -> None:
-    from commitpoem.catalog import select_daily
+    from commitpoem.catalog import select_daily, select_daily_poets
 
     edition = parse_edition(json.dumps(content), ["fix: cache"])
-    poet, painter = select_daily()
-    result = render_edition(edition, poet, painter)
+    poet, korean_poet = select_daily_poets()
+    _, painter = select_daily()
+    result = render_edition(edition, poet, painter, korean_poet=korean_poet)
     title = "The cache at dawn / 새벽의 cache"
     assert result.text.count(title) == 2
-    assert result.text.count(f"— in the style of {poet.name}") == 2
+    assert result.text.count(f"— in the style of {poet.name}") == 1
+    assert result.text.count(f"— in the style of {korean_poet.name}") == 1
+    assert result.artwork_caption.startswith(f"*{title}*")
+    assert painter.name in result.artwork_caption
+    assert "화풍에서 영감을 얻은 그림" in result.artwork_caption
+    assert "in the style of" in result.artwork_caption
     assert "in the style of" not in result.artwork
     assert content["behind_ko"] in result.comment and content["behind_en"] in result.comment
     assert "Behind the poem" not in result.text
-    for person in (poet, painter):
+    for person in (poet, korean_poet, painter):
         assert person.name in result.comment and person.work in result.comment
         assert person.url in result.comment and person.work_url in result.comment
         assert person.bio not in result.text
@@ -41,7 +48,7 @@ def test_shared_title_repeated_verbatim_for_both_languages(content: dict[str, st
 def test_quotation_has_same_title_and_person_details_are_in_comment(content: dict[str, str]) -> None:
     from commitpoem.catalog import select_daily
 
-    quote = select_quote(["feat: team collaboration"])
+    quote = select_quote(["feat: team collaboration"], date(1, 1, 1))
     assert quote is not None
     result = render_edition(parse_edition(json.dumps(content), ["fix: cache"]), *select_daily(), quote)
     assert result.text.count(result.title) == 3
@@ -99,6 +106,14 @@ def test_anchor_selection_is_literal_bounded_and_repeatable(commits: list[str], 
     assert not expected or any(expected in commit for commit in commits)
 
 
+def test_automatic_merge_subject_does_not_override_actual_change_theme() -> None:
+    from commitpoem.edition import select_anchor
+
+    assert select_anchor(['[org/repo] Merge pull request #42 from org/branch', 'fix: cache recovery']) == 'cache'
+    assert select_anchor(['Merge branch main', 'feat: 한글검색']) == '한글검색'
+    assert select_anchor(['Merge pull request #42 from org/branch']) == 'Merge'
+
+
 def test_both_titles_keep_literal_anchor(content: dict[str, str]) -> None:
     content["title_ko"] = "새벽"
     edition = parse_edition(json.dumps(content), ["fix: cache"])
@@ -134,7 +149,7 @@ def test_no_matching_quote_is_omitted() -> None:
 
 
 def test_matching_quote_has_source_and_translation() -> None:
-    quote = select_quote(["feat: collaboration workflow for team members"])
+    quote = select_quote(["feat: collaboration workflow for team members"], date(1, 1, 1))
     assert quote is not None
     assert quote.source.startswith("https://") and quote.text and quote.translation and quote.author
 

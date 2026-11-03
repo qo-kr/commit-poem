@@ -2,6 +2,11 @@
 
 ## [2026-11-03]
 
+- Select topic-matched references from 100 English-language poets, 100 Korean poets, 100 painters,
+  and 100 sourced quotation figures; persist successful daily selections to avoid recent repeats.
+- Compose English and Korean poems independently in their respective poets' styles, sharing the title and theme.
+- Place artwork title and painter style credits directly below the image, with both poets' references in the thread.
+- Make painter style prompting explicit and add concrete fresco/color guidance for Giotto.
 - Bound poem source input to prevent large daily commit collections from exceeding the model context window.
   Sample across the full collection, shorten long messages safely, and log the input size.
 

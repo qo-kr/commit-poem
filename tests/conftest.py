@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from pathlib import Path
+
 import pytest
 from click.testing import CliRunner
 
@@ -14,9 +16,10 @@ UNTIL = "2024-01-02T00:00:00Z"
 
 
 @pytest.fixture(autouse=True)
-def _no_dotenv(monkeypatch: pytest.MonkeyPatch):
+def _no_dotenv(monkeypatch: pytest.MonkeyPatch, tmp_path: Path):
     """Prevent .env file from affecting tests."""
     monkeypatch.setattr("commitpoem.cli._load_dotenv", lambda: None)
+    monkeypatch.setenv("XDG_STATE_HOME", str(tmp_path / "state"))
     for key in (
         "LLM_BACKEND",
         "LLM_MODEL",
